@@ -1,2 +1,7 @@
 .dist
 other/.dist
+sonu-portfolio-specs/
+.dist/
+*.md
+*.tex
+other
