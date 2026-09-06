@@ -27,7 +27,7 @@ Phase 3 - Verification and Launch Polish
 - Final fitness check passed at 1280px and 390px: no horizontal overflow, no broken local anchors, and all buttons have accessible names.
 - Verified reduced-motion behavior and loaded the `/game/` fallback route in the browser.
 - Applied recruiter-first restructure from the teardown: standard headings, condensed About, left-aligned Experience, removed Achievements, removed recruiter-facing game UI, and removed repeated project visuals.
-- Added a print-ready ATS preview at [resume.html](../resume.html) with a `Print / Save as PDF` action.
+- Added an ATS-friendly HTML resume preview at [resume.html](../resume.html).
 - Replaced the generated resume content with the supplied LaTeX resume, including its exact experience bullets, achievements, competencies, education records, publication details, and contact links.
 - Made the supplied LaTeX source at [resume.tex](../resume.tex) the canonical resume and primary portfolio download target.
 - Moved all Markdown/spec files and LaTeX source into the `other/` archive folder; the Cloudflare deploy root now contains only site assets and static hosting files.

@@ -20,7 +20,5 @@ ul { margin: 7px 0 0; padding-left: 18px; }
 .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 25px; }
 .skills p { margin: 0; }
 .competencies { margin: 0; }
-.resume-actions { position: fixed; right: 20px; bottom: 20px; }
-.resume-actions button { padding: 11px 16px; border: 0; color: #07130f; background: #b9d85b; font-weight: 700; cursor: pointer; }
-@media (max-width: 620px) { .resume { padding: 28px 24px; } .resume-header { display: block; } .contact { margin-top: 15px; text-align: left; } .role-line { display: block; } .role-line span { display: block; margin-top: 3px; } .skills { grid-template-columns: 1fr; } .resume-actions { position: static; margin-top: 22px; } }
-@media print { body { background: #fff; } .resume { width: 100%; margin: 0; padding: 0; } .resume-actions { display: none; } }
+@media (max-width: 620px) { .resume { padding: 28px 24px; } .resume-header { display: block; } .contact { margin-top: 15px; text-align: left; } .role-line { display: block; } .role-line span { display: block; margin-top: 3px; } .skills { grid-template-columns: 1fr; } }
+@media print { body { background: #fff; } .resume { width: 100%; margin: 0; padding: 0; } }
