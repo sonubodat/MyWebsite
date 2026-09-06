@@ -1,0 +1,17 @@
+{
+  "name": "Sonu Bodat - Portfolio",
+  "short_name": "Sonu Bodat",
+  "description": "Full-Stack and Mobile Software Engineer portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07130f",
+  "theme_color": "#07130f",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}
