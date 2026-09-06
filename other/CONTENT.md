@@ -35,7 +35,6 @@
 | Play Game | /game | Gamepad2 |
 
 ### Contact Bar (fixed top-right on desktop)
-- Phone: `+91 7486879126`
 - Email: `sonubodat77@gmail.com`
 - LinkedIn: `sonu-bodat`
 - GitHub: `Sonu-GitHub`
@@ -327,7 +326,6 @@ Technical Product Development · Mobile App Publishing · Vendor Platform Archit
 Open to opportunities in product engineering, full-stack development, and technical co-founder roles. Whether it's a startup idea or a scaling challenge — let's talk.
 
 ### Contact Details
-- **Phone**: +91 7486879126
 - **Email**: sonubodat77@gmail.com
 - **LinkedIn**: linkedin.com/in/sonu-bodat
 - **GitHub**: github.com/Sonu-GitHub
@@ -335,7 +333,6 @@ Open to opportunities in product engineering, full-stack development, and techni
 
 ### CTAs
 - Primary: `Send an Email` → mailto:sonubodat77@gmail.com
-- Secondary: `Schedule a Call` → tel:+917486879126
 - Tertiary: `Play My Game` → /game
 
 ---
