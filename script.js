@@ -53,38 +53,6 @@ document.querySelectorAll('[data-count]').forEach((element) => {
   countObserver.observe(element);
 });
 
-const modal = document.querySelector('#game-modal');
-const modalClose = document.querySelector('.modal-close');
-const modalLater = document.querySelector('.modal-later');
-let lastTrigger;
-
-const closeModal = () => {
-  modal.classList.remove('open');
-  lastTrigger?.focus();
-  document.body.style.overflow = '';
-};
-
-document.querySelectorAll('[data-game]').forEach((trigger) => trigger.addEventListener('click', (event) => {
-  event.preventDefault();
-  lastTrigger = trigger;
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  modalClose.focus();
-}));
-
-modalClose.addEventListener('click', closeModal);
-modalLater.addEventListener('click', closeModal);
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) closeModal();
-});
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && modal.classList.contains('open')) closeModal();
-  if (event.key.toLowerCase() === 'g' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
-    document.querySelector('[data-game]').click();
-  }
-});
-
 document.querySelectorAll('.filter').forEach((filter) => filter.addEventListener('click', () => {
   document.querySelectorAll('.filter').forEach((button) => button.classList.remove('selected'));
   filter.classList.add('selected');

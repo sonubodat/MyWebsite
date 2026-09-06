@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.65in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+
+% ---------- Accent color ----------
+\definecolor{accent}{HTML}{1F2937}
+
+% ---------- Section heading style: bold + rule underneath ----------
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\titlerule]
+\titlespacing{\section}{2pt}{18pt}{8pt}
+
+% ---------- Tighter bullet lists (default itemize is too loose for a resume) ----------
+\setlist[itemize]{leftmargin=*, itemsep=1pt, topsep=2pt, parsep=0pt}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent}
+
+\begin{document}
+\pagestyle{empty} % no page number on a resume
+
+% ---------- Header ----------
+\begin{center}
+  {\Huge\bfseries Sonu Bodat}\\[4pt]
+  {\large Full-Stack \& Mobile Software Engineer}\\[6pt]
+  \small
+  +91\,7486879126
+  \;\textbar\;
+  \href{mailto:sonubodat77@gmail.com}{sonubodat77@gmail.com}
+  \;\textbar\;
+  \href{https://www.linkedin.com/in/sonu-bodat}{LinkedIn}
+  \;\textbar\;
+  \href{https://sonubodat.dpdns.org}{Portfolio}
+  \;\textbar\;
+   \href{https://github.com/sonubodat}{Github}
+\end{center}
+\section*{Professional Summary}
+Full-Stack \& Mobile Software Engineer with production experience shipping web and React Native applications, including the Streefi food-tech platform. Skilled across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, deep linking, and third-party integrations, with a strong background in Next.js, React, React Native, Node.js, AWS, DynamoDB, and Supabase --- and a track record of taking products from development through production.
+\section*{Experience}
+
+\noindent\textbf{Streefi Private Limited} \hfill Gandhinagar, Gujarat \\
+\textit{Co-Founder \& Product Engineer} \hfill Feb 2025 -- Present
+\begin{itemize}
+  \item Architected and built Streefi across React Native, Next.js, and backend APIs, spanning the customer app, web platform, vendor application, and admin systems.
+  \item Built production integrations for Razorpay payments, UPI app detection, authentication, QR/deep linking, OTP, Google/Facebook login, analytics, and marketing attribution.
+  \item Designed cloud infrastructure using AWS (DynamoDB, S3, CloudFront, Lambda, Amplify, Secrets Manager, EC2), alongside Vercel, Cloudflare, Supabase, and Redis.
+  \item Implemented Meta Developer and WhatsApp Cloud API systems, including automated messaging workflows, campaign tooling, and Meta Conversions API tracking.
+  \item Developed growth infrastructure covering Google Analytics, Mixpanel, Microsoft Clarity, app-install attribution, campaign/source tracking, SEO, and search indexing.
+  \item Built and maintained the Streefi website with Next.js, React, and TypeScript, including 3D/interactive experiences, CDN-backed assets, and production deployment.
+\end{itemize}
+\vspace{6pt}
+\noindent\textbf{Brainybeams Technology} \hfill Ahmedabad, Gujarat \\
+\textit{Native App Developer} \hfill Nov 2024 -- Apr 2025
+\begin{itemize}
+  \item Developed and maintained native/mobile application features, working with API integrations, application state, authentication, and production debugging.
+  \item Implemented reusable mobile interfaces and integrated backend services while troubleshooting device-specific and production issues.
+  \item Worked across application development and API-connected workflows, contributing to feature implementation and maintenance.
+\end{itemize}
+\section*{Key Achievements}
+\begin{itemize}
+  \item \textbf{Co-Founded and Engineered Streefi} --- Built and shipped a multi-platform food discovery product spanning React Native, Next.js, vendor systems, admin infrastructure, and backend APIs, taken from architecture through production deployment.
+  \item \textbf{Published IEEE Research Paper} --- Sole author of ``AES-Driven Image Encryption: Overcoming Security and Transmission Challenges,'' published in the proceedings of the 2024 IEEE Delhi Section Flagship Conference (DELCON).
+  \item \textbf{Built Production Payment Infrastructure} --- Implemented Razorpay custom UI, UPI intent/app detection, payment verification, dynamic QR flows, and payment-related analytics, including device-specific payment behavior handling.
+  \item \textbf{Engineered End-to-End Cloud Infrastructure} --- Designed and deployed production services across AWS, Vercel, Supabase, and Cloudflare, using DynamoDB, S3, CloudFront, Lambda, Amplify, EC2, and Secrets Manager for storage, compute, deployment, and asset delivery.
+  \item \textbf{Built Growth, Attribution, and Communication Infrastructure} --- Implemented Meta App Install and Conversion tracking, Conversions API, Google Analytics, Clarity, campaign attribution, deep linking, QR-based acquisition tracking, WhatsApp Cloud API, and automated email/authentication integrations.
+\end{itemize}
+\section*{Core Competencies}
+\noindent
+React.js \textperiodcentered\ Next.js \textperiodcentered\ React Native \textperiodcentered\ TypeScript \textperiodcentered\ JavaScript \textperiodcentered\ Three.js \textperiodcentered\ React Three Fiber \textperiodcentered\ Tailwind CSS \textperiodcentered\ HTML5 \textperiodcentered\ CSS3 \textperiodcentered\ Node.js \textperiodcentered\ REST APIs \textperiodcentered\ Authentication \& Authorization \textperiodcentered\ WhatsApp Cloud API \textperiodcentered\ Google Analytics 4 \textperiodcentered\ Microsoft Clarity \textperiodcentered\ App Attribution Tracking \textperiodcentered\ Deep Linking \textperiodcentered\ SEO Optimization \textperiodcentered\ DynamoDB \textperiodcentered\ Supabase PostgreSQL \textperiodcentered\ SQL \textperiodcentered\ Redis \textperiodcentered\ Technical Product Development \textperiodcentered\ Mobile App Publishing \textperiodcentered\ Vendor Platform Architecture \textperiodcentered\ Payment Systems \textperiodcentered\ Marketing Technology Integration \textperiodcentered\ Meta Ads Technical Setup \textperiodcentered\ Meta Developer Platform \textperiodcentered\ Razorpay Integration \textperiodcentered\ OAuth (Google \& Facebook Login) \textperiodcentered\ AWS Lambda \textperiodcentered\ AWS S3 \textperiodcentered\ AWS CloudFront \textperiodcentered\ AWS Amplify \textperiodcentered\ AWS EC2 \textperiodcentered\ AWS Secrets Manager \textperiodcentered\ Cloudflare \textperiodcentered\ Vercel
+\section*{Education}
+\noindent\textbf{Pandit Deendayal Energy University (PDEU)} \hfill Gujarat \\
+B.Tech. in Computer Science \& Engineering \hfill 2021 -- 2025 \\
+CGPA: 8.01
+
+\vspace{6pt}
+\noindent\textbf{Parth Institute} \hfill Vadodara, Gujarat \\
+Higher Secondary (11th--12th) \hfill 2021 \\
+81.5\%
+
+\vspace{6pt}
+\noindent\textbf{Alembic School} \hfill Vadodara, Gujarat \\
+Secondary Education (1st--10th) \hfill 2019 \\
+78\%
+\section*{Publications}
+\noindent\textbf{``AES-Driven Image Encryption: Overcoming Security and Transmission Challenges''} \\
+IEEE Delhi Section Flagship Conference (DELCON 2024) \textperiodcentered\ Sole Author \textperiodcentered\ New Delhi, India \textperiodcentered\ Nov. 2024 \\
+DOI: \href{https://doi.org/10.1109/DELCON64804.2024.10866928}{10.1109/DELCON64804.2024.10866928} \\
+Developed an AES-based image encryption technique addressing security and transmission efficiency.
+
+\vspace{6pt}
+\noindent\textbf{``Image Flare: An Interactive and Dynamic Learning Platform for Intuitive Image Processing''} \\
+Multimedia Tools and Applications --- Springer \textperiodcentered\ Co-author \textperiodcentered\ Research \& Software Development \\
+Developed an interactive image-processing learning platform with real-time filtering, restoration, histogram analysis, image enhancement, and comparative visualization, supported by a behavioral study evaluating its educational impact.
+\end{document}
