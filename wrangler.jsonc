@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mywebsite",
+  "compatibility_date": "2026-09-03",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "exclude": [
+      ".git/**",
+      ".wrangler/**",
+      ".dist/**",
+      "other/**",
+      "**/*.md",
+      "**/*.tex"
+    ]
+  }
+}
