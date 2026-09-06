@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/</loc>
+    <loc>https://sonubodat.dpdns.org/</loc>
   </url>
   <url>
-    <loc>/game/</loc>
+    <loc>https://sonubodat.dpdns.org/resume.html</loc>
+  </url>
+  <url>
+    <loc>https://sonubodat.dpdns.org/game/</loc>
   </url>
 </urlset>

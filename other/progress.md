@@ -31,6 +31,8 @@ Phase 3 - Verification and Launch Polish
 - Replaced the generated resume content with the supplied LaTeX resume, including its exact experience bullets, achievements, competencies, education records, publication details, and contact links.
 - Made the supplied LaTeX source at [resume.tex](../resume.tex) the canonical resume and primary portfolio download target.
 - Moved all Markdown/spec files and LaTeX source into the `other/` archive folder; the Cloudflare deploy root now contains only site assets and static hosting files.
+- Added canonical SEO metadata for `sonubodat.dpdns.org`, richer Person/WebSite structured data, profile/publication identity links, absolute sitemap URLs, route metadata, and a noindex 404 page.
+- Added Search Console/Bing submission and genuine external backlink tasks to the final checklist; rankings cannot be guaranteed by on-site metadata alone.
 - Restored the main resume CTA to the simple [resume.html](../resume.html) page and removed the Web Development Intern entry from the main portfolio page as requested.
 - Added [FINAL_CHECKLIST.md](FINAL_CHECKLIST.md) with completed checks and remaining publishing inputs.
 - Browser-verified the revised home page at desktop/mobile widths and the resume route.

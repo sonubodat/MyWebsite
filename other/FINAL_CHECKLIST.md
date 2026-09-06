@@ -31,7 +31,12 @@
 
 ## Before Publishing
 - [ ] Add the final approved resume PDF if a PDF download is required.
-- [ ] Add final domain to `sitemap.xml` and `robots.txt`.
+- [x] Add `https://sonubodat.dpdns.org/` as the canonical domain in page metadata.
+- [x] Add absolute sitemap and robots URLs for `sonubodat.dpdns.org`.
+- [x] Add Person, WebSite, organization, education, profile, publication, and skill structured data.
+- [ ] Submit `https://sonubodat.dpdns.org/sitemap.xml` in Google Search Console.
+- [ ] Submit the site and sitemap in Bing Webmaster Tools.
+- [ ] Add real external backlinks from LinkedIn, GitHub profile, Streefi profile, PDEU profile, and publication pages where you control or can request them.
 - [ ] Add approved OG image and project screenshots if available.
 - [ ] Replace the game fallback with the real game files if they are ready.
 - [ ] Configure Cloudflare Pages with the repository root and no build command.
