@@ -53,14 +53,21 @@ document.querySelectorAll('[data-count]').forEach((element) => {
   countObserver.observe(element);
 });
 
-document.querySelectorAll('.filter').forEach((filter) => filter.addEventListener('click', () => {
-  document.querySelectorAll('.filter').forEach((button) => button.classList.remove('selected'));
-  filter.classList.add('selected');
-  const value = filter.dataset.filter;
-  document.querySelectorAll('.project-card').forEach((card) => {
-    card.hidden = value !== 'all' && card.dataset.category !== value;
-  });
-}));
+const contactModal = document.querySelector('#contact-modal');
+const openContactModal = (event) => {
+  event.preventDefault();
+  contactModal.classList.add('open');
+};
+const closeContactModal = () => contactModal.classList.remove('open');
+
+document.querySelectorAll('[data-contact-trigger]').forEach((trigger) => trigger.addEventListener('click', openContactModal));
+contactModal.querySelector('.modal-close').addEventListener('click', closeContactModal);
+contactModal.addEventListener('click', (event) => {
+  if (event.target === contactModal) closeContactModal();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeContactModal();
+});
 
 document.querySelectorAll('.contact-link').forEach((link) => link.addEventListener('contextmenu', async (event) => {
   event.preventDefault();
