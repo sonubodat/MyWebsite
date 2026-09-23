@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@blobatar/react": "^2.7.0",
+    "blobatar": "^2.7.0"
+  }
+}
