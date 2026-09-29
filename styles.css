@@ -105,6 +105,8 @@ button { font: inherit; }
 .project-card p { color: #607066; font-size: .9rem; }
 .project-card ul { flex: 1; padding-left: 18px; color: #506057; font-size: .82rem; }
 .project-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 22px; padding-top: 16px; border-top: 1px solid rgba(20,35,28,.15); color: #236341; font-family: var(--mono); font-size: .67rem; text-transform: uppercase; }
+.project-footer a { font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .2s ease; }
+.project-footer a:hover { color: #14231c; }
 .skills-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 50px; }
 .skill-intro p { color: #c5d0c5; font-size: 1.1rem; }
 .skill-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
