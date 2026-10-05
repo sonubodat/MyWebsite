@@ -174,6 +174,7 @@ export const projects = [
     note: "In development",
     link: undefined as Link | undefined,
     diagram: undefined as "qr-flow" | undefined,
+    mediaKind: "phones" as "phones" | "wide",
     media: [
       { src: "/projects/untold-home.webp", alt: "Untold app: home screen with mood check-in", w: 554, h: 1174 },
       { src: "/projects/untold-journal.webp", alt: "Untold app: journal screen with new entry prompt", w: 554, h: 1174 },
@@ -198,6 +199,7 @@ export const projects = [
     note: "Private build",
     link: undefined,
     diagram: undefined,
+    mediaKind: "phones" as "phones" | "wide",
     media: [
       { src: "/projects/streefi-explore.webp", alt: "Streefi app: explore screen with categories and night-cravings vendors", w: 720, h: 1565 },
       { src: "/projects/streefi-map.webp", alt: "Streefi app: live map of street-food vendors around Gandhinagar", w: 720, h: 1565 },
@@ -222,6 +224,7 @@ export const projects = [
     note: "Client unnamed",
     link: undefined,
     diagram: "qr-flow" as "qr-flow" | undefined,
+    mediaKind: "phones" as "phones" | "wide",
     media: none,
   },
   {
@@ -239,10 +242,15 @@ export const projects = [
       "CDN-backed assets and production deployment",
     ],
     stack: "Next.js · React · TypeScript · Three.js",
-    note: "Marketing site",
-    link: undefined,
+    note: "Live",
+    link: { label: "streefi.in ↗", href: "https://streefi.in" } as Link | undefined,
     diagram: undefined,
-    media: none,
+    mediaKind: "wide" as "phones" | "wide",
+    media: [
+      { src: "/projects/streefi-web-hero.webp", alt: "Streefi website: hero with the headline \"Find any street food stall near you\" and app download buttons", w: 1280, h: 800 },
+      { src: "/projects/streefi-web-story.webp", alt: "Streefi website: \"Never miss your favorite stall again\" section", w: 1280, h: 800 },
+      { src: "/projects/streefi-web-steps.webp", alt: "Streefi website: three-step \"Easy as 1-2-3\" section", w: 1280, h: 800 },
+    ] as Media[],
   },
   {
     slug: "tap-and-tap",
@@ -261,6 +269,7 @@ export const projects = [
     note: "Core prototype",
     link: undefined,
     diagram: undefined,
+    mediaKind: "phones" as "phones" | "wide",
     media: [{ src: "/projects/tapntap-home.webp", alt: "Tap & Tap app: home screen with 1v1 tap battle card", w: 720, h: 1565 }] as Media[],
   },
   {
@@ -280,6 +289,7 @@ export const projects = [
     note: "In development",
     link: undefined,
     diagram: undefined,
+    mediaKind: "phones" as "phones" | "wide",
     media: none,
   },
   {
@@ -294,6 +304,7 @@ export const projects = [
     stack: "Python · OpenCV · MATLAB",
     note: undefined,
     diagram: undefined,
+    mediaKind: "phones" as "phones" | "wide",
     media: none,
     link: { label: "IEEE DOI ↗", href: "https://doi.org/10.1109/DELCON64804.2024.10866928" } as Link | undefined,
   },
@@ -309,6 +320,7 @@ export const projects = [
     stack: "Python · NumPy · Matplotlib",
     note: undefined,
     diagram: undefined,
+    mediaKind: "phones" as "phones" | "wide",
     media: none,
     link: { label: "Springer DOI ↗", href: "https://doi.org/10.1007/s11042-026-21469-2" } as Link | undefined,
   },

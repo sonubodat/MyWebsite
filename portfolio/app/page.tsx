@@ -1,3 +1,4 @@
+import Mascot from "@/components/Mascot";
 import MotionReel from "@/components/MotionReel";
 import CopyEmail from "@/components/CopyEmail";
 import Image from "next/image";
@@ -40,6 +41,7 @@ export default function Home() {
       <Reveal />
       <HeroIntro />
       <ScrollStory />
+      <Mascot />
 
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">
@@ -182,7 +184,7 @@ export default function Home() {
                     </div>
                   )}
                   {p.media.length > 0 && (
-                    <div className="project-media" data-n={p.media.length}>
+                    <div className="project-media" data-n={p.media.length} data-kind={p.mediaKind}>
                       {p.media.map((m) => (
                         <figure key={m.src}>
                           <Image src={m.src} alt={m.alt} width={m.w} height={m.h} unoptimized />
@@ -212,12 +214,14 @@ export default function Home() {
                     <div>
                       <dt>Status</dt>
                       <dd>
-                        {p.link ? (
-                          <a href={p.link.href} target="_blank" rel="noreferrer">
-                            {p.link.label}
-                          </a>
-                        ) : (
-                          p.note
+                        {p.note}
+                        {p.link && (
+                          <>
+                            {p.note && <br />}
+                            <a href={p.link.href} target="_blank" rel="noreferrer">
+                              {p.link.label}
+                            </a>
+                          </>
                         )}
                       </dd>
                     </div>
