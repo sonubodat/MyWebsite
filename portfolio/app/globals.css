@@ -222,6 +222,10 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px
 .hero .hero-name span:last-child { color: var(--acid); }
 /* ~+10% vs first pass, shifted toward centre; bottom bleeds off-canvas (it fades out anyway). */
 .hero-portrait { position: absolute; z-index: 2; left: calc(50% - 13 * var(--u)); top: calc(50% - 29.5 * var(--u)); height: calc(67 * var(--u)); aspect-ratio: 900 / 1245; pointer-events: none; -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 100%), linear-gradient(to right, #000 90%, transparent 100%); mask-image: linear-gradient(to bottom, #000 74%, transparent 100%), linear-gradient(to right, #000 90%, transparent 100%); -webkit-mask-composite: source-in; mask-composite: intersect; }
+.hero-portrait picture { display: block; height: 100%; transition: opacity .35s ease; }
+.hero-gl { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+.hero-portrait.is-gl picture { opacity: 0; }
+.hero-portrait.is-gl .hero-gl { display: block; }
 .hero-portrait img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: bottom; filter: drop-shadow(0 0 40px rgba(185,216,91,.12)); }
 .hero-corner { position: absolute; z-index: 4; display: grid; gap: 2px; padding: 6px 0; color: var(--ink); transition: color .2s ease; }
 .hero-corner b { font-family: var(--mono); font-size: .72rem; font-weight: 500; color: var(--acid); letter-spacing: .1em; }

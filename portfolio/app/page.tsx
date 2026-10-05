@@ -1,4 +1,5 @@
 import ContactModal from "@/components/ContactModal";
+import HeroPortrait from "@/components/HeroPortrait";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import {
@@ -42,13 +43,7 @@ export default function Home() {
             <span>{first}</span>{" "}
             <span>{rest.join(" ")}.</span>
           </h1>
-          <div className="hero-portrait" aria-hidden="true">
-            {/* Separate mobile raster (finer dots, no lime pooling). eslint: static export, fixed aspect ratio. */}
-            <picture>
-              <source media="(max-width: 900px)" srcSet="/hero/portrait-raster-m.png" />
-              <img src="/hero/portrait-raster.png" alt="" width={900} height={1245} fetchPriority="high" decoding="async" />
-            </picture>
-          </div>
+          <HeroPortrait />
           {profile.heroCorners.map((c, i) => (
             <a
               key={c.n}
