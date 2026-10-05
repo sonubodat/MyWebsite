@@ -13,7 +13,7 @@ export const profile = {
     { n: "01", label: "Projects", note: "selected builds", href: "#projects" },
     { n: "02", label: "Experience", note: "streefi · brainybeams", href: "#experience" },
     { n: "03", label: "About", note: "profile", href: "#about" },
-    { n: "04", label: "Contact", note: "say hello", href: "mailto:sonubodat77@gmail.com", contact: true },
+    { n: "04", label: "Contact", note: "say hello", href: "#contact" },
   ],
   heroStrip: ["Triviq", "Mobile", "Web", "SaaS", "Systems"],
   heroLocation: "Gandhinagar, India",

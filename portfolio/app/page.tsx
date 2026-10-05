@@ -1,5 +1,5 @@
 import MotionReel from "@/components/MotionReel";
-import ContactModal from "@/components/ContactModal";
+import CopyEmail from "@/components/CopyEmail";
 import Image from "next/image";
 import HeroIntro from "@/components/HeroIntro";
 import HeroPortrait from "@/components/HeroPortrait";
@@ -18,6 +18,7 @@ import {
   projects,
   research,
   capabilities,
+  contact,
   skillsIntro,
 } from "@/lib/portfolio";
 
@@ -54,7 +55,6 @@ export default function Home() {
               className={`hero-corner c${i + 1}`}
               data-intro
               href={c.href}
-              {...(c.contact ? { "data-contact-trigger": true } : {})}
             >
               <b>{c.n}</b>
               <small>{c.note}</small>
@@ -68,7 +68,7 @@ export default function Home() {
               <a className="button" href="/resume">
                 View resume <span aria-hidden="true">↗</span>
               </a>
-              <a className="button ghost" href="mailto:sonubodat77@gmail.com" data-contact-trigger>
+              <a className="button ghost" href="#contact">
                 Contact me <span aria-hidden="true">↘</span>
               </a>
             </div>
@@ -337,13 +337,41 @@ export default function Home() {
             </ul>
           </div>
         </section>
+        <section className="section dark contact-section reveal" id="contact" data-section>
+          <div className="section-inner">
+            <Label n="08">Contact</Label>
+            <p className="contact-status">
+              <i aria-hidden="true" /> {profile.heroStatus}
+            </p>
+            <h2 className="section-title contact-title">Need something built?</h2>
+            <p className="section-lede">{profile.contactBlurb}</p>
+            <ul className="contact-list">
+              <li className="contact-row">
+                <span className="mono">Email</span>
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                <CopyEmail email={contact.email} />
+              </li>
+              <li className="contact-row">
+                <span className="mono">LinkedIn</span>
+                <a href={contact.linkedin.href} target="_blank" rel="noreferrer">
+                  {contact.linkedin.label} ↗
+                </a>
+              </li>
+              <li className="contact-row">
+                <span className="mono">GitHub</span>
+                <a href={contact.github.href} target="_blank" rel="noreferrer">
+                  {contact.github.label} ↗
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
       </main>
 
       <footer>
         <span>© {new Date().getFullYear()} Sonu Bodat.</span>
         <span>Built with Next.js, TypeScript &amp; too much coffee.</span>
       </footer>
-      <ContactModal />
     </>
   );
 }

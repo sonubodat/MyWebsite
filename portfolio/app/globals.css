@@ -42,23 +42,10 @@ button { font: inherit; }
 .button:hover { transform: translateY(-3px); background: #d2ed7d; }
 .button.ghost { color: var(--ink); background: transparent; border-color: var(--line); }
 .button.ghost:hover { border-color: var(--acid); color: var(--acid); }
-.contact-links { display: grid; gap: 12px; }
-.contact-link { display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid rgba(7,19,15,.22); font-family: var(--mono); font-size: .76rem; }
-.contact-link span { color: #526b59; text-transform: uppercase; }
-.contact-link:hover strong { text-decoration: underline; }
 footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px clamp(18px, 4vw, 64px); color: var(--muted); background: #050d0a; font-family: var(--mono); font-size: .65rem; }
-.modal { position: fixed; inset: 0; z-index: 100; display: none; place-items: center; padding: 18px; background: rgba(3, 10, 7, .78); backdrop-filter: blur(14px); }
-.modal.open { display: grid; }
-.modal-card { position: relative; width: min(600px, 100%); padding: clamp(28px, 6vw, 52px); color: var(--forest-deep); background: var(--paper); border-top: 5px solid var(--acid); box-shadow: 0 25px 70px rgba(0,0,0,.35); animation: modal-in .4s var(--ease) both; }
-.modal-close { position: absolute; top: 14px; right: 14px; border: 0; background: transparent; color: var(--forest-deep); font-size: 1.4rem; cursor: pointer; }
-.modal-card h2 { max-width: 390px; margin: 22px 0 10px; font-family: var(--serif); font-size: clamp(2.3rem, 7vw, 4rem); line-height: .9; letter-spacing: -.08em; }
-.modal-card p { color: #5c6d60; }
-.toast { position: fixed; right: 18px; bottom: 18px; z-index: 110; padding: 12px 16px; color: var(--forest-deep); background: var(--acid); font-family: var(--mono); font-size: .7rem; transform: translateY(calc(100% + 40px)); transition: transform .35s var(--ease); }
-.toast.show { transform: translateY(0); }
 /* Content is visible by default; hidden state only exists once JS marks <html class="motion-ready">. */
 .motion-ready .reveal:not(.visible) { opacity: 0; transform: translateY(26px); }
 .reveal { transition: opacity .8s var(--ease), transform .8s var(--ease); }
-@keyframes modal-in { from { opacity: 0; transform: scale(.94) translateY(14px); } to { opacity: 1; transform: none; } }
 @media (max-width: 900px) {
   .nav-links { display: none; position: fixed; inset: 0; flex-direction: column; align-items: stretch; justify-content: center; padding: 90px 28px 40px; background: var(--forest-deep); border: 0; z-index: 1; }
   .nav-links.open { display: flex; }
@@ -270,3 +257,18 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px
   .qr-steps li { grid-template-columns: 2.4rem 1fr; align-items: baseline; padding: 1rem 0; }
   .qr-line { right: 0; }
 }
+
+/* Contact */
+.contact-section { padding-bottom: clamp(5rem, 9vw, 9rem); }
+.contact-status { display: inline-flex; align-items: center; gap: 10px; margin: 28px 0 0; color: var(--ink); font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; }
+.contact-status i { width: 7px; height: 7px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 0 4px rgba(185, 216, 91, .18); }
+.section-title.contact-title { margin-top: 1.4rem; font-size: var(--display-xl); max-width: 12ch; }
+.contact-list { margin: clamp(3rem, 6vw, 6rem) 0 0; padding: 0; list-style: none; }
+.contact-row { display: grid; grid-template-columns: minmax(110px, 2fr) minmax(0, 8fr) 9rem; align-items: baseline; gap: var(--col-gap); padding: clamp(1.4rem, 2.6vw, 2.2rem) 0; border-top: 1px solid var(--hair); }
+.contact-row:last-child { border-bottom: 1px solid var(--hair); }
+.contact-row .mono { color: var(--muted); }
+.contact-row a { width: fit-content; font-family: var(--serif); font-size: clamp(1.5rem, 3.4vw, 3.4rem); line-height: 1.05; letter-spacing: -.05em; border-bottom: 1px solid transparent; transition: color .2s ease, border-color .2s ease; overflow-wrap: anywhere; }
+.contact-row a:hover, .contact-row a:focus-visible { color: var(--acid); border-color: var(--acid); }
+.copy-btn { padding: 10px 14px; border: 1px solid var(--line); background: transparent; color: var(--ink); font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; cursor: pointer; transition: border-color .2s ease, color .2s ease; }
+.copy-btn:hover { border-color: var(--acid); color: var(--acid); }
+@media (max-width: 900px) { .contact-row { grid-template-columns: 1fr; gap: .7rem; } .copy-btn { justify-self: start; } }

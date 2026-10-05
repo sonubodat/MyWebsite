@@ -119,6 +119,9 @@ export default function ScrollStory() {
         gsap.from(".lab-item", { opacity: 0, y: 36, duration: 0.9, stagger: 0.14, ease: "power3.out", scrollTrigger: at(".lab", "top 82%"), ...clear });
         gsap.from(".edu-row", { opacity: 0, y: 18, duration: 0.7, stagger: 0.1, ease: "power3.out", scrollTrigger: at(".edu-list", "top 88%"), ...clear });
 
+        // CONTACT rows
+        gsap.from(".contact-row", { opacity: 0, y: 24, duration: 0.8, stagger: 0.12, ease: "power3.out", scrollTrigger: at(".contact-list", "top 88%"), ...clear });
+
         // late layout shifts (fonts, lazy images): re-measure once everything has loaded
         const refresh = () => ScrollTrigger.refresh();
         if (document.readyState === "complete") refresh();

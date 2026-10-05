@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { contact, navLinks } from "@/lib/portfolio";
+import { navLinks } from "@/lib/portfolio";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -48,7 +48,7 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
-          <a href={`mailto:${contact.email}`} data-contact-trigger onClick={() => setOpen(false)}>
+          <a href="#contact" className={active === "contact" ? "active" : undefined} onClick={() => setOpen(false)}>
             Contact
           </a>
         </nav>
