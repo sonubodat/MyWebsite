@@ -56,23 +56,6 @@ export const span = (x: { start?: string; end?: string }, sep = " — ") => [x.s
 
 export const experience: Role[] = [
   {
-    company: "Triviq",
-    role: "Founder & Product Engineer",
-    location: "",
-    type: "Studio",
-    highlights: [
-      "Independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
-      "Services: web and platforms, mobile apps, SaaS products, AI and automation, business software, games and interactive experiences.",
-      "Delivered work includes the Streefi platform and an anonymised QR referral and lead-attribution platform.",
-    ],
-    details: [
-      "Independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
-      "Services: web and platforms, mobile apps, SaaS products, AI and automation, business software, games and interactive experiences.",
-      "Delivered work includes the Streefi platform and an anonymised QR referral and lead-attribution platform.",
-    ],
-    tags: ["Next.js", "Flutter", "React Native", "FastAPI", "Supabase"],
-  },
-  {
     company: "Streefi Private Limited",
     role: "Co-Founder & Product Engineer",
     location: "Gandhinagar, Gujarat",
@@ -113,18 +96,23 @@ export const experience: Role[] = [
     tags: ["React Native", "REST APIs", "Auth"],
   },
   {
-    company: "Independent / Freelance",
-    role: "Selected client work",
+    company: "Triviq · Independent / Freelance",
+    role: "Founder & Product Engineer",
     location: "",
-    type: "Independent",
+    type: "Studio and independent",
     highlights: [
-      "Selected product builds, mobile applications, SaaS, custom business systems and interactive web experiences.",
-      "Direct engagements or through Triviq.",
+      "Founder of Triviq, an independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
+      "Services: web and platforms, mobile apps, SaaS products, AI and automation, business software, games and interactive experiences.",
+      "Delivered work includes the Streefi platform and an anonymised QR referral and lead-attribution platform.",
+      "Also available for selected product builds, mobile applications, SaaS, custom business systems and interactive web experiences, directly or through Triviq.",
     ],
     details: [
-      "Selected product builds, mobile applications, SaaS, custom business systems and interactive web experiences. Direct engagements or through Triviq.",
+      "Founder of Triviq, an independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
+      "Services: web and platforms, mobile apps, SaaS products, AI and automation, business software, games and interactive experiences.",
+      "Delivered work includes the Streefi platform and an anonymised QR referral and lead-attribution platform.",
+      "Also takes on selected freelance work (product builds, mobile applications, SaaS, custom business systems and interactive web experiences), directly or through Triviq.",
     ],
-    tags: [],
+    tags: ["Next.js", "Flutter", "React Native", "FastAPI", "Supabase"],
   },
 ];
 
@@ -347,6 +335,7 @@ export const motion = [
   { slug: "never-told", title: "Things I've never told anyone", dur: "0:13" },
   { slug: "rehearse", title: "Rehearsing conversations", dur: "0:13" },
   { slug: "so-much-on-your-mind", title: "So much on your mind", dur: "0:09" },
+  { slug: "okay-investigation", title: "One “okay.”", dur: "0:12" },
 ];
 
 // Only items already published in competencies / experience / projects above. No levels, no percentages.
