@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8912"],
       "port": 8912
+    },
+    {
+      "name": "portfolio-out",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["dlx", "serve", "/Users/sonubodat/Desktop/MyWebsite/portfolio/out", "-l", "3100"],
+      "port": 3100
     }
   ]
 }

@@ -1,0 +1,39 @@
+/* Scoped to .resume-page so it cannot leak into the main site (shared global CSS bundle). */
+body:has(.resume-page)::before { display: none; }
+.resume-page { min-height: 100vh; padding: 32px 0; color: #14231c; font-family: var(--sans); background: #e8ebe3; }
+.resume-page * { box-sizing: border-box; }
+.resume { width: min(850px, calc(100% - 32px)); margin: 0 auto; padding: 52px 58px; background: #fff; }
+.resume-header { display: flex; justify-content: space-between; gap: 30px; border-bottom: 2px solid #14231c; padding-bottom: 22px; }
+.resume h1, .resume h2, .resume h3 { font-family: var(--serif); }
+.resume h1 { margin: 0; font-size: 2.8rem; letter-spacing: -.06em; line-height: 1.1; }
+.resume-title { margin: 5px 0 0; color: #236341; font-weight: 700; }
+.resume-contact { display: grid; gap: 4px; color: #506057; font-size: .78rem; text-align: right; }
+.resume a { color: #236341; text-decoration: none; }
+.resume a:hover { text-decoration: underline; }
+.resume section { padding: 22px 0 0; }
+.resume h2 { margin: 0 0 12px; color: #236341; font-size: .84rem; text-transform: uppercase; letter-spacing: .12em; }
+.resume h3 { margin: 14px 0 3px; font-size: 1.1rem; }
+.role-line { display: flex; justify-content: space-between; gap: 20px; color: #66736a; font-size: .8rem; }
+.role-line em { color: #236341; }
+.resume p, .resume li { font-size: .82rem; line-height: 1.55; }
+.resume ul { margin: 7px 0 0; padding-left: 18px; }
+.resume .competencies { margin: 0; }
+.resume-actions { width: min(850px, calc(100% - 32px)); margin: 0 auto 14px; display: flex; gap: 12px; justify-content: flex-end; font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; }
+.resume-actions a, .resume-actions button { color: #14231c; background: transparent; border: 1px solid #14231c; padding: 10px 14px; cursor: pointer; font: inherit; text-decoration: none; }
+.resume-actions a:hover, .resume-actions button:hover { background: #14231c; color: #fff; }
+@media (max-width: 620px) {
+  .resume { padding: 28px 24px; }
+  .resume-header { display: block; }
+  .resume-contact { margin-top: 15px; text-align: left; }
+  .role-line { display: block; }
+  .role-line span { display: block; margin-top: 3px; }
+}
+@page { size: A4; margin: 14mm; }
+@media print {
+  html, body:has(.resume-page) { background: #fff !important; }
+  .resume-page { background: #fff; padding: 0; min-height: 0; }
+  .resume { width: 100%; margin: 0; padding: 0; }
+  .resume section:last-child { padding-bottom: 0; }
+  .resume p:last-child, .resume ul:last-child { margin-bottom: 0; }
+  .resume-actions { display: none; }
+}

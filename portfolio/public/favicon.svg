@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>SB monogram</title>
+  <rect width="64" height="64" fill="#07130f"/>
+  <path d="M12 15h28c7 0 12 4 12 10 0 5-3 8-7 9 5 1 8 5 8 10 0 6-5 10-13 10H12V15Zm11 9v11h14c3 0 5-2 5-5s-2-6-5-6H23Zm0 19v12h16c4 0 6-2 6-6s-2-6-6-6H23Z" fill="#b9d85b"/>
+  <path d="M9 12h4v43H9z" fill="#d9b657"/>
+</svg>

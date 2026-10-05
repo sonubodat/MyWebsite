@@ -16,14 +16,8 @@
     }
   },
   "assets": {
-    "directory": ".",
-    "exclude": [
-      ".git/**",
-      ".wrangler/**",
-      ".dist/**",
-      "other/**",
-      "**/*.md",
-      "**/*.tex"
-    ]
+    // Next.js static export. Build first: pnpm --dir portfolio build
+    "directory": "./portfolio/out",
+    "not_found_handling": "404-page"
   }
 }
