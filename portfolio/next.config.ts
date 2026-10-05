@@ -4,6 +4,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "export",
   images: { unoptimized: true },
+  experimental: { inlineCss: true }, // inline the ~8 KB stylesheet: removes a render-blocking round trip (~350 ms on a real mobile network)
 };
 
 export default nextConfig;

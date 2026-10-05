@@ -72,9 +72,9 @@ def raster(w_out, cell, cream_off, lime_thr, lime_th):
     return Image.fromarray(img,'RGBA').resize((gs.shape[1]*cell,gs.shape[0]*cell),Image.NEAREST)
 
 # desktop (approved): 900w, 3px cells, sparse lime highlights
-d=raster(900,3,0.44,0.985,0.78); d.save('portrait-raster.png',optimize=True); d.save('portrait-raster.webp',quality=90,method=6)
+d=raster(900,3,0.44,0.985,0.78); d.save('portrait-raster.webp',lossless=True,quality=100,method=6)
 # mobile: finer 2px cells (more detail at small size), more cream, lime nearly removed so it cannot pool into blobs
-m=raster(720,2,0.36,0.997,0.93); m.save('portrait-raster-m.png',optimize=True)
+m=raster(720,2,0.36,0.997,0.93); m.save('portrait-raster-m.webp',lossless=True,quality=100,method=6)
 print('raster',d.size,m.size)
 for nm,im in (('prev_raster.png',d),('prev_raster_m.png',m)):
     bg=Image.new('RGBA',im.size,(7,19,15,255)); bg.alpha_composite(im); bg.convert('RGB').resize((450,round(450*im.size[1]/im.size[0]))).save(nm)

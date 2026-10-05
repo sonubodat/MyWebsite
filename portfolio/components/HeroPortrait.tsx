@@ -19,7 +19,7 @@ export default function HeroPortrait() {
       if (!(probe.getContext("webgl2") || probe.getContext("webgl"))) return;
       const { mountPortrait } = await import("@/lib/portraitGL");
       if (cancelled || !host.current || !canvas.current) return;
-      const h = await mountPortrait(host.current, canvas.current, "/hero/portrait-raster.png", {
+      const h = await mountPortrait(host.current, canvas.current, "/hero/portrait-raster.webp", {
         onReady: () => setGl(true),
         onFail: () => setGl(false),
       });
@@ -124,8 +124,8 @@ export default function HeroPortrait() {
     <div className={`hero-portrait${gl ? " is-gl" : ""}`} ref={host} aria-hidden="true">
       {/* Separate mobile raster (finer dots, no lime pooling). Fixed aspect ratio => no CLS. */}
       <picture>
-        <source media="(max-width: 900px)" srcSet="/hero/portrait-raster-m.png" />
-        <img src="/hero/portrait-raster.png" alt="" width={900} height={1245} fetchPriority="high" decoding="async" />
+        <source media="(max-width: 900px)" srcSet="/hero/portrait-raster-m.webp" />
+        <img src="/hero/portrait-raster.webp" alt="" width={900} height={1245} fetchPriority="high" decoding="async" />
       </picture>
       <canvas ref={canvas} className="hero-gl" />
       {/* eslint-disable-next-line @next/next/no-img-element */}

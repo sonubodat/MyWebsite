@@ -11,7 +11,7 @@ import {
   WebGLRenderer,
 } from "three";
 
-const CELL = 3; // px per dither cell in portrait-raster.png (see scripts/build-portrait.py)
+const CELL = 3; // px per dither cell in portrait-raster.webp (see scripts/build-portrait.py)
 const MAX_TILT = (2.5 * Math.PI) / 180; // pointer response cap
 const FOV = 30;
 
