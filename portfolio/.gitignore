@@ -5,3 +5,5 @@ out
 !app/resume
 !app/resume/**
 .DS_Store
+# original full-size reel exports (large)
+art/motion-src

@@ -269,10 +269,7 @@ export default function Home() {
                   <MotionReel slug={m.slug} title={m.title} />
                   <figcaption>
                     <b>{m.title}</b>
-                    <span>
-                      {m.note}
-                      {m.tool ? ` · ${m.tool}` : ""} · {m.dur}
-                    </span>
+                    <span>Untold reel · {m.dur}</span>
                   </figcaption>
                 </figure>
               ))}

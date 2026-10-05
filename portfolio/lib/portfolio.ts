@@ -338,12 +338,15 @@ export const qrFlow = [
 ];
 export const qrRoles = ["Public", "Vendor", "Sales", "Admin"];
 
-/** Motion graphics for Untold (beginner work). Tools only where the project files prove them. */
+/** Motion graphics for Untold (beginner work). No tool is credited: the exports don't say which one made them. */
 export const motion = [
-  { slug: "listening-hook", title: "Listening hook", note: "Phone UI + mascot", tool: "", dur: "0:15" },
-  { slug: "omi-overthink", title: "Omi, overthinking", note: "3D mascot", tool: "Blender", dur: "0:09" },
-  { slug: "dear-you", title: "Dear you", note: "Handwriting typography", tool: "", dur: "0:13" },
-  { slug: "before-silence", title: "Before silence", note: "Illustrated scene", tool: "Remotion", dur: "0:20" },
+  { slug: "status-check", title: "Quick status check", dur: "0:12" },
+  { slug: "investigation", title: "My brain opened an investigation", dur: "0:12" },
+  { slug: "typed-it-out", title: "I typed it out", dur: "0:12" },
+  { slug: "no-need-to-say", title: "You don't need to know what to say", dur: "0:12" },
+  { slug: "never-told", title: "Things I've never told anyone", dur: "0:13" },
+  { slug: "rehearse", title: "Rehearsing conversations", dur: "0:13" },
+  { slug: "so-much-on-your-mind", title: "So much on your mind", dur: "0:09" },
 ];
 
 // Only items already published in competencies / experience / projects above. No levels, no percentages.
