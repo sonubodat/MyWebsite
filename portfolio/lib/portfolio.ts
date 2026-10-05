@@ -24,6 +24,8 @@ export const profile = {
     "I work across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, and third-party integrations.",
     "Core stack: React Native, Next.js, TypeScript, Node.js, AWS, DynamoDB, Supabase, Redis, and Vercel.",
   ],
+  statement: "I build products from interface to infrastructure.",
+  domains: ["Mobile", "Web", "Backend", "Cloud", "Product systems"],
   aboutLede:
     "Full-Stack & Mobile Software Engineer building and shipping production web and React Native products.",
   stats: [
@@ -125,8 +127,13 @@ export const projects = [
       "Admin analytics, attribution & WhatsApp automation",
     ],
     stack: "React Native · Next.js · Node.js · AWS · Razorpay",
-    note: "Private build ↗",
+    note: "Private build",
     link: undefined as { label: string; href: string } | undefined,
+    media: [
+      { src: "/projects/streefi-explore.webp", alt: "Streefi app: explore screen with categories and night-cravings vendors" },
+      { src: "/projects/streefi-map.webp", alt: "Streefi app: live map of street-food vendors around Gandhinagar" },
+      { src: "/projects/streefi-deals.webp", alt: "Streefi app: eat-out deals screen with featured vendor offer" },
+    ],
   },
   {
     // Hidden until launch (was commented out in index.html).
@@ -145,6 +152,7 @@ export const projects = [
     stack: "Next.js · Three.js · GSAP",
     note: "Live site ↗",
     link: undefined,
+    media: [] as { src: string; alt: string }[],
   },
   {
     slug: "aes-image-encryption",
@@ -160,6 +168,7 @@ export const projects = [
     ],
     stack: "Python · OpenCV · MATLAB",
     note: undefined,
+    media: [] as { src: string; alt: string }[],
     link: { label: "IEEE DOI ↗", href: "https://doi.org/10.1109/DELCON64804.2024.10866928" },
   },
   {
@@ -176,26 +185,32 @@ export const projects = [
     ],
     stack: "Python · NumPy · Matplotlib",
     note: undefined,
+    media: [] as { src: string; alt: string }[],
     link: { label: "Springer DOI ↗", href: "https://doi.org/10.1007/s11042-026-21469-2" },
   },
 ];
 
-export const skillGroups = [
+// Only items already published in competencies / experience / projects above. No levels, no percentages.
+export const capabilities = [
   {
-    title: "Frontend & mobile",
-    items: "React.js · Next.js · React Native · TypeScript · JavaScript · Three.js · R3F · Tailwind CSS",
+    n: "01",
+    title: "Product & Frontend",
+    items: ["React.js", "Next.js", "React Native", "TypeScript", "JavaScript", "Three.js", "React Three Fiber", "Tailwind CSS", "HTML5", "CSS3"],
   },
   {
-    title: "Backend & APIs",
-    items: "Node.js · REST APIs · Authentication · WhatsApp Cloud API · OAuth",
+    n: "02",
+    title: "Backend & Systems",
+    items: ["Node.js", "REST APIs", "Authentication & Authorization", "OAuth (Google & Facebook)", "Razorpay & UPI payments", "WhatsApp Cloud API", "Deep Linking"],
   },
   {
-    title: "Cloud & infrastructure",
-    items: "AWS Lambda · DynamoDB · S3 · CloudFront · Amplify · EC2 · Supabase · Redis · Vercel",
+    n: "03",
+    title: "Data & Cloud",
+    items: ["DynamoDB", "Supabase PostgreSQL", "SQL", "Redis", "AWS Lambda", "S3", "CloudFront", "Amplify", "EC2", "Secrets Manager", "Cloudflare", "Vercel"],
   },
   {
-    title: "Data & growth",
-    items: "GA4 · Microsoft Clarity · Mixpanel · Attribution · Deep Linking · SEO · SQL",
+    n: "04",
+    title: "Product Engineering",
+    items: ["Technical product development", "Vendor platform architecture", "Mobile app publishing", "Analytics & attribution", "Google Analytics 4", "Microsoft Clarity", "Mixpanel", "Meta Developer Platform", "SEO"],
   },
 ];
 
@@ -215,6 +230,7 @@ export const research = [
     resumeSummary:
       "Developed an AES-based image encryption technique addressing security and transmission efficiency.",
     doi: "10.1109/DELCON64804.2024.10866928",
+    projectSlug: "aes-image-encryption",
   },
   {
     venue: "MULTIMEDIA TOOLS AND APPLICATIONS · SPRINGER",
@@ -226,6 +242,7 @@ export const research = [
     resumeSummary:
       "Developed an interactive image-processing learning platform with real-time filtering, restoration, histogram analysis, image enhancement, and comparative visualization, supported by a behavioral study evaluating its educational impact.",
     doi: "10.1007/s11042-026-21469-2",
+    projectSlug: "image-flare",
   },
 ];
 

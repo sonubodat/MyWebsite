@@ -1,4 +1,6 @@
 import ContactModal from "@/components/ContactModal";
+import Image from "next/image";
+import HeroIntro from "@/components/HeroIntro";
 import HeroPortrait from "@/components/HeroPortrait";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
@@ -9,20 +11,14 @@ import {
   profile,
   projects,
   research,
-  skillGroups,
+  capabilities,
   skillsIntro,
 } from "@/lib/portfolio";
 
-const Heading = ({ n, label, title, lede }: { n: string; label: string; title: string; lede: string }) => (
-  <>
-    <div className="section-label">
-      {n} — {label}
-    </div>
-    <div className="section-heading">
-      <h2>{title}</h2>
-      <p>{lede}</p>
-    </div>
-  </>
+const Label = ({ n, children }: { n: string; children: React.ReactNode }) => (
+  <div className="section-label">
+    {n} — {children}
+  </div>
 );
 
 const [first, ...rest] = profile.name.split(" ");
@@ -35,19 +31,21 @@ export default function Home() {
       </a>
       <Nav />
       <Reveal />
+      <HeroIntro />
 
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">
           <div className="hero-grid" aria-hidden="true" />
           <h1 id="hero-title" className="hero-name">
-            <span>{first}</span>{" "}
-            <span>{rest.join(" ")}.</span>
+            <span data-intro>{first}</span>{" "}
+            <span data-intro>{rest.join(" ")}.</span>
           </h1>
           <HeroPortrait />
           {profile.heroCorners.map((c, i) => (
             <a
               key={c.n}
               className={`hero-corner c${i + 1}`}
+              data-intro
               href={c.href}
               {...(c.contact ? { "data-contact-trigger": true } : {})}
             >
@@ -57,9 +55,9 @@ export default function Home() {
             </a>
           ))}
           <div className="hero-copy">
-            <div className="eyebrow">{profile.title}</div>
-            <p className="hero-lede">{profile.tagline}</p>
-            <div className="cta-row">
+            <div className="eyebrow" data-intro>{profile.title}</div>
+            <p className="hero-lede" data-intro>{profile.tagline}</p>
+            <div className="cta-row" data-intro>
               <a className="button" href="/resume">
                 View resume <span aria-hidden="true">↗</span>
               </a>
@@ -68,7 +66,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="hero-strip">
+          <div className="hero-strip" data-intro>
             <span className="hero-status">
               <i aria-hidden="true" /> {profile.heroStatus}
             </span>
@@ -77,55 +75,62 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section reveal" id="about" data-section>
+        <section className="section about reveal" id="about" data-section>
           <div className="section-inner">
-            <Heading n="01" label="About" title="About" lede={profile.aboutLede} />
-            <div className="about-grid">
+            <Label n="01">About</Label>
+            <h2 className="statement">{profile.statement}</h2>
+            <ul className="domains">
+              {profile.domains.map((d) => (
+                <li key={d}>{d}</li>
+              ))}
+            </ul>
+            <div className="about-body">
+              <p className="about-lede">{profile.aboutLede}</p>
               <div className="about-copy">
                 {profile.about.map((p) => (
                   <p key={p}>{p}</p>
                 ))}
               </div>
-              <div className="stats">
-                {profile.stats.map((s) => (
-                  <div className="stat" key={s.label}>
-                    <span className="stat-number">{s.value}</span>
-                    <span className="stat-label">{s.label}</span>
-                  </div>
-                ))}
-              </div>
+            </div>
+            <div className="stats">
+              {profile.stats.map((st) => (
+                <div className="stat" key={st.label}>
+                  <span className="stat-number">{st.value}</span>
+                  <span className="stat-label">{st.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="section reveal" id="experience" data-section>
+        <section className="section dark reveal" id="experience" data-section>
           <div className="section-inner">
-            <Heading
-              n="02"
-              label="Experience"
-              title="Experience"
-              lede="From first commit to production debugging, across product, platform, and growth infrastructure."
-            />
-            <div className="timeline">
-              {experience.map((x) => (
-                <article className="timeline-item" key={x.company}>
-                  <div className="item-kicker">
-                    {x.start} — {x.end} · {x.type}
+            <Label n="02">Experience</Label>
+            <h2 className="section-title">Experience</h2>
+            <p className="section-lede">
+              From first commit to production debugging, across product, platform, and growth infrastructure.
+            </p>
+            <div className="roles">
+              {experience.map((x, i) => (
+                <article className="role" key={x.company}>
+                  <div className="role-meta">
+                    <b>{String(i + 1).padStart(2, "0")}</b>
+                    <span>
+                      {x.start} — {x.end}
+                      <br />
+                      {x.type}
+                    </span>
                   </div>
-                  <h3>{x.company}</h3>
-                  <div className="item-role">{x.role}</div>
-                  <div className="item-location">{x.location}</div>
-                  <ul>
-                    {x.highlights.map((h) => (
-                      <li key={h}>{h}</li>
-                    ))}
-                  </ul>
-                  <div className="tags">
-                    {x.tags.map((t) => (
-                      <span className="tag" key={t}>
-                        {t}
-                      </span>
-                    ))}
+                  <div>
+                    <h3>{x.company}</h3>
+                    <p className="role-title">{x.role}</p>
+                    <p className="role-loc">{x.location}</p>
+                    <ul>
+                      {x.highlights.map((h) => (
+                        <li key={h}>{h}</li>
+                      ))}
+                    </ul>
+                    <p className="role-tags">{x.tags.join(" · ")}</p>
                   </div>
                 </article>
               ))}
@@ -135,111 +140,148 @@ export default function Home() {
 
         <section className="section reveal" id="projects" data-section>
           <div className="section-inner">
-            <Heading
-              n="03"
-              label="Projects"
-              title="Projects"
-              lede="Products and research where systems thinking meets a sharp user experience."
-            />
-            <div className="projects">
-              {projects
-                .filter((p) => !p.hidden)
-                .map((p) => (
-                  <article className="project-card" data-category={p.category} key={p.slug}>
-                    <div className="item-kicker">{p.kicker}</div>
-                    <h3>{p.title}</h3>
-                    <p>{p.summary}</p>
-                    <ul>
-                      {p.bullets.map((b) => (
-                        <li key={b}>{b}</li>
+            <Label n="03">Projects</Label>
+            <h2 className="section-title">Projects</h2>
+            <p className="section-lede">Products where systems thinking meets a sharp user experience.</p>
+            {projects
+              .filter((p) => !p.hidden && p.category !== "research")
+              .map((p, i) => (
+                <article className="project" key={p.slug}>
+                  <div className="project-kicker mono">
+                    {String(i + 1).padStart(2, "0")} / {p.kicker}
+                  </div>
+                  <h3>{p.title}</h3>
+                  <p className="project-summary">{p.summary}</p>
+                  {p.media.length > 0 && (
+                    <div className="project-media">
+                      {p.media.map((m) => (
+                        <figure key={m.src}>
+                          <Image src={m.src} alt={m.alt} width={720} height={1565} unoptimized />
+                        </figure>
                       ))}
-                    </ul>
-                    <div className="project-footer">
-                      <span>{p.stack}</span>
-                      {p.link ? (
-                        <a href={p.link.href} target="_blank" rel="noreferrer">
-                          {p.link.label}
-                        </a>
-                      ) : (
-                        <span>{p.note}</span>
-                      )}
                     </div>
-                  </article>
-                ))}
-            </div>
+                  )}
+                  <dl className="project-meta">
+                    <div>
+                      <dt>Role</dt>
+                      <dd>{experience[0].role}</dd>
+                    </div>
+                    <div>
+                      <dt>System</dt>
+                      <dd>
+                        <ul>
+                          {p.bullets.map((b) => (
+                            <li key={b}>{b}</li>
+                          ))}
+                        </ul>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>Stack</dt>
+                      <dd>{p.stack}</dd>
+                    </div>
+                    <div>
+                      <dt>Status</dt>
+                      <dd>
+                        {p.link ? (
+                          <a href={p.link.href} target="_blank" rel="noreferrer">
+                            {p.link.label}
+                          </a>
+                        ) : (
+                          p.note
+                        )}
+                      </dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
           </div>
         </section>
 
-        <section className="section reveal" id="skills" data-section>
+        <section className="section dark reveal" id="skills" data-section>
           <div className="section-inner">
-            <Heading
-              n="04"
-              label="Skills"
-              title="Skills"
-              lede="A practical stack for turning product intent into resilient software."
-            />
-            <div className="skills-layout">
-              <div className="skill-intro">
-                <p>{skillsIntro}</p>
-              </div>
-              <div className="skill-groups">
-                {skillGroups.map((g) => (
-                  <div className="skill-group" key={g.title}>
-                    <h3>{g.title}</h3>
-                    <p>{g.items}</p>
-                  </div>
-                ))}
-              </div>
+            <Label n="04">Skills</Label>
+            <h2 className="section-title">What I build with.</h2>
+            <p className="section-lede">{skillsIntro}</p>
+            <div className="caps">
+              {capabilities.map((c) => (
+                <div className="cap" key={c.n}>
+                  <span className="cap-n">{c.n}</span>
+                  <h3>{c.title}</h3>
+                  <ul className="cap-items">
+                    {c.items.map((it, i) => (
+                      <li key={it} style={{ ["--i" as string]: i }}>
+                        {it}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         <section className="section reveal" id="publications" data-section>
           <div className="section-inner">
-            <Heading
-              n="05"
-              label="Publications"
-              title="Research"
-              lede="Curiosity gets more useful when it becomes something other people can build on."
-            />
-            <div className="publications">
-              {research.map((r) => (
-                <article className="publication" key={r.title}>
-                  <small>{r.venue}</small>
-                  <h3>{r.title}</h3>
-                  <p>{r.summary}</p>
-                  {r.role ? (
-                    <span className="item-kicker">{r.role}</span>
-                  ) : (
-                    <a className="button ghost" href={`https://doi.org/${r.doi}`} target="_blank" rel="noreferrer">
-                      View DOI ↗
-                    </a>
-                  )}
-                </article>
-              ))}
+            <Label n="05">Lab / Research</Label>
+            <h2 className="section-title">Lab / Research</h2>
+            <p className="section-lede">
+              Curiosity gets more useful when it becomes something other people can build on.
+            </p>
+            <div className="lab">
+              {research.map((r, i) => {
+                const proj = projects.find((p) => p.slug === r.projectSlug);
+                return (
+                  <article className="lab-item" key={r.title}>
+                    <span className="lab-n">LAB_{String(i + 1).padStart(2, "0")}</span>
+                    <div>
+                      <div className="lab-kicker">{r.venue}</div>
+                      <h3>{r.title}</h3>
+                      <p>{r.summary}</p>
+                      {proj && (
+                        <ul className="lab-points">
+                          {proj.bullets.map((b) => (
+                            <li key={b}>{b}</li>
+                          ))}
+                        </ul>
+                      )}
+                      <div className="lab-foot">
+                        {proj && <span>{proj.stack}</span>}
+                        {r.role && <span>{r.role}</span>}
+                        {!r.role && (
+                          <a href={`https://doi.org/${r.doi}`} target="_blank" rel="noreferrer">
+                            View DOI ↗
+                          </a>
+                        )}
+                        {r.role && proj?.link && (
+                          <a href={proj.link.href} target="_blank" rel="noreferrer">
+                            {proj.link.label}
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        <section className="section alt reveal" id="education" data-section>
+        <section className="section alt edu reveal" id="education" data-section>
           <div className="section-inner">
-            <Heading
-              n="06"
-              label="Education"
-              title="Education"
-              lede="The formal side of the story: computer science, research, and a steady habit of learning."
-            />
-            <div className="education">
+            <Label n="06">Education</Label>
+            <h2 className="section-title">Education</h2>
+            <ul className="edu-list">
               {education.map((e) => (
-                <article className="education-card" key={e.school}>
-                  <strong>{em(e.years)}</strong>
+                <li className="edu-row" key={e.school}>
+                  <span className="edu-years">{em(e.years)}</span>
                   <h3>{e.shortSchool ?? e.school}</h3>
                   <p>
                     {e.degree.replace(/-/g, "–")} · {e.place}
                   </p>
-                </article>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
       </main>
