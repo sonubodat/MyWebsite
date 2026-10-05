@@ -44,7 +44,7 @@ export default function MotionReel({ slug, title, w = 540, h = 960 }: { slug: st
       <video
         ref={ref}
         src={armed ? `/motion/${slug}.mp4` : undefined}
-        poster={`/motion/${slug}.webp`}
+        poster={armed ? `/motion/${slug}.webp` : undefined}
         width={w}
         height={h}
         muted

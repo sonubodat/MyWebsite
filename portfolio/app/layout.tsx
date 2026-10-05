@@ -5,7 +5,7 @@ import "./globals.css";
 
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space", display: "swap" });
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
-const mono = DM_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
+const mono = DM_Mono({ subsets: ["latin"], weight: ["400"], variable: "--font-mono", display: "swap" });
 
 const title = `${profile.name} | ${profile.role}`;
 const shortDesc = "Full-Stack and Mobile Software Engineer building production web and React Native products.";

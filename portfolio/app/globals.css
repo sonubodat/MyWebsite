@@ -279,34 +279,20 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px
 .copy-btn:hover { border-color: var(--acid); color: var(--acid); }
 @media (max-width: 900px) { .contact-row { grid-template-columns: 1fr; gap: .7rem; } .copy-btn { justify-self: start; } }
 
-/* Mascot: the tabby from the photo; appears once the hero is out of view */
+/* Mascot: the tabby emotes; appears once the hero is out of view */
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-.mascot { position: fixed; z-index: 55; right: clamp(10px, 2vw, 28px); bottom: 12px; width: clamp(92px, 10vw, 150px); aspect-ratio: 1193 / 816; opacity: 0; transform: translateY(46px); pointer-events: none; transition: opacity .5s ease, transform .6s var(--ease); }
+.mascot { position: fixed; z-index: 55; right: clamp(10px, 2vw, 28px); bottom: 10px; width: clamp(92px, 9vw, 138px); aspect-ratio: 560 / 537; opacity: 0; transform: translateY(46px); pointer-events: none; transition: opacity .5s ease, transform .6s var(--ease); }
 .mascot[data-visible="true"] { opacity: 1; transform: none; pointer-events: auto; }
 .mascot-body { width: 100%; height: 100%; transform-origin: 50% 100%; }
-.mascot-btn { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; touch-action: manipulation; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .28)); -webkit-tap-highlight-color: transparent; }
-.mascot-btn svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.mascot-btn { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; touch-action: manipulation; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .28)); -webkit-tap-highlight-color: transparent; }
+.mascot-btn img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: bottom; user-select: none; -webkit-user-drag: none; }
+.mascot-btn img:not([data-pose="sleep"]) { opacity: 0; }
 .mascot-btn:focus-visible { outline: 2px solid var(--acid); outline-offset: 4px; border-radius: 12px; }
-.mascot-zzz { position: absolute; left: 62%; top: -6%; pointer-events: none; }
-.mascot-z { position: absolute; left: 0; top: 0; opacity: 0; font-family: var(--mono); font-weight: 500; font-size: clamp(.8rem, 1.2vw, 1.05rem); color: #236341; -webkit-text-stroke: 3px #f4f5ef; paint-order: stroke fill; }
-.mascot-z:nth-child(2) { left: 12px; top: -10px; }
-.mascot-z:nth-child(3) { left: 26px; top: -22px; }
-.mascot[data-state="awake"] .mascot-zzz, .mascot[data-state="pet"] .mascot-zzz, .mascot[data-state="play"] .mascot-zzz { display: none; }
-.mascot-heart { position: absolute; bottom: 52%; z-index: 2; pointer-events: none; color: #e0566a; font-size: clamp(.9rem, 1.4vw, 1.3rem); line-height: 1; opacity: 0; text-shadow: 0 0 0 #fff, 0 1px 6px rgba(0, 0, 0, .25); }
-.mascot-toy { position: absolute; left: -22px; bottom: 4px; width: clamp(16px, 1.8vw, 24px); aspect-ratio: 1; padding: 0; border: 0; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d6f08a, var(--acid) 55%, #7fa12d); box-shadow: inset -3px -3px 0 rgba(20, 35, 28, .25), 0 2px 5px rgba(0, 0, 0, .25); opacity: 0; cursor: pointer; pointer-events: none; }
-.mascot[data-state="awake"] .mascot-toy { pointer-events: auto; }
-.mascot-toy::after { content: ""; position: absolute; inset: 22% 8%; border-top: 2px solid rgba(20, 35, 28, .35); border-bottom: 2px solid rgba(20, 35, 28, .35); border-radius: 50%; }
-/* reduced motion: static sprite, tap shows blush + one heart */
-.mascot-heart-static { display: none; position: absolute; left: 50%; bottom: 60%; width: 18px; fill: #e0566a; }
-.mascot.calm-pet .mascot-heart-static { display: block; }
-.mascot.calm-pet #m-blush { opacity: 1 !important; }
-@media (max-width: 620px) { .mascot { width: 84px; bottom: 10px; right: 10px; } }
+.mascot-heart { position: absolute; bottom: 52%; z-index: 2; pointer-events: none; color: #e0566a; font-size: clamp(.9rem, 1.4vw, 1.3rem); line-height: 1; opacity: 0; text-shadow: 0 1px 6px rgba(0, 0, 0, .25); }
+@media (max-width: 620px) { .mascot { width: 84px; bottom: 8px; right: 8px; } }
 @media print { .mascot { display: none; } }
 
 /* 404 cat: tiny sleeping companion (CSS only) */
-.nf-cat { position: relative; width: clamp(110px, 14vw, 170px); margin-top: clamp(2rem, 4vw, 3rem); }
+.nf-cat { position: relative; width: clamp(130px, 16vw, 190px); margin-top: clamp(2rem, 4vw, 3rem); }
 .nf-cat img { display: block; width: 100%; height: auto; animation: nf-breathe 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
-.nf-cat b { position: absolute; top: -4px; left: 62%; color: var(--acid); font-family: var(--mono); font-weight: 500; opacity: 0; animation: nf-z 3.2s ease-in-out infinite; }
-.nf-cat b:nth-of-type(2) { left: 72%; animation-delay: 1.1s; }
 @keyframes nf-breathe { 50% { transform: scaleY(1.035); } }
-@keyframes nf-z { 0% { opacity: 0; transform: translate(0, 0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translate(10px, -22px); } }

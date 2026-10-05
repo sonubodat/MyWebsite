@@ -38,8 +38,8 @@ export default function Nav() {
     <>
       <div className="progress-bar" ref={bar} aria-hidden="true" />
       <header className={`site-nav${scrolled ? " scrolled" : ""}${hidden && !open ? " hidden" : ""}`} aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="Sonu Bodat home">
-          <span className="brand-mark">SB</span>
+        <a className="brand" href="#top">
+          <span className="brand-mark" aria-hidden="true">SB</span>
           <span>Sonu Bodat</span>
         </a>
         <nav className={`nav-links${open ? " open" : ""}`} aria-label="Portfolio sections">

@@ -1,4 +1,4 @@
-import Mascot from "@/components/Mascot";
+import LazyMascot from "@/components/LazyMascot";
 import MotionReel from "@/components/MotionReel";
 import CopyEmail from "@/components/CopyEmail";
 import Image from "next/image";
@@ -41,7 +41,7 @@ export default function Home() {
       <Reveal />
       <HeroIntro />
       <ScrollStory />
-      <Mascot />
+      <LazyMascot />
 
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">

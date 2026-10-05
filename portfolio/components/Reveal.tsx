@@ -8,7 +8,8 @@ export default function Reveal() {
   useEffect(() => {
     const root = document.documentElement;
     const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    els.forEach((el) => el.getBoundingClientRect().top < innerHeight && el.classList.add("visible"));
+    const inView = els.filter((el) => el.getBoundingClientRect().top < innerHeight); // batch reads, then write (no forced reflow)
+    inView.forEach((el) => el.classList.add("visible"));
     root.classList.add("motion-ready");
     const io = new IntersectionObserver(
       (entries) =>
