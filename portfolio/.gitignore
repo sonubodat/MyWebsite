@@ -4,3 +4,4 @@ out
 # root .gitignore ignores "Resume" (case-insensitive on macOS); keep the /resume route
 !app/resume
 !app/resume/**
+.DS_Store
