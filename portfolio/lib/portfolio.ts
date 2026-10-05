@@ -5,21 +5,21 @@ export const SITE_URL = "https://sonubodat.dpdns.org";
 export const profile = {
   name: "Sonu Bodat",
   title: "Full-Stack & Mobile Software Engineer",
-  role: "Product Engineer",
+  role: "Founder & Product Engineer",
+  heroTitle: "Founder, Triviq · Product Engineer",
   tagline:
-    "Full-stack & mobile engineer building production web and mobile products with React, React Native, Node.js, and AWS.",
-  heroMeta: ["Co-Founder of Streefi", "IEEE Published Researcher", "React Native + Next.js"],
+    "I build production software across mobile, web and backend systems — through Triviq, my own products and selected freelance work.",
   heroCorners: [
     { n: "01", label: "Projects", note: "selected builds", href: "#projects" },
     { n: "02", label: "Experience", note: "streefi · brainybeams", href: "#experience" },
     { n: "03", label: "About", note: "profile", href: "#about" },
     { n: "04", label: "Contact", note: "say hello", href: "mailto:sonubodat77@gmail.com", contact: true },
   ],
-  heroStrip: ["Streefi", "Mobile", "Web", "Backend", "Cloud"],
+  heroStrip: ["Triviq", "Mobile", "Web", "SaaS", "Systems"],
   heroLocation: "Gandhinagar, India",
-  heroStatus: "Open to product engineering & co-founder roles",
+  heroStatus: "Available for select projects",
   summary:
-    "Full-Stack & Mobile Software Engineer with production experience shipping web and React Native applications, including the Streefi food-tech platform. Skilled across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, deep linking, and third-party integrations, with a strong background in Next.js, React, React Native, Node.js, AWS, DynamoDB, and Supabase — and a track record of taking products from development through production.",
+    "Founder of Triviq, an independent product and engineering studio. Full-Stack & Mobile Software Engineer with production experience shipping web and React Native applications, including the Streefi food-tech platform. Skilled across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, deep linking, and third-party integrations, with a strong background in Next.js, React, React Native, Node.js, AWS, DynamoDB, and Supabase — and a track record of taking products from development through production.",
   about: [
     "I work across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, and third-party integrations.",
     "Core stack: React Native, Next.js, TypeScript, Node.js, AWS, DynamoDB, Supabase, Redis, and Vercel.",
@@ -46,7 +46,32 @@ export const contact = {
   resumePdf: "/sonu-bodat-resume.pdf",
 };
 
-export const experience = [
+export type Role = {
+  company: string; role: string; location: string; start?: string; end?: string; type: string;
+  highlights: string[]; details: string[]; tags: string[];
+};
+
+/** "Feb 2025 — Present" or "" when no dates are on record (Triviq / freelance: none invented). */
+export const span = (x: { start?: string; end?: string }, sep = " — ") => [x.start, x.end].filter(Boolean).join(sep);
+
+export const experience: Role[] = [
+  {
+    company: "Triviq",
+    role: "Founder & Product Engineer",
+    location: "",
+    type: "Studio",
+    highlights: [
+      "Independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
+      "Services: web and platforms, mobile apps, SaaS products, AI and automation, business software, games and interactive experiences.",
+      "Delivered work includes the Streefi platform and an anonymised QR referral and lead-attribution platform.",
+    ],
+    details: [
+      "Independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
+      "Services: web and platforms, mobile apps, SaaS products, AI and automation, business software, games and interactive experiences.",
+      "Delivered work includes the Streefi platform and an anonymised QR referral and lead-attribution platform.",
+    ],
+    tags: ["Next.js", "Flutter", "React Native", "FastAPI", "Supabase"],
+  },
   {
     company: "Streefi Private Limited",
     role: "Co-Founder & Product Engineer",
@@ -87,6 +112,20 @@ export const experience = [
     ],
     tags: ["React Native", "REST APIs", "Auth"],
   },
+  {
+    company: "Independent / Freelance",
+    role: "Selected client work",
+    location: "",
+    type: "Independent",
+    highlights: [
+      "Selected product builds, mobile applications, SaaS, custom business systems and interactive web experiences.",
+      "Direct engagements or through Triviq.",
+    ],
+    details: [
+      "Selected product builds, mobile applications, SaaS, custom business systems and interactive web experiences. Direct engagements or through Triviq.",
+    ],
+    tags: [],
+  },
 ];
 
 export const achievements = [
@@ -114,8 +153,9 @@ export const achievements = [
 
 type Media = { src: string; alt: string; w: number; h: number };
 const none: Media[] = [];
+type Link = { label: string; href: string };
 
-// Facts for Untold and Tap & Tap are from their repos (README / PROGRESS / pubspec); statuses are the honest ones.
+// Facts: Untold + Tap & Tap from their repos; QR + Streefi from Triviq's content.ts; Streefi Web from the resume.
 export const projects = [
   {
     slug: "untold",
@@ -132,7 +172,8 @@ export const projects = [
     ],
     stack: "Flutter · FastAPI · Supabase · Firebase · RevenueCat",
     note: "In development",
-    link: undefined as { label: string; href: string } | undefined,
+    link: undefined as Link | undefined,
+    diagram: undefined as "qr-flow" | undefined,
     media: [
       { src: "/projects/untold-home.webp", alt: "Untold app: home screen with mood check-in", w: 554, h: 1174 },
       { src: "/projects/untold-journal.webp", alt: "Untold app: journal screen with new entry prompt", w: 554, h: 1174 },
@@ -156,11 +197,52 @@ export const projects = [
     stack: "React Native · Next.js · Node.js · AWS · Razorpay",
     note: "Private build",
     link: undefined,
+    diagram: undefined,
     media: [
       { src: "/projects/streefi-explore.webp", alt: "Streefi app: explore screen with categories and night-cravings vendors", w: 720, h: 1565 },
       { src: "/projects/streefi-map.webp", alt: "Streefi app: live map of street-food vendors around Gandhinagar", w: 720, h: 1565 },
       { src: "/projects/streefi-deals.webp", alt: "Streefi app: eat-out deals screen with featured vendor offer", w: 720, h: 1565 },
     ] as Media[],
+  },
+  {
+    slug: "qr-referral-platform",
+    kicker: "Client Work · Anonymised",
+    category: "product",
+    title: "QR Referral & Lead-Attribution Platform",
+    summary:
+      "Vendor referral tracking for an energy business: every physical QR scan and referral traced to the right vendor and lead at the moment it happens.",
+    role: "Product engineering",
+    bullets: [
+      "Controlled QR inventory with assignment history",
+      "Vendor self-registration with sales-assisted verification",
+      "Public enquiry form behind each QR link, with scan and lead attribution",
+      "Repeat-referral detection and admin-managed payout status",
+    ],
+    stack: "React · Node.js · Prisma · Postgres",
+    note: "Client unnamed",
+    link: undefined,
+    diagram: "qr-flow" as "qr-flow" | undefined,
+    media: none,
+  },
+  {
+    slug: "streefi-web",
+    kicker: "Web",
+    category: "product",
+    title: "Streefi Web",
+    summary:
+      "The Streefi website: a Next.js marketing and discovery site with 3D and interactive experiences and CDN-backed assets.",
+    role: "Co-Founder & Product Engineer",
+    bullets: [
+      "Next.js, React and TypeScript",
+      "3D / interactive experiences",
+      "Headless CMS content",
+      "CDN-backed assets and production deployment",
+    ],
+    stack: "Next.js · React · TypeScript · Three.js",
+    note: "Marketing site",
+    link: undefined,
+    diagram: undefined,
+    media: none,
   },
   {
     slug: "tap-and-tap",
@@ -178,21 +260,26 @@ export const projects = [
     stack: "Flutter · Flame · Node.js · Fastify · Prisma · PostgreSQL · Redis",
     note: "Core prototype",
     link: undefined,
+    diagram: undefined,
     media: [{ src: "/projects/tapntap-home.webp", alt: "Tap & Tap app: home screen with 1v1 tap battle card", w: 720, h: 1565 }] as Media[],
   },
   {
-    // Hidden until launch (was commented out in index.html).
-    slug: "streefi-3d-website",
-    hidden: true,
-    kicker: "Interactive Web Experience",
-    category: "interactive",
-    title: "Streefi 3D Website",
-    summary: "A brand experience built around 3D interactions, scroll-driven motion, and CDN-backed delivery.",
-    role: "Co-Founder & Product Engineer",
-    bullets: ["Three.js and React Three Fiber hero", "Scroll-triggered section transitions", "SEO and performance-conscious delivery"],
-    stack: "Next.js · Three.js · GSAP",
-    note: "Live site ↗",
+    slug: "triviq-site",
+    kicker: "Studio Site",
+    category: "product",
+    title: "Triviq Studio Site",
+    summary: "The site for Triviq: static-first and performance-minded, with a WebGL hero that loads only where it can run well.",
+    role: "Founder & Product Engineer",
+    bullets: [
+      "Next.js 16 App Router and Tailwind v4",
+      "Static SVG hero first; WebGL scene lazy-loaded on capable tablet and desktop browsers",
+      "Content-driven sections and a validated contact API (honeypot, rate limit)",
+      "GSAP and React Three Fiber",
+    ],
+    stack: "Next.js · Tailwind · GSAP · Three.js",
+    note: "In development",
     link: undefined,
+    diagram: undefined,
     media: none,
   },
   {
@@ -206,8 +293,9 @@ export const projects = [
     bullets: ["Security analysis against common attacks", "Transmission efficiency optimization", "Comparative performance evaluation"],
     stack: "Python · OpenCV · MATLAB",
     note: undefined,
+    diagram: undefined,
     media: none,
-    link: { label: "IEEE DOI ↗", href: "https://doi.org/10.1109/DELCON64804.2024.10866928" },
+    link: { label: "IEEE DOI ↗", href: "https://doi.org/10.1109/DELCON64804.2024.10866928" } as Link | undefined,
   },
   {
     slug: "image-flare",
@@ -220,9 +308,22 @@ export const projects = [
     bullets: ["Interactive image processing workflows", "Behavioral study integration", "Clear visual feedback for learning"],
     stack: "Python · NumPy · Matplotlib",
     note: undefined,
+    diagram: undefined,
     media: none,
-    link: { label: "Springer DOI ↗", href: "https://doi.org/10.1007/s11042-026-21469-2" },
+    link: { label: "Springer DOI ↗", href: "https://doi.org/10.1007/s11042-026-21469-2" } as Link | undefined,
   },
+];
+
+/** QR platform flow (from Triviq's case study): four role-based experiences over one API. */
+export const qrFlow = ["QR inventory", "Vendor", "Scan", "Public enquiry", "Lead & attribution", "Repeat check", "Payout status"];
+export const qrRoles = ["Public", "Vendor", "Sales", "Admin"];
+
+/** Motion graphics for Untold (beginner work). Tools only where the project files prove them. */
+export const motion = [
+  { slug: "listening-hook", title: "Listening hook", note: "Phone UI + mascot", tool: "", dur: "0:15" },
+  { slug: "omi-overthink", title: "Omi, overthinking", note: "3D mascot", tool: "Blender", dur: "0:09" },
+  { slug: "dear-you", title: "Dear you", note: "Handwriting typography", tool: "", dur: "0:13" },
+  { slug: "before-silence", title: "Before silence", note: "Illustrated scene", tool: "Remotion", dur: "0:20" },
 ];
 
 // Only items already published in competencies / experience / projects above. No levels, no percentages.
@@ -230,7 +331,7 @@ export const capabilities = [
   {
     n: "01",
     title: "Product & Frontend",
-    items: ["React.js", "Next.js", "React Native", "Flutter", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3", "GSAP (beginner)", "Three.js (beginner)", "React Three Fiber"],
+    items: ["React.js", "Next.js", "React Native", "Flutter", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3", "GSAP (beginner)", "Three.js (beginner)", "React Three Fiber", "Motion graphics (beginner)"],
   },
   {
     n: "02",
@@ -253,7 +354,7 @@ export const skillsIntro =
   "My work lives at the intersection of interfaces, infrastructure, product decisions, and the operational details that make software survive contact with the real world.";
 
 export const competencies =
-  "React.js · Next.js · React Native · TypeScript · JavaScript · Flutter · Three.js (beginner) · React Three Fiber · GSAP (beginner) · Tailwind CSS · HTML5 · CSS3 · Node.js · Fastify · FastAPI · WebSockets · REST APIs · Authentication & Authorization · WhatsApp Cloud API · Google Analytics 4 · Microsoft Clarity · App Attribution Tracking · Deep Linking · SEO Optimization · DynamoDB · Supabase PostgreSQL · PostgreSQL & Prisma · SQL · Redis · Firebase · RevenueCat · Technical Product Development · Mobile App Publishing · Vendor Platform Architecture · Payment Systems · Marketing Technology Integration · Meta Ads Technical Setup · Meta Developer Platform · Razorpay Integration · OAuth (Google & Facebook Login) · AWS Lambda · AWS S3 · AWS CloudFront · AWS Amplify · AWS EC2 · AWS Secrets Manager · Cloudflare · Vercel";
+  "React.js · Next.js · React Native · TypeScript · JavaScript · Flutter · Three.js (beginner) · React Three Fiber · GSAP (beginner) · Motion graphics (beginner) · Tailwind CSS · HTML5 · CSS3 · Node.js · Fastify · FastAPI · WebSockets · REST APIs · Authentication & Authorization · WhatsApp Cloud API · Google Analytics 4 · Microsoft Clarity · App Attribution Tracking · Deep Linking · SEO Optimization · DynamoDB · Supabase PostgreSQL · PostgreSQL & Prisma · SQL · Redis · Firebase · RevenueCat · Technical Product Development · Mobile App Publishing · Vendor Platform Architecture · Payment Systems · Marketing Technology Integration · Meta Ads Technical Setup · Meta Developer Platform · Razorpay Integration · OAuth (Google & Facebook Login) · AWS Lambda · AWS S3 · AWS CloudFront · AWS Amplify · AWS EC2 · AWS Secrets Manager · Cloudflare · Vercel";
 
 export const research = [
   {
@@ -311,6 +412,7 @@ export const navLinks = [
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
+  { id: "motion", label: "Motion" },
   { id: "publications", label: "Research" },
   { id: "education", label: "Education" },
 ];

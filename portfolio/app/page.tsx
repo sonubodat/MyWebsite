@@ -1,3 +1,4 @@
+import MotionReel from "@/components/MotionReel";
 import ContactModal from "@/components/ContactModal";
 import Image from "next/image";
 import HeroIntro from "@/components/HeroIntro";
@@ -9,6 +10,10 @@ import {
   education,
   em,
   experience,
+  motion,
+  qrFlow,
+  qrRoles,
+  span,
   profile,
   projects,
   research,
@@ -57,7 +62,7 @@ export default function Home() {
             </a>
           ))}
           <div className="hero-copy">
-            <div className="eyebrow" data-intro>{profile.title}</div>
+            <div className="eyebrow" data-intro>{profile.heroTitle}</div>
             <p className="hero-lede" data-intro>{profile.tagline}</p>
             <div className="cta-row" data-intro>
               <a className="button" href="/resume">
@@ -120,21 +125,25 @@ export default function Home() {
                   <div className="role-meta">
                     <b>{String(i + 1).padStart(2, "0")}</b>
                     <span>
-                      {x.start} — {x.end}
-                      <br />
-                      {x.type}
+                      {span(x) || x.type}
+                      {span(x) && (
+                        <>
+                          <br />
+                          {x.type}
+                        </>
+                      )}
                     </span>
                   </div>
                   <div>
                     <h3>{x.company}</h3>
                     <p className="role-title">{x.role}</p>
-                    <p className="role-loc">{x.location}</p>
+                    {x.location && <p className="role-loc">{x.location}</p>}
                     <ul>
                       {x.highlights.map((h) => (
                         <li key={h}>{h}</li>
                       ))}
                     </ul>
-                    <p className="role-tags">{x.tags.join(" · ")}</p>
+                    {x.tags.length > 0 && <p className="role-tags">{x.tags.join(" · ")}</p>}
                   </div>
                 </article>
               ))}
@@ -148,7 +157,7 @@ export default function Home() {
             <h2 className="section-title">Projects</h2>
             <p className="section-lede">Products where systems thinking meets a sharp user experience.</p>
             {projects
-              .filter((p) => !p.hidden && p.category !== "research")
+              .filter((p) => p.category !== "research")
               .map((p, i) => (
                 <article className="project" key={p.slug}>
                   <div className="project-kicker mono">
@@ -156,6 +165,22 @@ export default function Home() {
                   </div>
                   <h3>{p.title}</h3>
                   <p className="project-summary">{p.summary}</p>
+                  {p.diagram === "qr-flow" && (
+                    <div className="qr-flow">
+                      <ol className="qr-steps">
+                        {qrFlow.map((st, n) => (
+                          <li key={st}>
+                            <i className="qr-line" aria-hidden="true" />
+                            <b>{String(n + 1).padStart(2, "0")}</b>
+                            <span>{st}</span>
+                          </li>
+                        ))}
+                      </ol>
+                      <p className="qr-roles">
+                        <span>Four role-based experiences over one API:</span> {qrRoles.join(" · ")}
+                      </p>
+                    </div>
+                  )}
                   {p.media.length > 0 && (
                     <div className="project-media" data-n={p.media.length}>
                       {p.media.map((m) => (
@@ -225,9 +250,33 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section reveal" id="publications" data-section>
+        <section className="section reveal" id="motion" data-section>
           <div className="section-inner">
-            <Label n="05">Lab / Research</Label>
+            <Label n="05">Motion · Beginner</Label>
+            <h2 className="section-title">Motion graphics.</h2>
+            <p className="section-lede">
+              Short reels I made for Untold while learning motion design. Early work, shown as it is.
+            </p>
+            <div className="reels">
+              {motion.map((m) => (
+                <figure className="reel" key={m.slug}>
+                  <MotionReel slug={m.slug} title={m.title} />
+                  <figcaption>
+                    <b>{m.title}</b>
+                    <span>
+                      {m.note}
+                      {m.tool ? ` · ${m.tool}` : ""} · {m.dur}
+                    </span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section alt reveal" id="publications" data-section>
+          <div className="section-inner">
+            <Label n="06">Lab / Research</Label>
             <h2 className="section-title">Lab / Research</h2>
             <p className="section-lede">
               Curiosity gets more useful when it becomes something other people can build on.
@@ -271,9 +320,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section alt edu reveal" id="education" data-section>
+        <section className="section edu reveal" id="education" data-section>
           <div className="section-inner">
-            <Label n="06">Education</Label>
+            <Label n="07">Education</Label>
             <h2 className="section-title">Education</h2>
             <ul className="edu-list">
               {education.map((e) => (

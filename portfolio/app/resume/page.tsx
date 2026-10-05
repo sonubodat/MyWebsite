@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import NextLink from "next/link";
-import { achievements, competencies, contact, education, experience, profile, research } from "@/lib/portfolio";
+import { achievements, competencies, contact, education, experience, profile, research, span } from "@/lib/portfolio";
 import PrintButton from "./PrintButton";
 import "./resume.css";
 
@@ -51,9 +51,7 @@ export default function ResumePage() {
                 <span>
                   <em>{x.role}</em>
                 </span>
-                <span>
-                  {x.location} | {x.start} - {x.end}
-                </span>
+                <span>{[x.location, span(x, " - ")].filter(Boolean).join(" | ")}</span>
               </div>
               <ul>
                 {x.details.map((d) => (
