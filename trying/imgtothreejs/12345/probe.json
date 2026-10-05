@@ -1,0 +1,11 @@
+{
+  "path": "/Users/sonubodat/Desktop/MyWebsite/trying/12345.png",
+  "type": "png",
+  "bytes": 349855,
+  "width": 1818,
+  "height": 974,
+  "aspectRatio": 1.8665297741273101,
+  "technicalSuitability": "pass",
+  "warnings": [],
+  "note": "This is only technical image probing. Semantic object suitability still requires visual inspection."
+}

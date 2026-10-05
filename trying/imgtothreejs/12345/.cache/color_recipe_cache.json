@@ -1,0 +1,512 @@
+{
+  "e996ef628f6cfcda322aa5cbd1760f60c070e55bee43fcd619e6bf0b3fa34511:62c1d4ea4e99": {
+    "componentId": "root",
+    "dominantAlbedo": "rgba(10, 8, 9, 1.0)",
+    "secondaryAlbedo": "rgba(147, 56, 50, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.342,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-root.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.543
+    }
+  },
+  "9454c5695c3f9818b704f6ae99b8961996d1b96895586b536fc999ebd584322a:62c1d4ea4e99": {
+    "componentId": "pelvis",
+    "dominantAlbedo": "rgba(3, 5, 7, 1.0)",
+    "secondaryAlbedo": "rgba(15, 18, 19, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.425,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "moderate hotspot spread — mid-range roughness",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-pelvis.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.749
+    }
+  },
+  "b57fbc698f42be3de3bc3d4940a749704c99883b5e149d4032f4b5fbe02c1768:62c1d4ea4e99": {
+    "componentId": "abdomen",
+    "dominantAlbedo": "rgba(73, 80, 79, 1.0)",
+    "secondaryAlbedo": "rgba(45, 50, 50, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.87,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-abdomen.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.606
+    }
+  },
+  "9cfe25c587a18dc35ca6b46060dc66a63c59399980703e4701aa264469de54e0:62c1d4ea4e99": {
+    "componentId": "neck",
+    "dominantAlbedo": "rgba(244, 205, 174, 1.0)",
+    "secondaryAlbedo": "rgba(244, 204, 171, 1.0)",
+    "materialClass": "skin",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.128,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-neck.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.996
+    }
+  },
+  "fe8d32c953203e52ebb8c588e55f716575fd17229b430b0de07aa274d2fba0aa:62c1d4ea4e99": {
+    "componentId": "collar",
+    "dominantAlbedo": "rgba(4, 5, 7, 1.0)",
+    "secondaryAlbedo": "rgba(8, 2, 10, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.126,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-collar.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.915
+    }
+  },
+  "3e44c51ca547bb0cefc8e9659fe6c209d2b094195fde6d79aede645c94da247d:62c1d4ea4e99": {
+    "componentId": "helmet",
+    "dominantAlbedo": "rgba(73, 80, 79, 1.0)",
+    "secondaryAlbedo": "rgba(73, 80, 79, 1.0)",
+    "materialClass": "plastic",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.87,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-helmet.png",
+    "labClusterMeta": {
+      "clusterCount": 1,
+      "dominantClusterSharePct": 1.0
+    }
+  },
+  "b2394acb55a0c0ac6dbfc4dbfa4feafee21884e0697a9e1a8714988a26ab7cd7:62c1d4ea4e99": {
+    "componentId": "helmet-rivet",
+    "dominantAlbedo": "rgba(5, 7, 7, 1.0)",
+    "secondaryAlbedo": "rgba(2, 4, 5, 1.0)",
+    "materialClass": "plastic",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.278,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-helmet-rivet.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.543
+    }
+  },
+  "ffbe340581c11e618cde8fedfe1836c32b07eb40fc1e129c87fd18c7c1a4fb3a:62c1d4ea4e99": {
+    "componentId": "chin-strap",
+    "dominantAlbedo": "rgba(10, 10, 11, 1.0)",
+    "secondaryAlbedo": "rgba(229, 199, 174, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.475,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "moderate hotspot spread — mid-range roughness",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-chin-strap.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.657
+    }
+  },
+  "a2ba5af3dd64aa73c464b31a239882e63ac93e1de1d40cf2e5a0fdac54cfa8cf:62c1d4ea4e99": {
+    "componentId": "eye-r",
+    "dominantAlbedo": "rgba(6, 5, 5, 1.0)",
+    "secondaryAlbedo": "rgba(225, 195, 172, 1.0)",
+    "materialClass": "plastic",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.324,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-eye-r.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.807
+    }
+  },
+  "4f40c22e48c9d1333711120448a4c95433e576e8638920092e11d64f81126f43:62c1d4ea4e99": {
+    "componentId": "eye-l",
+    "dominantAlbedo": "rgba(4, 5, 4, 1.0)",
+    "secondaryAlbedo": "rgba(205, 179, 158, 1.0)",
+    "materialClass": "plastic",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.239,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-eye-l.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.872
+    }
+  },
+  "942410489ed659e3655828236c2c9bc73d7d607fdcdd14f5e50b56da000ba524:62c1d4ea4e99": {
+    "componentId": "ear-l",
+    "dominantAlbedo": "rgba(239, 204, 175, 1.0)",
+    "secondaryAlbedo": "rgba(201, 151, 128, 1.0)",
+    "materialClass": "skin",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.764,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-ear-l.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.477
+    }
+  },
+  "c2d3eb4c222e7461c0d25537f78e3bf276e22ac36a23c95c721008bd4ef4bc92:62c1d4ea4e99": {
+    "componentId": "clavicle-r",
+    "dominantAlbedo": "rgba(8, 11, 10, 1.0)",
+    "secondaryAlbedo": "rgba(25, 11, 16, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.196,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-clavicle-r.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.602
+    }
+  },
+  "99c748525dcafb2ed0a99ab7f448db9b7db5e2f54599e870a067db561b5d0aba:62c1d4ea4e99": {
+    "componentId": "upper-arm-r",
+    "dominantAlbedo": "rgba(3, 5, 7, 1.0)",
+    "secondaryAlbedo": "rgba(119, 124, 124, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.693,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-upper-arm-r.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.556
+    }
+  },
+  "cce9a5f91f88a8404881adaa4d2b99e86652d18ed26dd48a0d3b96cabd75568c:62c1d4ea4e99": {
+    "componentId": "forearm-r",
+    "dominantAlbedo": "rgba(5, 7, 8, 1.0)",
+    "secondaryAlbedo": "rgba(219, 190, 165, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.317,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-forearm-r.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.895
+    }
+  },
+  "d2191502659605ef9e1707e206f8724b60101b3243502ab41aeb72f88ff98c6e:62c1d4ea4e99": {
+    "componentId": "hand-r",
+    "dominantAlbedo": "rgba(10, 8, 9, 1.0)",
+    "secondaryAlbedo": "rgba(229, 198, 173, 1.0)",
+    "materialClass": "skin",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.552,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "moderate hotspot spread — mid-range roughness",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-hand-r.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.796
+    }
+  },
+  "cebf18815c145af539651bca5dee17888cc871ca82b199874a3be8a03067f909:62c1d4ea4e99": {
+    "componentId": "clavicle-l",
+    "dominantAlbedo": "rgba(135, 46, 41, 1.0)",
+    "secondaryAlbedo": "rgba(12, 9, 11, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.816,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-clavicle-l.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.473
+    }
+  },
+  "6f7bae8e71d893bb49a7a7dca2c875620cf21407c77c781ec905ea27c7895ac8:62c1d4ea4e99": {
+    "componentId": "upper-arm-l",
+    "dominantAlbedo": "rgba(11, 4, 6, 1.0)",
+    "secondaryAlbedo": "rgba(10, 15, 14, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.33,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-upper-arm-l.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.64
+    }
+  },
+  "b68e123c1da2e4e973d6f64d6c7f5514dcd71c95bbaa8a5f8bf2c58eeee1d6e9:62c1d4ea4e99": {
+    "componentId": "forearm-l",
+    "dominantAlbedo": "rgba(5, 6, 9, 1.0)",
+    "secondaryAlbedo": "rgba(7, 6, 5, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.166,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-forearm-l.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.565
+    }
+  },
+  "c330aa91c4ea206bff4e242307a7931fa4af099c0a8d6da2a5a8f95ecf05d151:62c1d4ea4e99": {
+    "componentId": "hand-l",
+    "dominantAlbedo": "rgba(242, 204, 173, 1.0)",
+    "secondaryAlbedo": "rgba(240, 206, 174, 1.0)",
+    "materialClass": "skin",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.87,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-hand-l.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.57
+    }
+  },
+  "3f56e72784fb37030a1398046b10158ba2ae1726f7d5169df5196df6d8af193d:62c1d4ea4e99": {
+    "componentId": "belt",
+    "dominantAlbedo": "rgba(3, 4, 6, 1.0)",
+    "secondaryAlbedo": "rgba(75, 80, 79, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.128,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-belt.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.807
+    }
+  },
+  "f2375da9edb06eb65a41ddb3336fdebbcafcbd4bf188a53ef4cfcc6791d16c36:62c1d4ea4e99": {
+    "componentId": "thigh-r",
+    "dominantAlbedo": "rgba(4, 6, 7, 1.0)",
+    "secondaryAlbedo": "rgba(45, 51, 50, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.87,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-thigh-r.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.56
+    }
+  },
+  "885829f4b197b62c5f266b6603a5de8f6e640d5f100c82f3a99495bc42dae2c7:62c1d4ea4e99": {
+    "componentId": "shin-r",
+    "dominantAlbedo": "rgba(73, 80, 79, 1.0)",
+    "secondaryAlbedo": "rgba(45, 50, 50, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.87,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-shin-r.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.7
+    }
+  },
+  "c9045587ab6c981f9cb68cc19d49c16d8f61ccc81acc46251be1b15b8e2cdcb1:62c1d4ea4e99": {
+    "componentId": "foot-r",
+    "dominantAlbedo": "rgba(3, 4, 6, 1.0)",
+    "secondaryAlbedo": "rgba(31, 31, 31, 1.0)",
+    "materialClass": "rubber",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.149,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-foot-r.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.959
+    }
+  },
+  "80cd04573217bb93bd1d496d92ada10d3142c4ca47d3f0e52d836ed6b8977fe0:62c1d4ea4e99": {
+    "componentId": "thigh-l",
+    "dominantAlbedo": "rgba(4, 4, 6, 1.0)",
+    "secondaryAlbedo": "rgba(4, 4, 8, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.87,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-thigh-l.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.568
+    }
+  },
+  "e83c849d7ddf3a468b27a63449575cba020dbe223eeb6b939986ff9df25f6955:62c1d4ea4e99": {
+    "componentId": "shin-l",
+    "dominantAlbedo": "rgba(73, 80, 79, 1.0)",
+    "secondaryAlbedo": "rgba(47, 51, 53, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.87,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-shin-l.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.57
+    }
+  },
+  "032a15b18c4fd4ad8d0b0fffb7a5dd7130b70fdaad19bae2e3cdec020aa915df:62c1d4ea4e99": {
+    "componentId": "foot-l",
+    "dominantAlbedo": "rgba(3, 4, 6, 1.0)",
+    "secondaryAlbedo": "rgba(3, 4, 5, 1.0)",
+    "materialClass": "rubber",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.87,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-foot-l.png",
+    "labClusterMeta": {
+      "clusterCount": 2,
+      "dominantClusterSharePct": 0.995
+    }
+  },
+  "c36d7951451c2e371b51a819fae49c4a363155f5415995cc291cf6f6eb331494:62c1d4ea4e99": {
+    "componentId": "backpack",
+    "dominantAlbedo": "rgba(134, 47, 42, 1.0)",
+    "secondaryAlbedo": "rgba(20, 8, 8, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.365,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "moderate hotspot spread — mid-range roughness",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-backpack.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.6
+    }
+  },
+  "7aec3e194d224b4d2664bdef23b1a3aa9b2b114b23c810e6553e2e33d33b8cb9:62c1d4ea4e99": {
+    "componentId": "backpack-pocket",
+    "dominantAlbedo": "rgba(172, 64, 55, 1.0)",
+    "secondaryAlbedo": "rgba(126, 47, 43, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.796,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-backpack-pocket.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.49
+    }
+  },
+  "1da07485bf226986b53daf9660f8d4b5d5b065f5e0f2338f6868015d3bbf89a6:62c1d4ea4e99": {
+    "componentId": "backpack-strap-l",
+    "dominantAlbedo": "rgba(173, 65, 56, 1.0)",
+    "secondaryAlbedo": "rgba(13, 7, 7, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.87,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-backpack-strap-l.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.637
+    }
+  },
+  "812068b47685a3c65170e58b8853e3493f4b9be0f2b21e6f1874b9ef780217d1:62c1d4ea4e99": {
+    "componentId": "backpack-strap-r",
+    "dominantAlbedo": "rgba(160, 69, 60, 1.0)",
+    "secondaryAlbedo": "rgba(14, 6, 6, 1.0)",
+    "materialClass": "fabric",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.87,
+    "metalnessEstimate": 0.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-backpack-strap-r.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.484
+    }
+  },
+  "c1570beb43842711e219210f805fd0612a101e09b04a3b3d058242c330e64051:62c1d4ea4e99": {
+    "componentId": "pistol-slide",
+    "dominantAlbedo": "rgba(3, 4, 6, 1.0)",
+    "secondaryAlbedo": "rgba(9, 10, 12, 1.0)",
+    "materialClass": "metal",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.148,
+    "metalnessEstimate": 1.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-pistol-slide.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.712
+    }
+  },
+  "a20028a7f0d9c0b1d310685bec550194fd458604c850c44c75352da79b57548b:62c1d4ea4e99": {
+    "componentId": "pistol-grip",
+    "dominantAlbedo": "rgba(235, 200, 173, 1.0)",
+    "secondaryAlbedo": "rgba(19, 14, 11, 1.0)",
+    "materialClass": "metal",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.802,
+    "metalnessEstimate": 1.0,
+    "highlightEvidence": "broad, gradually-fading highlight — supports high roughness/diffuse response",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-pistol-grip.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.548
+    }
+  },
+  "610829e579e0d8e50b7938e5a790527ff08668e54aa7b931a15319ca9572f49a:62c1d4ea4e99": {
+    "componentId": "pistol-muzzle",
+    "dominantAlbedo": "rgba(54, 55, 57, 1.0)",
+    "secondaryAlbedo": "rgba(5, 6, 8, 1.0)",
+    "materialClass": "metal",
+    "materialClassConfidence": 0.615,
+    "roughnessEstimate": 0.219,
+    "metalnessEstimate": 1.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-pistol-muzzle.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.591
+    }
+  },
+  "b05914c14dd9c1505992f9b52706ea72768fe6b6c573ae8cae4c2a3dcded1dd3:62c1d4ea4e99": {
+    "componentId": "pistol-sight",
+    "dominantAlbedo": "rgba(3, 4, 6, 1.0)",
+    "secondaryAlbedo": "rgba(13, 14, 16, 1.0)",
+    "materialClass": "metal",
+    "materialClassConfidence": 0.6,
+    "roughnessEstimate": 0.159,
+    "metalnessEstimate": 1.0,
+    "highlightEvidence": "sharp, tight specular hotspot — supports low roughness/high specularity",
+    "sourceCropPath": "/Users/sonubodat/Desktop/MyWebsite/trying/imgtothreejs/12345/evidence/crops/part-pistol-sight.png",
+    "labClusterMeta": {
+      "clusterCount": 3,
+      "dominantClusterSharePct": 0.888
+    }
+  }
+}
