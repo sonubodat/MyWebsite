@@ -1,5 +1,4 @@
 import ContactModal from "@/components/ContactModal";
-import HeroCanvas from "@/components/HeroCanvas";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import {
@@ -38,18 +37,33 @@ export default function Home() {
 
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">
-          <HeroCanvas />
-          <div className="hero-content reveal">
+          <div className="hero-grid" aria-hidden="true" />
+          <h1 id="hero-title" className="hero-name">
+            <span>{first}</span>{" "}
+            <span>{rest.join(" ")}.</span>
+          </h1>
+          <div className="hero-portrait" aria-hidden="true">
+            {/* Separate mobile raster (finer dots, no lime pooling). eslint: static export, fixed aspect ratio. */}
+            <picture>
+              <source media="(max-width: 900px)" srcSet="/hero/portrait-raster-m.png" />
+              <img src="/hero/portrait-raster.png" alt="" width={900} height={1245} fetchPriority="high" decoding="async" />
+            </picture>
+          </div>
+          {profile.heroCorners.map((c, i) => (
+            <a
+              key={c.n}
+              className={`hero-corner c${i + 1}`}
+              href={c.href}
+              {...(c.contact ? { "data-contact-trigger": true } : {})}
+            >
+              <b>{c.n}</b>
+              <small>{c.note}</small>
+              <span>{c.label}</span>
+            </a>
+          ))}
+          <div className="hero-copy">
             <div className="eyebrow">{profile.title}</div>
-            <h1 id="hero-title">
-              {first} <span>{rest.join(" ")}.</span>
-            </h1>
             <p className="hero-lede">{profile.tagline}</p>
-            <div className="hero-meta">
-              {profile.heroMeta.map((m) => (
-                <span key={m}>{m}</span>
-              ))}
-            </div>
             <div className="cta-row">
               <a className="button" href="/resume">
                 View resume <span aria-hidden="true">↗</span>
@@ -59,10 +73,13 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="scroll-cue">
-            <i /> Scroll to explore
+          <div className="hero-strip">
+            <span className="hero-status">
+              <i aria-hidden="true" /> {profile.heroStatus}
+            </span>
+            <span className="hero-tags">{profile.heroStrip.join(" · ")}</span>
+            <span>{profile.heroLocation}</span>
           </div>
-          <div className="hero-index">01 / 06 - {profile.role.toUpperCase()}</div>
         </section>
 
         <section className="section reveal" id="about" data-section>

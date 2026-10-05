@@ -9,6 +9,15 @@ export const profile = {
   tagline:
     "Full-stack & mobile engineer building production web and mobile products with React, React Native, Node.js, and AWS.",
   heroMeta: ["Co-Founder of Streefi", "IEEE Published Researcher", "React Native + Next.js"],
+  heroCorners: [
+    { n: "01", label: "Projects", note: "selected builds", href: "#projects" },
+    { n: "02", label: "Experience", note: "streefi · brainybeams", href: "#experience" },
+    { n: "03", label: "About", note: "profile", href: "#about" },
+    { n: "04", label: "Contact", note: "say hello", href: "mailto:sonubodat77@gmail.com", contact: true },
+  ],
+  heroStrip: ["Streefi", "Mobile", "Web", "Backend", "Cloud"],
+  heroLocation: "Gandhinagar, India",
+  heroStatus: "Open to product engineering & co-founder roles",
   summary:
     "Full-Stack & Mobile Software Engineer with production experience shipping web and React Native applications, including the Streefi food-tech platform. Skilled across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, deep linking, and third-party integrations, with a strong background in Next.js, React, React Native, Node.js, AWS, DynamoDB, and Supabase — and a track record of taking products from development through production.",
   about: [

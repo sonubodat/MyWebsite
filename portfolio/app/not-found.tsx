@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="hero" style={{ minHeight: "100svh" }}>
-      <div className="hero-content" style={{ maxWidth: 760 }}>
+    <main className="nf">
+      <div className="nf-inner">
         <div className="eyebrow">404 / Not found</div>
         <h1>
           Wrong <span>turn.</span>
