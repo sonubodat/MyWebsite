@@ -106,9 +106,9 @@ export default function ScrollStory() {
 
         // QR FLOW: connectors draw left to right, steps follow
         gsap
-          .timeline({ scrollTrigger: at(".qr-flow", "top 82%") })
-          .fromTo(".qr-line", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power3.inOut", stagger: 0.12 })
-          .from(".qr-steps li > b, .qr-steps li > span", { opacity: 0, y: 14, duration: 0.6, stagger: 0.04, ease: "power3.out", ...clear }, 0.1)
+          .timeline({ scrollTrigger: at(".qr-flow", "top 75%") })
+          .fromTo(".qr-line", { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: "power3.inOut", stagger: 0.14 })
+          .from(".qr-steps li > :not(.qr-line)", { opacity: 0, x: 18, duration: 0.6, stagger: 0.035, ease: "power3.out", ...clear }, 0.1)
           .from(".qr-roles", { opacity: 0, y: 12, duration: 0.6, ease: "power3.out", ...clear }, 0.9);
 
         // MOTION REELS: clip reveal, staggered

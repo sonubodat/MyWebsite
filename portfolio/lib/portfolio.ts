@@ -327,7 +327,15 @@ export const projects = [
 ];
 
 /** QR platform flow (from Triviq's case study): four role-based experiences over one API. */
-export const qrFlow = ["QR inventory", "Vendor", "Scan", "Public enquiry", "Lead & attribution", "Repeat check", "Payout status"];
+export const qrFlow = [
+  { step: "QR inventory", note: "Controlled stock with assignment history", who: "Admin" },
+  { step: "Vendor", note: "Self-registration with sales-assisted verification", who: "Vendor · Sales" },
+  { step: "Customer scan", note: "Every physical QR scan is recorded", who: "Public" },
+  { step: "Public enquiry", note: "The form behind each QR link", who: "Public" },
+  { step: "Lead & attribution", note: "Scan and lead traced to the right vendor", who: "System" },
+  { step: "Repeat detection", note: "Repeat referrals are caught", who: "System" },
+  { step: "Payout status", note: "Admin-managed payout state", who: "Admin" },
+];
 export const qrRoles = ["Public", "Vendor", "Sales", "Admin"];
 
 /** Motion graphics for Untold (beginner work). Tools only where the project files prove them. */

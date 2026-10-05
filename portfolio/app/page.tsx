@@ -171,10 +171,12 @@ export default function Home() {
                     <div className="qr-flow">
                       <ol className="qr-steps">
                         {qrFlow.map((st, n) => (
-                          <li key={st}>
+                          <li key={st.step}>
                             <i className="qr-line" aria-hidden="true" />
                             <b>{String(n + 1).padStart(2, "0")}</b>
-                            <span>{st}</span>
+                            <span className="qr-step">{st.step}</span>
+                            <span className="qr-note">{st.note}</span>
+                            <em>{st.who}</em>
                           </li>
                         ))}
                       </ol>
@@ -347,7 +349,7 @@ export default function Home() {
             <p className="contact-status">
               <i aria-hidden="true" /> {profile.heroStatus}
             </p>
-            <h2 className="section-title contact-title">Need something built?</h2>
+            <h2 className="section-title contact-title">Have something worth building?</h2>
             <p className="section-lede">{profile.contactBlurb}</p>
             <ul className="contact-list">
               <li className="contact-row">
