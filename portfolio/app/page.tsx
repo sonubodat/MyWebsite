@@ -4,6 +4,7 @@ import HeroIntro from "@/components/HeroIntro";
 import HeroPortrait from "@/components/HeroPortrait";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
+import ScrollStory from "@/components/ScrollStory";
 import {
   education,
   em,
@@ -32,6 +33,7 @@ export default function Home() {
       <Nav />
       <Reveal />
       <HeroIntro />
+      <ScrollStory />
 
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">
@@ -75,7 +77,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section about reveal" id="about" data-section>
+        <section className="section about" id="about" data-section>
           <div className="section-inner">
             <Label n="01">About</Label>
             <h2 className="statement">{profile.statement}</h2>
@@ -103,7 +105,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section dark reveal" id="experience" data-section>
+        <section className="section dark" id="experience" data-section>
           <div className="section-inner">
             <Label n="02">Experience</Label>
             <h2 className="section-title">Experience</h2>
@@ -111,8 +113,10 @@ export default function Home() {
               From first commit to production debugging, across product, platform, and growth infrastructure.
             </p>
             <div className="roles">
+              <i className="roles-progress" aria-hidden="true" />
               {experience.map((x, i) => (
                 <article className="role" key={x.company}>
+                  <i className="hairline" aria-hidden="true" />
                   <div className="role-meta">
                     <b>{String(i + 1).padStart(2, "0")}</b>
                     <span>
@@ -138,7 +142,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section reveal" id="projects" data-section>
+        <section className="section" id="projects" data-section>
           <div className="section-inner">
             <Label n="03">Projects</Label>
             <h2 className="section-title">Projects</h2>
@@ -153,10 +157,10 @@ export default function Home() {
                   <h3>{p.title}</h3>
                   <p className="project-summary">{p.summary}</p>
                   {p.media.length > 0 && (
-                    <div className="project-media">
+                    <div className="project-media" data-n={p.media.length}>
                       {p.media.map((m) => (
                         <figure key={m.src}>
-                          <Image src={m.src} alt={m.alt} width={720} height={1565} unoptimized />
+                          <Image src={m.src} alt={m.alt} width={m.w} height={m.h} unoptimized />
                         </figure>
                       ))}
                     </div>
@@ -164,7 +168,7 @@ export default function Home() {
                   <dl className="project-meta">
                     <div>
                       <dt>Role</dt>
-                      <dd>{experience[0].role}</dd>
+                      <dd>{p.role}</dd>
                     </div>
                     <div>
                       <dt>System</dt>
@@ -198,7 +202,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section dark reveal" id="skills" data-section>
+        <section className="section dark" id="skills" data-section>
           <div className="section-inner">
             <Label n="04">Skills</Label>
             <h2 className="section-title">What I build with.</h2>
@@ -209,8 +213,8 @@ export default function Home() {
                   <span className="cap-n">{c.n}</span>
                   <h3>{c.title}</h3>
                   <ul className="cap-items">
-                    {c.items.map((it, i) => (
-                      <li key={it} style={{ ["--i" as string]: i }}>
+                    {c.items.map((it) => (
+                      <li key={it}>
                         {it}
                       </li>
                     ))}

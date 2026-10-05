@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 export default function HeroPortrait() {
   const host = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
+  const orig = useRef<HTMLImageElement>(null);
   const [gl, setGl] = useState(false);
 
   useEffect(() => {
@@ -49,16 +50,21 @@ export default function HeroPortrait() {
     };
     let alpha: Uint8ClampedArray | null = null;
     const AW = 90, AH = 124;
-    const img = new Image();
-    img.src = "/hero/portrait-cutout.webp";
-    img.decode().then(() => {
-      const c = document.createElement("canvas");
-      c.width = AW;
-      c.height = AH;
-      const ctx = c.getContext("2d", { willReadFrequently: true })!;
-      ctx.drawImage(img, 0, 0, AW, AH);
-      alpha = ctx.getImageData(0, 0, AW, AH).data;
-    }).catch(() => {});
+    // Cutout is only needed on hover: fetch it after idle so it never competes with first paint.
+    const idle = window.requestIdleCallback ?? ((f: () => void) => window.setTimeout(f, 1200));
+    const idleId = idle(() => {
+      const img = new Image();
+      img.src = "/hero/portrait-cutout.webp";
+      img.decode().then(() => {
+        const c = document.createElement("canvas");
+        c.width = AW;
+        c.height = AH;
+        const ctx = c.getContext("2d", { willReadFrequently: true })!;
+        ctx.drawImage(img, 0, 0, AW, AH);
+        alpha = ctx.getImageData(0, 0, AW, AH).data;
+        if (orig.current) orig.current.src = img.src;
+      }).catch(() => {});
+    });
     const over = (lx: number, ly: number, w: number, h: number) => {
       if (!alpha || lx < 0 || ly < 0 || lx > w || ly > h) return false;
       const i = (Math.min(AH - 1, Math.floor((ly / h) * AH)) * AW + Math.min(AW - 1, Math.floor((lx / w) * AW))) * 4 + 3;
@@ -96,6 +102,7 @@ export default function HeroPortrait() {
     addEventListener("pointermove", onMove, { passive: true });
     document.documentElement.addEventListener("pointerleave", onLeaveDoc);
     return () => {
+      (window.cancelIdleCallback ?? clearTimeout)(idleId as number);
       removeEventListener("pointermove", onMove);
       document.documentElement.removeEventListener("pointerleave", onLeaveDoc);
       gsap.killTweensOf(s);
@@ -103,7 +110,7 @@ export default function HeroPortrait() {
   }, []);
 
   return (
-    <div className={`hero-portrait${gl ? " is-gl" : ""}`} ref={host} aria-hidden="true" data-intro>
+    <div className={`hero-portrait${gl ? " is-gl" : ""}`} ref={host} aria-hidden="true">
       {/* Separate mobile raster (finer dots, no lime pooling). Fixed aspect ratio => no CLS. */}
       <picture>
         <source media="(max-width: 900px)" srcSet="/hero/portrait-raster-m.png" />
@@ -111,7 +118,7 @@ export default function HeroPortrait() {
       </picture>
       <canvas ref={canvas} className="hero-gl" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="hero-orig" src="/hero/portrait-cutout.webp" alt="" width={900} height={1245} loading="lazy" decoding="async" />
+      <img ref={orig} className="hero-orig" alt="" width={900} height={1245} decoding="async" />
     </div>
   );
 }
