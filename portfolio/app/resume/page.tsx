@@ -15,7 +15,7 @@ const Link = ({ href, children }: { href: string; children: React.ReactNode }) =
 
 export default function ResumePage() {
   return (
-    <div className="resume-page">
+    <main className="resume-page">
       <div className="resume-actions">
         <NextLink href="/">← Portfolio</NextLink>
         <a href={contact.resumePdf} download>
@@ -111,6 +111,6 @@ export default function ResumePage() {
           ))}
         </section>
       </article>
-    </div>
+    </main>
   );
 }
