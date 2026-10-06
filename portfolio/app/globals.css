@@ -296,3 +296,18 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px
 .nf-cat { position: relative; width: clamp(130px, 16vw, 190px); margin-top: clamp(2rem, 4vw, 3rem); }
 .nf-cat img { display: block; width: 100%; height: auto; animation: nf-breathe 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
 @keyframes nf-breathe { 50% { transform: scaleY(1.035); } }
+
+/* Desktop: floating glass pill nav (centred island). Mobile keeps the full-width bar + menu. */
+@media (min-width: 901px) {
+  .site-nav { top: 16px; left: 50%; right: auto; width: max-content; max-width: calc(100% - 32px); gap: clamp(20px, 3vw, 44px); padding: 9px 12px 9px 10px; border-radius: 999px; transform: translateX(-50%); background: rgba(10, 28, 21, .5); -webkit-backdrop-filter: blur(16px) saturate(180%); backdrop-filter: blur(16px) saturate(180%); border: 1px solid rgba(255, 255, 255, .14); box-shadow: 0 8px 32px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255, 255, 255, .08); transition: background .3s ease, transform .4s var(--ease), box-shadow .3s ease; }
+  .site-nav.scrolled { background: rgba(10, 28, 21, .8); border-bottom: 1px solid rgba(255, 255, 255, .14); }
+  .site-nav.hidden { transform: translate(-50%, -160%); }
+  .site-nav .brand { gap: 8px; font-size: .95rem; }
+  .site-nav .brand-mark { width: 30px; height: 30px; border-radius: 50%; }
+  .site-nav .nav-links { gap: clamp(12px, 1.6vw, 24px); padding-right: 12px; }
+  .site-nav .nav-links a { padding: 7px 4px; color: #c3ccc0; }
+  .site-nav .nav-links a:hover, .site-nav .nav-links a.active { color: var(--acid); }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  @media (min-width: 901px) { .site-nav { background: rgba(7, 19, 15, .94); } }
+}
