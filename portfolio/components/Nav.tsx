@@ -8,6 +8,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [active, setActive] = useState("");
+  const [light, setLight] = useState(false); // pill sits over a light section => light glass
   const bar = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,13 +20,18 @@ export default function Nav() {
       last = y;
       const max = document.documentElement.scrollHeight - innerHeight;
       if (bar.current) bar.current.style.width = `${max > 0 ? (y / max) * 100 : 0}%`;
+      // Tone: look at the surface under the pill centre (skip the header itself).
+      const under = document.elementsFromPoint(innerWidth / 2, 34).find((el) => !el.closest("header"));
+      const sec = under?.closest("section");
+      setLight(!!sec && sec.id !== "top" && !sec.classList.contains("dark"));
     };
+    onScroll();
     addEventListener("scroll", onScroll, { passive: true });
 
     // Active link: owned here, independent of the reveal animation.
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
-      { threshold: 0.16 },
+      { rootMargin: "-35% 0px -60% 0px" }, // the section crossing a thin band mid-viewport is active (tall sections never reach a % threshold)
     );
     document.querySelectorAll("[data-section]").forEach((s) => io.observe(s));
     return () => {
@@ -37,7 +43,7 @@ export default function Nav() {
   return (
     <>
       <div className="progress-bar" ref={bar} aria-hidden="true" />
-      <header className={`site-nav${scrolled ? " scrolled" : ""}${hidden && !open ? " hidden" : ""}`} aria-label="Primary navigation">
+      <header className={`site-nav${scrolled ? " scrolled" : ""}${hidden && !open ? " hidden" : ""}${light && !open ? " on-light" : ""}`} aria-label="Primary navigation">
         <a className="brand" href="#top">
           <span className="brand-mark" aria-hidden="true">SB</span>
           <span>Sonu Bodat</span>

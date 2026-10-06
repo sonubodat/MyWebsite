@@ -174,7 +174,7 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px
 .hero { display: block; padding: 0; isolation: isolate; --u: min(1vw, 1.6svh); }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .5; background: repeating-linear-gradient(to bottom, rgba(243,245,239,.045) 0 1px, transparent 1px 4px); }
 /* Desktop: single-line name sits behind the portrait; both are centre-anchored in --u units so the overlap holds on any wide screen. */
-.hero-name { position: absolute; z-index: 1; left: calc(50% - 46.5 * var(--u)); top: calc(50% - 9.4 * var(--u)); margin: 0; font-family: var(--serif); font-size: calc(10.4 * var(--u)); line-height: .8; letter-spacing: -.07em; color: var(--ink); max-width: none; white-space: nowrap; }
+.hero-name { position: absolute; z-index: 1; left: calc(50% - 47.5 * var(--u)); top: calc(50% - 9.4 * var(--u)); margin: 0; font-family: var(--serif); font-size: calc(8.8 * var(--u)); line-height: .8; letter-spacing: -.07em; color: var(--ink); max-width: none; white-space: nowrap; }
 .hero .hero-name span { display: inline-block; }
 .hero .hero-name span { color: var(--ink); }
 .hero .hero-name span:last-child { color: var(--acid); }
@@ -315,4 +315,20 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px
   .site-nav .nav-links a:hover, .site-nav .nav-links a:focus-visible { transform: scale(1.22); }
   .site-nav .brand { transform-origin: left center; transition: transform .35s var(--ease); }
   .site-nav .brand:hover, .site-nav .brand:focus-visible { transform: scale(1.38); }
+}
+
+/* Apple-style glass pill: strong blur + saturation, thin light rim, specular top sheen. Tone follows the surface behind it. */
+@media (min-width: 901px) {
+  .site-nav, .site-nav.scrolled { background: rgba(255, 255, 255, .08); -webkit-backdrop-filter: blur(28px) saturate(190%) brightness(1.05); backdrop-filter: blur(28px) saturate(190%) brightness(1.05); border: 1px solid rgba(255, 255, 255, .2); box-shadow: 0 10px 40px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .38), inset 0 -1px 0 rgba(255, 255, 255, .06), inset 0 0 22px rgba(255, 255, 255, .05); }
+  .site-nav::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(180deg, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .04) 45%, rgba(255, 255, 255, 0) 100%); }
+  .site-nav > * { position: relative; }
+  .site-nav.on-light, .site-nav.on-light.scrolled { background: rgba(255, 255, 255, .5); border-color: rgba(255, 255, 255, .75); box-shadow: 0 10px 34px rgba(20, 35, 28, .14), inset 0 1px 0 rgba(255, 255, 255, .95), inset 0 -1px 0 rgba(20, 35, 28, .06); }
+  .site-nav.on-light::before { background: linear-gradient(180deg, rgba(255, 255, 255, .6) 0%, rgba(255, 255, 255, .1) 50%, rgba(255, 255, 255, 0) 100%); }
+  .site-nav.on-light .brand { color: #14231c; }
+  .site-nav.on-light .nav-links a { color: #3a4a40; }
+  .site-nav.on-light .nav-links a:hover, .site-nav.on-light .nav-links a.active { color: #236341; }
+  .site-nav, .site-nav .brand, .site-nav .nav-links a { transition-property: background, border-color, box-shadow, color, transform; transition-duration: .35s; }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  @media (min-width: 901px) { .site-nav { background: rgba(10, 28, 21, .94); } .site-nav.on-light { background: rgba(244, 245, 239, .96); } }
 }

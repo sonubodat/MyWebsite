@@ -47,7 +47,7 @@ export default function Home() {
         <section className="hero" id="top" aria-labelledby="hero-title">
           <h1 id="hero-title" className="hero-name">
             <span data-intro>{first}</span>{" "}
-            <span data-intro>{rest.join(" ")}.</span>
+            <span data-intro>{rest.join(" ")}</span>
           </h1>
           <HeroPortrait />
           {profile.heroCorners.map((c, i) => (
