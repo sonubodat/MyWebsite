@@ -14,7 +14,13 @@
   Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
 /projects/*
   Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
-/favicon.svg
+/sonu.svg
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 /sonu-bodat-resume.pdf
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/sonu-avatar.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/sonu-512.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000

@@ -20,8 +20,9 @@ export const metadata: Metadata = {
   authors: [{ name: profile.name }],
   alternates: { canonical: "/" },
   manifest: "/site.webmanifest",
-  icons: { icon: { url: "/favicon.svg", type: "image/svg+xml" } },
+  icons: { icon: [{ url: "/sonu.svg", type: "image/svg+xml" }], apple: "/apple-touch-icon.png" },
   openGraph: {
+    images: [{ url: "/sonu-512.webp", width: 512, height: 512, alt: "Sonu Bodat" }],
     title,
     description: shortDesc,
     type: "website",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Sonu Bodat Portfolio",
     locale: "en_IN",
   },
-  twitter: { card: "summary", title, description: "Full-Stack and Mobile Software Engineer building products from architecture to production." },
+  twitter: { card: "summary", images: ["/sonu-512.webp"], title, description: "Full-Stack and Mobile Software Engineer building products from architecture to production." },
 };
 
 export const viewport: Viewport = { themeColor: "#07130f" };
@@ -42,6 +43,7 @@ const jsonLd = {
       "@id": `${SITE_URL}/#person`,
       name: profile.name,
       url: `${SITE_URL}/`,
+      image: `${SITE_URL}/sonu-512.webp`,
       jobTitle: profile.role,
       description: shortDesc,
       email: `mailto:${contact.email}`,

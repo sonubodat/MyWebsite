@@ -10,10 +10,16 @@
   "theme_color": "#07130f",
   "icons": [
     {
-      "src": "favicon.svg",
+      "src": "sonu.svg",
       "type": "image/svg+xml",
       "sizes": "any",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "sonu-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512",
+      "purpose": "any"
     }
   ]
 }

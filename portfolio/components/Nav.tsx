@@ -45,7 +45,8 @@ export default function Nav() {
       <div className="progress-bar" ref={bar} aria-hidden="true" />
       <header className={`site-nav${scrolled ? " scrolled" : ""}${hidden && !open ? " hidden" : ""}${light && !open ? " on-light" : ""}`} aria-label="Primary navigation">
         <a className="brand" href="#top">
-          <span className="brand-mark" aria-hidden="true">SB</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="brand-mark" src="/sonu-avatar.webp" alt="" width={96} height={96} />
           <span>Sonu Bodat</span>
         </a>
         <nav className={`nav-links${open ? " open" : ""}`} aria-label="Portfolio sections">
