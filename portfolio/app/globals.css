@@ -173,7 +173,6 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px
 /* Hero v2 (static): giant name behind raster portrait, corner links, status strip. Replaces the temporary canvas hero. */
 .hero { display: block; padding: 0; isolation: isolate; --u: min(1vw, 1.6svh); }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .5; background: repeating-linear-gradient(to bottom, rgba(243,245,239,.045) 0 1px, transparent 1px 4px); }
-.hero-grid { position: absolute; inset: 74px clamp(18px, 4vw, 64px) 64px; z-index: 0; pointer-events: none; border: 1px solid var(--line); background: linear-gradient(var(--line), var(--line)) 33.33% 0 / 1px 100% no-repeat, linear-gradient(var(--line), var(--line)) 66.66% 0 / 1px 100% no-repeat; opacity: .55; }
 /* Desktop: single-line name sits behind the portrait; both are centre-anchored in --u units so the overlap holds on any wide screen. */
 .hero-name { position: absolute; z-index: 1; left: calc(50% - 46.5 * var(--u)); top: calc(50% - 9.4 * var(--u)); margin: 0; font-family: var(--serif); font-size: calc(10.4 * var(--u)); line-height: .8; letter-spacing: -.07em; color: var(--ink); max-width: none; white-space: nowrap; }
 .hero .hero-name span { display: inline-block; }
@@ -199,12 +198,10 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px
 .hero-copy .hero-lede { margin: 14px 0 0; max-width: none; font-size: clamp(1rem, 1.3vw, 1.18rem); }
 .hero-copy .cta-row { margin-top: 24px; }
 .hero-strip { position: absolute; z-index: 4; left: clamp(18px, 4vw, 64px); right: clamp(18px, 4vw, 64px); bottom: 0; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .1em; }
-.hero-status { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); }
-.hero-status i { width: 7px; height: 7px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 0 4px rgba(185,216,91,.18); }
 .hero::after { z-index: 3; height: 18%; }
 @media (max-width: 900px) {
   .hero { min-height: 0; height: auto; padding: 96px clamp(18px, 4vw, 36px) 0; display: flex; flex-direction: column; }
-  .hero-grid, .hero-corner { display: none; }
+  .hero-corner { display: none; }
   .hero-name { position: relative; left: 0; top: 0; z-index: 1; font-size: clamp(3.4rem, min(24vw, 24svh), 9rem); white-space: normal; }
   .hero .hero-name span { display: block; }
   .hero-portrait { position: relative; left: auto; right: auto; bottom: auto; height: auto; width: min(86vw, 520px); margin: -3vw 0 0 auto; z-index: 2; -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 100%); mask-image: linear-gradient(to bottom, #000 74%, transparent 100%); }

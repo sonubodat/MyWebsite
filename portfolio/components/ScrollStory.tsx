@@ -91,8 +91,7 @@ export default function ScrollStory() {
           .timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.5 } })
           .to(".hero-name", { yPercent: -16, opacity: 0.25 }, 0)
           .to(".hero-portrait", { y: 110, scale: 1.04, transformOrigin: "50% 100%" }, 0)
-          .to(".hero-copy", { y: -50, opacity: 0 }, 0)
-          .to(".hero-grid", { opacity: 0 }, 0);
+          .to(".hero-copy", { y: -50, opacity: 0 }, 0);
 
         // SECTION TITLES: one consistent line-mask reveal
         all(".section-title").forEach((t) =>

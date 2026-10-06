@@ -45,7 +45,6 @@ export default function Home() {
 
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">
-          <div className="hero-grid" aria-hidden="true" />
           <h1 id="hero-title" className="hero-name">
             <span data-intro>{first}</span>{" "}
             <span data-intro>{rest.join(" ")}.</span>
@@ -76,9 +75,6 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-strip" data-intro>
-            <span className="hero-status">
-              <i aria-hidden="true" /> {profile.heroStatus}
-            </span>
             <span className="hero-tags">{profile.heroStrip.join(" · ")}</span>
             <span>{profile.heroLocation}</span>
           </div>
