@@ -123,7 +123,7 @@ export const achievements = [
   },
   {
     title: "Published IEEE Research Paper",
-    text: "Sole author of “AES-Driven Image Encryption: Overcoming Security and Transmission Challenges,” published in the proceedings of the 2024 IEEE Delhi Section Flagship Conference (DELCON).",
+    text: "Co-author of “AES-Driven Image Encryption: Overcoming Security and Transmission Challenges,” published in the proceedings of the 2024 IEEE Delhi Section Flagship Conference (DELCON).",
   },
   {
     title: "Built Production Payment Infrastructure",
@@ -287,7 +287,7 @@ export const projects = [
     title: "AES-Driven Image Encryption",
     summary:
       "An AES-based image encryption technique addressing security and transmission efficiency in digital image communication.",
-    role: "Sole author",
+    role: "Co-author",
     bullets: ["Security analysis against common attacks", "Transmission efficiency optimization", "Comparative performance evaluation"],
     stack: "Python · OpenCV · MATLAB",
     note: undefined,
@@ -371,7 +371,7 @@ export const competencies =
 export const research = [
   {
     venue: "IEEE DELCON 2024 · NEW DELHI",
-    resumeVenue: "IEEE Delhi Section Flagship Conference (DELCON 2024) · Sole Author · New Delhi, India · Nov. 2024",
+    resumeVenue: "IEEE Delhi Section Flagship Conference (DELCON 2024) · Co-author · New Delhi, India · Nov. 2024",
     title: "AES-Driven Image Encryption: Overcoming Security and Transmission Challenges",
     summary:
       "Developed an AES-based image encryption technique addressing security and transmission efficiency, enhancing traditional AES for image data.",
