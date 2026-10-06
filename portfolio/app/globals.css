@@ -308,3 +308,11 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   @media (min-width: 901px) { .site-nav { background: rgba(7, 19, 15, .94); } }
 }
+
+/* Desktop nav hover: links grow, the name grows the most (transform only, no layout shift) */
+@media (min-width: 901px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .site-nav .nav-links a { display: inline-block; transition: color .2s ease, transform .3s var(--ease); }
+  .site-nav .nav-links a:hover, .site-nav .nav-links a:focus-visible { transform: scale(1.22); }
+  .site-nav .brand { transform-origin: left center; transition: transform .35s var(--ease); }
+  .site-nav .brand:hover, .site-nav .brand:focus-visible { transform: scale(1.38); }
+}
