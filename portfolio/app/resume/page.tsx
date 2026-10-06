@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import NextLink from "next/link";
-import { achievements, competencies, contact, education, experience, profile, research, span } from "@/lib/portfolio";
+import { competencies, contact, education, experience, profile, research, span } from "@/lib/portfolio";
 import PrintButton from "./PrintButton";
 import "./resume.css";
 
@@ -54,23 +54,12 @@ export default function ResumePage() {
                 <span>{[x.location, span(x, " - ")].filter(Boolean).join(" | ")}</span>
               </div>
               <ul>
-                {x.details.map((d) => (
+                {x.highlights.map((d) => (
                   <li key={d}>{d}</li>
                 ))}
               </ul>
             </div>
           ))}
-        </section>
-
-        <section>
-          <h2>Key Achievements</h2>
-          <ul>
-            {achievements.map((a) => (
-              <li key={a.title}>
-                <strong>{a.title}</strong> — {a.text}
-              </li>
-            ))}
-          </ul>
         </section>
 
         <section>
@@ -80,7 +69,7 @@ export default function ResumePage() {
 
         <section>
           <h2>Education</h2>
-          {education.map((e) => (
+          {education.slice(0, 1).map((e) => ( // resume: degree only; schools stay on the site
             <div key={e.school}>
               <h3>{e.school}</h3>
               <div className="role-line">
@@ -101,11 +90,7 @@ export default function ResumePage() {
             <div key={r.title}>
               <h3>“{r.title}”</h3>
               <p>
-                {r.resumeVenue}
-                <br />
-                DOI: <a href={`https://doi.org/${r.doi}`}>{r.doi}</a>
-                <br />
-                {r.resumeSummary}
+                {r.resumeVenue} · DOI: <a href={`https://doi.org/${r.doi}`}>{r.doi}</a>
               </p>
             </div>
           ))}

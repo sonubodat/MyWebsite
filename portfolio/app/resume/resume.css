@@ -28,7 +28,7 @@ body:has(.resume-page)::before { display: none; }
   .role-line { display: block; }
   .role-line span { display: block; margin-top: 3px; }
 }
-@page { size: A4; margin: 14mm; }
+@page { size: A4; margin: 10mm 12mm; }
 @media print {
   html, body:has(.resume-page) { background: #fff !important; }
   .resume-page { background: #fff; padding: 0; min-height: 0; }
@@ -36,7 +36,11 @@ body:has(.resume-page)::before { display: none; }
   .resume section:last-child { padding-bottom: 0; }
   .resume p:last-child, .resume ul:last-child { margin-bottom: 0; }
   .resume-actions { display: none; }
-  .resume p, .resume li { font-size: .76rem; line-height: 1.42; }
-  .resume section { padding-top: 16px; }
-  .resume h3 { margin-top: 10px; }
+  .resume p, .resume li { font-size: .72rem; line-height: 1.36; }
+  .resume h3 { font-size: .98rem; }
+  .resume section { padding-top: 10px; }
+  .resume h2 { margin-bottom: 8px; }
+  .resume h3 { margin-top: 8px; }
+  .resume h1 { font-size: 2.3rem; }
+  .resume-header { padding-bottom: 14px; }
 }

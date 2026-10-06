@@ -51,7 +51,7 @@ const jsonLd = {
       alumniOf: { "@id": `${SITE_URL}/#pdeu` },
     },
     { "@type": "Organization", "@id": `${SITE_URL}/#streefi`, name: "Streefi Private Limited" },
-    { "@type": "Organization", "@id": `${SITE_URL}/#triviq`, name: "Triviq", description: "Independent product and engineering studio.", founder: { "@id": `${SITE_URL}/#person` } },
+    { "@type": "Organization", "@id": `${SITE_URL}/#triviq`, name: "Triviq", description: "Independent product and engineering studio." },
     { "@type": "CollegeOrUniversity", "@id": `${SITE_URL}/#pdeu`, name: "Pandit Deendayal Energy University" },
     {
       "@type": "WebSite",

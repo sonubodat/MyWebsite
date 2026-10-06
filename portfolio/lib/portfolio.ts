@@ -5,8 +5,8 @@ export const SITE_URL = "https://sonubodat.dpdns.org";
 export const profile = {
   name: "Sonu Bodat",
   title: "Full-Stack & Mobile Software Engineer",
-  role: "Founder & Product Engineer",
-  heroTitle: "Founder, Triviq · Product Engineer",
+  role: "Product Engineer",
+  heroTitle: "Product Engineer · Co-Founder, Streefi",
   tagline:
     "I build production software across mobile, web and backend systems — through Triviq, my own products and selected freelance work.",
   heroCorners: [
@@ -19,7 +19,7 @@ export const profile = {
   heroLocation: "Gandhinagar, India",
   heroStatus: "Available for select projects",
   summary:
-    "Founder of Triviq, an independent product and engineering studio. Full-Stack & Mobile Software Engineer with production experience shipping web and React Native applications, including the Streefi food-tech platform. Skilled across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, deep linking, and third-party integrations, with a strong background in Next.js, React, React Native, Node.js, AWS, DynamoDB, and Supabase — and a track record of taking products from development through production.",
+    "Full-Stack & Mobile Software Engineer with production experience shipping web and React Native applications, including the Streefi food-tech platform. Skilled across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, deep linking, and third-party integrations, with a strong background in Next.js, React, React Native, Node.js, AWS, DynamoDB, and Supabase — and a track record of taking products from development through production.",
   about: [
     "I work across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, and third-party integrations.",
     "Core stack: React Native, Next.js, TypeScript, Node.js, AWS, DynamoDB, Supabase, Redis, and Vercel.",
@@ -35,7 +35,7 @@ export const profile = {
     { value: "10+", label: "Cloud services" },
   ],
   contactBlurb:
-    "Open to product engineering, full-stack development, and technical co-founder roles. Whether it is a startup idea or a scaling challenge, I like conversations that turn the ambiguous part into a first clear move.",
+    "Open to full-stack, product engineering and mobile engineering roles, and to select projects. Whether it is a team to join or a scaling challenge, I like conversations that turn the ambiguous part into a first clear move.",
 };
 
 export const contact = {
@@ -97,17 +97,17 @@ export const experience: Role[] = [
   },
   {
     company: "Triviq · Independent / Freelance",
-    role: "Founder & Product Engineer",
+    role: "Independent Product Engineer",
     location: "",
     type: "Studio and independent",
     highlights: [
-      "Founder of Triviq, an independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
+      "Triviq is an independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
       "Services: web and platforms, mobile apps, SaaS products, AI and automation, business software, games and interactive experiences.",
       "Delivered work includes the Streefi platform and an anonymised QR referral and lead-attribution platform.",
       "Also available for selected product builds, mobile applications, SaaS, custom business systems and interactive web experiences, directly or through Triviq.",
     ],
     details: [
-      "Founder of Triviq, an independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
+      "Triviq is an independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
       "Services: web and platforms, mobile apps, SaaS products, AI and automation, business software, games and interactive experiences.",
       "Delivered work includes the Streefi platform and an anonymised QR referral and lead-attribution platform.",
       "Also takes on selected freelance work (product builds, mobile applications, SaaS, custom business systems and interactive web experiences), directly or through Triviq.",
@@ -266,7 +266,7 @@ export const projects = [
     category: "product",
     title: "Triviq Studio Site",
     summary: "The site for Triviq: static-first and performance-minded, with a WebGL hero that loads only where it can run well.",
-    role: "Founder & Product Engineer",
+    role: "Product Engineer",
     bullets: [
       "Next.js 16 App Router and Tailwind v4",
       "Static SVG hero first; WebGL scene lazy-loaded on capable tablet and desktop browsers",
@@ -371,7 +371,7 @@ export const competencies =
 export const research = [
   {
     venue: "IEEE DELCON 2024 · NEW DELHI",
-    resumeVenue: "IEEE Delhi Section Flagship Conference (DELCON 2024) · Co-author · New Delhi, India · Nov. 2024",
+    resumeVenue: "IEEE Delhi Section Flagship Conference (DELCON 2024) · Co-author · Nov. 2024",
     title: "AES-Driven Image Encryption: Overcoming Security and Transmission Challenges",
     summary:
       "Developed an AES-based image encryption technique addressing security and transmission efficiency, enhancing traditional AES for image data.",
@@ -382,7 +382,7 @@ export const research = [
   },
   {
     venue: "MULTIMEDIA TOOLS AND APPLICATIONS · SPRINGER",
-    resumeVenue: "Multimedia Tools and Applications — Springer · Co-author · Research & Software Development",
+    resumeVenue: "Multimedia Tools and Applications — Springer · Co-author",
     role: "Co-author · Research & Software Development",
     title: "Image Flare: An Interactive and Dynamic Learning Platform for Intuitive Image Processing",
     summary:
