@@ -69,7 +69,7 @@ export default function ResumePage() {
 
         <section>
           <h2>Education</h2>
-          {education.slice(0, 1).map((e) => ( // resume: degree only; schools stay on the site
+          {education.map((e) => (
             <div key={e.school}>
               <h3>{e.school}</h3>
               <div className="role-line">
