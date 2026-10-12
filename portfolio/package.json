@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build && find out -name .DS_Store -delete",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "resumes": "node scripts/generate-resumes.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

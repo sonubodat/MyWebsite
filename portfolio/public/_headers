@@ -24,3 +24,10 @@
   Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
 /apple-touch-icon.png
   Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+# Unlisted role resumes: asked not to be indexed (a crawler hint, not access control).
+/resume-*
+  X-Robots-Tag: noindex, nofollow
+/sonu-bodat-resume-*.pdf
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400

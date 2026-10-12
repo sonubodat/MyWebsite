@@ -368,6 +368,63 @@ export const skillsIntro =
 export const competencies =
   "React.js · Next.js · React Native · TypeScript · JavaScript · Flutter · Three.js (beginner) · React Three Fiber · GSAP (beginner) · Motion graphics (beginner) · Tailwind CSS · HTML5 · CSS3 · Node.js · Fastify · FastAPI · WebSockets · REST APIs · Authentication & Authorization · WhatsApp Cloud API · Google Analytics 4 · Microsoft Clarity · App Attribution Tracking · Deep Linking · SEO Optimization · DynamoDB · Supabase PostgreSQL · PostgreSQL & Prisma · SQL · Redis · Firebase · RevenueCat · Technical Product Development · Mobile App Publishing · Vendor Platform Architecture · Payment Systems · Marketing Technology Integration · Meta Ads Technical Setup · Meta Developer Platform · Razorpay Integration · OAuth (Google & Facebook Login) · AWS Lambda · AWS S3 · AWS CloudFront · AWS Amplify · AWS EC2 · AWS Secrets Manager · Cloudflare · Vercel";
 
+// Unlisted role resumes (/resume-1..4). Order is code-only: 1 full-stack, 2 React Native, 3 frontend, 4 backend.
+// Every skill and bullet below is a subset or reordering of facts already in this file; nothing new is claimed.
+const skill = {
+  Languages: ["JavaScript", "TypeScript", "SQL"],
+  Frontend: ["React.js", "Next.js", "HTML5", "CSS3", "Tailwind CSS"],
+  Mobile: ["React Native"],
+  Backend: ["Node.js", "REST APIs", "Authentication & Authorization"],
+  "Databases & Cloud": ["PostgreSQL", "Supabase", "DynamoDB", "Redis", "AWS"],
+  Integrations: ["Razorpay", "WhatsApp Cloud API", "OAuth", "QR & Deep Linking"],
+};
+const skills = (...order: (keyof typeof skill)[]) => order.map((label) => ({ label, items: skill[label] }));
+
+export const variantStreefiRole = "Product Engineer";
+
+export const resumeVariants: { summary: string; skills: { label: string; items: string[] }[]; streefi: string[] }[] = [
+  {
+    summary:
+      "Full-Stack & Mobile Software Engineer with production experience shipping web and React Native applications, including the Streefi food-tech platform. Works across frontend, backend APIs, cloud infrastructure, payments, and authentication with React, Next.js, React Native, Node.js, AWS, and Supabase, taking products from development through production.",
+    skills: skills("Languages", "Frontend", "Mobile", "Backend", "Databases & Cloud", "Integrations"),
+    streefi: [
+      "Architected a multi-platform food-tech ecosystem across React Native, Next.js, vendor, and admin products.",
+      "Built payment, OTP, social auth, QR/deep linking, and WhatsApp systems.",
+      "Designed and maintained cloud infrastructure and database integrations supporting the deployment and operation of customer, vendor, and admin applications.",
+    ],
+  },
+  {
+    summary:
+      "Software Engineer shipping production React Native applications, including the customer app for the Streefi food-tech platform. Experienced with authentication, payments, deep linking, and API integration, and with debugging device-specific issues in production.",
+    skills: skills("Mobile", "Languages", "Backend", "Integrations", "Databases & Cloud", "Frontend"),
+    streefi: [
+      "Architected and built the Streefi customer app in React Native, alongside the Next.js web platform, vendor application, and admin systems.",
+      "Built Razorpay payments with UPI app detection, authentication, OTP, Google/Facebook login, and QR/deep linking.",
+      "Handled payment verification and device-specific payment behavior in production.",
+    ],
+  },
+  {
+    summary:
+      "Software Engineer building production interfaces in React, Next.js, and TypeScript, including the Streefi web platform and customer applications. Comfortable integrating backend APIs, authentication, and payments into user interfaces.",
+    skills: skills("Frontend", "Languages", "Mobile", "Backend", "Integrations", "Databases & Cloud"),
+    streefi: [
+      "Architected and built the Streefi customer app, web platform, vendor application, and admin systems across React Native and Next.js.",
+      "Built and maintained the Streefi website with Next.js, React, and TypeScript, including interactive experiences and CDN-backed assets.",
+      "Integrated payments, OTP, social login, and QR/deep linking into the product's user flows.",
+    ],
+  },
+  {
+    summary:
+      "Software Engineer building production backend systems and APIs in Node.js on AWS, DynamoDB, Supabase, and Redis, including the Streefi food-tech platform. Experienced with authentication, payment and third-party integrations, and cloud infrastructure.",
+    skills: skills("Backend", "Databases & Cloud", "Integrations", "Languages", "Frontend", "Mobile"),
+    streefi: [
+      "Designed and maintained cloud infrastructure and database integrations supporting the deployment and operation of customer, vendor, and admin applications.",
+      "Built production integrations for Razorpay payments, authentication, OTP, Google/Facebook login, QR/deep linking, and WhatsApp Cloud API.",
+      "Built backend APIs behind the Streefi customer app, web platform, vendor application, and admin systems.",
+    ],
+  },
+];
+
 export const research = [
   {
     venue: "IEEE DELCON 2024 · NEW DELHI",
