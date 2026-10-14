@@ -112,9 +112,7 @@ export default function Home() {
           <div className="section-inner">
             <Label n="02">Experience</Label>
             <h2 className="section-title">Experience</h2>
-            <p className="section-lede">
-              From first commit to production debugging, across product, platform, and growth infrastructure.
-            </p>
+            <p className="section-lede">Where I have worked and what I owned.</p>
             <div className="roles">
               <i className="roles-progress" aria-hidden="true" />
               {experience.map((x, i) => (
@@ -137,7 +135,7 @@ export default function Home() {
                     <p className="role-title">{x.role}</p>
                     {x.location && <p className="role-loc">{x.location}</p>}
                     <ul>
-                      {x.highlights.map((h) => (
+                      {x.brief.map((h) => (
                         <li key={h}>{h}</li>
                       ))}
                     </ul>
@@ -153,7 +151,7 @@ export default function Home() {
           <div className="section-inner">
             <Label n="03">Projects</Label>
             <h2 className="section-title">Projects</h2>
-            <p className="section-lede">Products where systems thinking meets a sharp user experience.</p>
+            <p className="section-lede">Selected work: role, stack and status.</p>
             {projects
               .filter((p) => p.category !== "research")
               .map((p, i) => (
@@ -256,9 +254,7 @@ export default function Home() {
           <div className="section-inner">
             <Label n="05">Motion · Beginner</Label>
             <h2 className="section-title">Motion graphics.</h2>
-            <p className="section-lede">
-              Short reels I made for Untold while learning motion design. Early work, shown as it is.
-            </p>
+            <p className="section-lede">Early motion work for Untold.</p>
             <div className="reels">
               {motion.map((m) => (
                 <figure className="reel" key={m.slug}>
@@ -277,9 +273,7 @@ export default function Home() {
           <div className="section-inner">
             <Label n="06">Lab / Research</Label>
             <h2 className="section-title">Lab / Research</h2>
-            <p className="section-lede">
-              Curiosity gets more useful when it becomes something other people can build on.
-            </p>
+            <p className="section-lede">Two published papers, as co-author.</p>
             <div className="lab">
               {research.map((r, i) => {
                 const proj = projects.find((p) => p.slug === r.projectSlug);

@@ -7,8 +7,7 @@ export const profile = {
   title: "Full-Stack & Mobile Software Engineer",
   role: "Product Engineer",
   heroTitle: "Product Engineer · Co-Founder, Streefi",
-  tagline:
-    "I build production software across mobile, web and backend systems — through Triviq, my own products and selected freelance work.",
+  tagline: "Full-stack and mobile engineer. I ship React Native, Next.js and Node.js products from idea to production.",
   heroCorners: [
     { n: "01", label: "Projects", note: "selected builds", href: "#projects" },
     { n: "02", label: "Experience", note: "streefi · brainybeams", href: "#experience" },
@@ -21,21 +20,19 @@ export const profile = {
   summary:
     "Full-Stack & Mobile Software Engineer with production experience shipping web and React Native applications, including the Streefi food-tech platform. Skilled across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, deep linking, and third-party integrations, with a strong background in Next.js, React, React Native, Node.js, AWS, DynamoDB, and Supabase — and a track record of taking products from development through production.",
   about: [
-    "I work across frontend, backend APIs, cloud infrastructure, payments, authentication, analytics, and third-party integrations.",
-    "Core stack: React Native, Next.js, TypeScript, Node.js, AWS, DynamoDB, Supabase, Redis, and Vercel.",
+    "What I do: frontend, backend APIs, cloud, payments and authentication.",
+    "Core stack: React Native, Next.js, TypeScript, Node.js, AWS, DynamoDB, Supabase, Redis.",
   ],
   statement: "I build products from interface to infrastructure.",
   domains: ["Mobile", "Web", "Backend", "Cloud", "Product systems"],
-  aboutLede:
-    "Full-Stack & Mobile Software Engineer building and shipping production web and React Native products.",
+  aboutLede: "Full-stack and mobile engineer shipping production web and React Native apps.",
   stats: [
     { value: "2+", label: "Years experience" },
     { value: "4", label: "Platforms shipped" },
     { value: "2", label: "Research papers" },
     { value: "10+", label: "Cloud services" },
   ],
-  contactBlurb:
-    "Open to full-stack, product engineering and mobile engineering roles, and to select projects. Whether it is a team to join or a scaling challenge, I like conversations that turn the ambiguous part into a first clear move.",
+  contactBlurb: "Open to full-stack, product engineering and mobile engineering roles, and to select projects.",
 };
 
 export const contact = {
@@ -48,7 +45,7 @@ export const contact = {
 
 export type Role = {
   company: string; role: string; location: string; start?: string; end?: string; type: string;
-  highlights: string[]; details: string[]; tags: string[];
+  highlights: string[]; brief: string[]; details: string[]; tags: string[];
 };
 
 /** "Feb 2025 — Present" or "" when no dates are on record (Triviq / freelance: none invented). */
@@ -67,6 +64,11 @@ export const experience: Role[] = [
       "Built payment, OTP, social auth, QR/deep linking, analytics, attribution, and WhatsApp systems.",
       "Designed production infrastructure across AWS, Vercel, Cloudflare, Supabase, and Redis.",
     ],
+    brief: [
+      "Own the product end to end: customer app, vendor app, web and admin.",
+      "Built payments (Razorpay), auth, OTP, QR/deep linking and WhatsApp messaging.",
+      "Set up the cloud: AWS, Supabase, Redis, Vercel, Cloudflare.",
+    ],
     details: [
       "Architected and built Streefi across React Native, Next.js, and backend APIs, spanning the customer app, web platform, vendor application, and admin systems.",
       "Built production integrations for Razorpay payments, UPI app detection, authentication, QR/deep linking, OTP, Google/Facebook login, analytics, and marketing attribution.",
@@ -79,21 +81,24 @@ export const experience: Role[] = [
   },
   {
     company: "BrainyBeams Technology",
-    role: "Native App Developer",
+    role: "Junior Mobile App Developer",
     location: "Ahmedabad, Gujarat",
     start: "Nov 2024",
     end: "Apr 2025",
-    type: "Full-time",
+    type: "Internship",
     highlights: [
-      "Developed mobile application features with API integrations, application state, authentication, and production debugging.",
-      "Implemented reusable interfaces and resolved device-specific issues across API-connected workflows.",
+      "Built Happy Happenings, a wedding planner mobile app in JavaScript, as an internship project.",
+      "Worked on API integrations and authentication, and fixed device-specific issues.",
+    ],
+    brief: [
+      "Built Happy Happenings, a wedding planner mobile app in JavaScript.",
+      "Handled API integration, authentication and device-specific bug fixes.",
     ],
     details: [
-      "Developed and maintained native/mobile application features, working with API integrations, application state, authentication, and production debugging.",
-      "Implemented reusable mobile interfaces and integrated backend services while troubleshooting device-specific and production issues.",
-      "Worked across application development and API-connected workflows, contributing to feature implementation and maintenance.",
+      "Built Happy Happenings, a wedding planner mobile app in JavaScript, as an internship project.",
+      "Worked on API integrations and authentication, and fixed device-specific issues.",
     ],
-    tags: ["React Native", "REST APIs", "Auth"],
+    tags: ["JavaScript", "REST APIs", "Auth"],
   },
   {
     company: "Triviq · Independent / Freelance",
@@ -105,6 +110,10 @@ export const experience: Role[] = [
       "Services: web and platforms, mobile apps, SaaS products, AI and automation, business software, games and interactive experiences.",
       "Delivered work includes the Streefi platform and an anonymised QR referral and lead-attribution platform.",
       "Also available for selected product builds, mobile applications, SaaS, custom business systems and interactive web experiences, directly or through Triviq.",
+    ],
+    brief: [
+      "Independent studio: web, mobile and SaaS builds for clients and for our own products.",
+      "Delivered the Streefi platform and a QR referral platform (client anonymised).",
     ],
     details: [
       "Triviq is an independent product and engineering studio building web, mobile, SaaS and custom software for clients while developing products internally.",
@@ -150,13 +159,12 @@ export const projects = [
     kicker: "Own Product",
     category: "product",
     title: "Untold",
-    summary: "A safe space to talk, freely and anonymously: mental-health support for iOS and Android.",
+    summary: "Anonymous mental-health support app for iOS and Android.",
     role: "Product engineering",
     bullets: [
-      "Flutter app for iOS and Android: mood check-ins, journaling, premium tier",
-      "FastAPI backend with Supabase data under row-level security",
-      "Optional Firebase sign-in (Google, Apple) that only buys sync",
-      "RevenueCat subscriptions with remote-config keys",
+      "Flutter app: mood check-ins, journaling, premium tier",
+      "FastAPI backend with Supabase (row-level security)",
+      "RevenueCat subscriptions",
     ],
     stack: "Flutter · FastAPI · Supabase · Firebase · RevenueCat",
     note: "In development",
@@ -174,14 +182,13 @@ export const projects = [
     kicker: "Full-Stack Product",
     category: "product",
     title: "Streefi Platform",
-    summary:
-      "Co-built the food-tech platform end to end, from customer discovery to vendor operations, across four production surfaces.",
+    summary: "Street-food discovery platform: customer app, vendor app, web and admin.",
     role: "Co-Founder & Product Engineer",
     bullets: [
-      "Multi-platform React Native customer & vendor apps",
-      "Payments, UPI intent detection, QR & deep linking",
-      "Node.js backend and AWS infrastructure",
-      "Admin analytics, attribution & WhatsApp automation",
+      "React Native customer and vendor apps",
+      "Razorpay payments, UPI intent, QR and deep linking",
+      "Node.js backend on AWS",
+      "Admin analytics and WhatsApp automation",
     ],
     stack: "React Native · Next.js · Node.js · AWS · Razorpay",
     note: "Private build",
@@ -199,14 +206,12 @@ export const projects = [
     kicker: "Client Work · Anonymised",
     category: "product",
     title: "QR Referral & Lead-Attribution Platform",
-    summary:
-      "Vendor referral tracking for an energy business: every physical QR scan and referral traced to the right vendor and lead at the moment it happens.",
+    summary: "Traces every QR scan and referral to the right vendor and lead, for an energy business.",
     role: "Product engineering",
     bullets: [
-      "Controlled QR inventory with assignment history",
-      "Vendor self-registration with sales-assisted verification",
-      "Public enquiry form behind each QR link, with scan and lead attribution",
-      "Repeat-referral detection and admin-managed payout status",
+      "QR inventory with assignment history",
+      "Vendor sign-up with sales verification",
+      "Scan and lead attribution, repeat-referral detection, payout status",
     ],
     stack: "React · Node.js · Prisma · Postgres",
     note: "Client unnamed",
@@ -220,14 +225,12 @@ export const projects = [
     kicker: "Web",
     category: "product",
     title: "Streefi Web",
-    summary:
-      "The Streefi website: a Next.js marketing and discovery site with 3D and interactive experiences and CDN-backed assets.",
+    summary: "Streefi's Next.js website with 3D and interactive sections.",
     role: "Co-Founder & Product Engineer",
     bullets: [
-      "Next.js, React and TypeScript",
-      "3D / interactive experiences",
+      "Next.js, React, TypeScript",
+      "3D / interactive sections, CDN-backed assets",
       "Headless CMS content",
-      "CDN-backed assets and production deployment",
     ],
     stack: "Next.js · React · TypeScript · Three.js",
     note: "Live",
@@ -245,33 +248,36 @@ export const projects = [
     kicker: "Realtime Game",
     category: "product",
     title: "Tap & Tap",
-    summary: "A 10-second competitive arcade where anyone can challenge anyone.",
+    summary: "Realtime 1v1 tap-battle game with 10-second matches.",
     role: "Product engineering",
     bullets: [
-      "Flutter client (Flame, Riverpod) with live 1v1 tap battles, reconnection and rematch",
-      "Node.js + Fastify backend with REST and WebSocket",
-      "PostgreSQL (Supabase) via Prisma; Redis for matchmaking, rate limits and leaderboards",
-      "Timing-based anti-cheat scoring (detection only)",
+      "Flutter client: live 1v1 battles, reconnect, rematch, daily quests, coin shop",
+      "Node.js + Fastify backend (REST, WebSocket)",
+      "Redis matchmaking and leaderboards; Postgres via Prisma",
+      "Anti-cheat timing checks (detection only)",
     ],
     stack: "Flutter · Flame · Node.js · Fastify · Prisma · PostgreSQL · Redis",
     note: "Core prototype",
     link: undefined,
     diagram: undefined,
     mediaKind: "phones" as "phones" | "wide",
-    media: [{ src: "/projects/tapntap-home.webp", alt: "Tap & Tap app: home screen with 1v1 tap battle card", w: 720, h: 1565 }] as Media[],
+    media: [
+      { src: "/projects/tapntap-app-home.webp", alt: "Tap & Tap app: home screen with 1v1 play, practice, 2P local and ranks", w: 720, h: 1559 },
+      { src: "/projects/tapntap-app-ranks.webp", alt: "Tap & Tap app: Top Tappers leaderboard", w: 720, h: 1559 },
+      { src: "/projects/tapntap-app-shop.webp", alt: "Tap & Tap app: coin shop with power-ups", w: 720, h: 1559 },
+    ] as Media[],
   },
   {
     slug: "triviq-site",
     kicker: "Studio Site",
     category: "product",
     title: "Triviq Studio Site",
-    summary: "The site for Triviq: static-first and performance-minded, with a WebGL hero that loads only where it can run well.",
+    summary: "Studio site with a WebGL hero that loads only where it runs well.",
     role: "Product Engineer",
     bullets: [
-      "Next.js 16 App Router and Tailwind v4",
-      "Static SVG hero first; WebGL scene lazy-loaded on capable tablet and desktop browsers",
-      "Content-driven sections and a validated contact API (honeypot, rate limit)",
-      "GSAP and React Three Fiber",
+      "Next.js 16 App Router, Tailwind v4",
+      "Static SVG hero first; WebGL lazy-loaded on capable devices",
+      "Validated contact API (honeypot, rate limit)",
     ],
     stack: "Next.js · Tailwind · GSAP · Three.js",
     note: "In development",
@@ -285,8 +291,7 @@ export const projects = [
     kicker: "Research / Security",
     category: "research",
     title: "AES-Driven Image Encryption",
-    summary:
-      "An AES-based image encryption technique addressing security and transmission efficiency in digital image communication.",
+    summary: "AES-based image encryption for secure, efficient image transmission.",
     role: "Co-author",
     bullets: ["Security analysis against common attacks", "Transmission efficiency optimization", "Comparative performance evaluation"],
     stack: "Python · OpenCV · MATLAB",
@@ -301,8 +306,7 @@ export const projects = [
     kicker: "EdTech / Research",
     category: "research",
     title: "Image Flare",
-    summary:
-      "An interactive image-processing learning platform with real-time filters, restoration, histograms, and comparative visualization.",
+    summary: "Interactive image-processing learning platform: real-time filters, restoration, histograms.",
     role: "Co-author",
     bullets: ["Interactive image processing workflows", "Behavioral study integration", "Clear visual feedback for learning"],
     stack: "Python · NumPy · Matplotlib",
@@ -342,28 +346,27 @@ export const motion = [
 export const capabilities = [
   {
     n: "01",
-    title: "Product & Frontend",
-    items: ["React.js", "Next.js", "React Native", "Flutter", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3", "GSAP (beginner)", "Three.js (beginner)", "React Three Fiber", "Motion graphics (beginner)"],
+    title: "Frontend & Mobile",
+    items: ["React.js", "Next.js", "React Native", "Flutter", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5 · CSS3", "GSAP · Three.js (beginner)"],
   },
   {
     n: "02",
-    title: "Backend & Systems",
-    items: ["Node.js", "Fastify", "FastAPI", "REST APIs", "WebSockets", "Authentication & Authorization", "OAuth (Google & Facebook)", "Razorpay & UPI payments", "WhatsApp Cloud API", "Deep Linking"],
+    title: "Backend",
+    items: ["Node.js", "FastAPI", "REST APIs", "WebSockets", "Auth & OAuth", "Razorpay & UPI", "WhatsApp Cloud API"],
   },
   {
     n: "03",
     title: "Data & Cloud",
-    items: ["DynamoDB", "Supabase PostgreSQL", "PostgreSQL & Prisma", "SQL", "Redis", "Firebase", "AWS Lambda", "S3", "CloudFront", "Amplify", "EC2", "Secrets Manager", "Cloudflare", "Vercel"],
+    items: ["PostgreSQL · Prisma", "Supabase", "DynamoDB", "Redis", "Firebase", "AWS (Lambda, S3, CloudFront, EC2)", "Cloudflare", "Vercel"],
   },
   {
     n: "04",
-    title: "Product Engineering",
-    items: ["Technical product development", "Vendor platform architecture", "Mobile app publishing", "Subscriptions (RevenueCat)", "Analytics & attribution", "Google Analytics 4", "Microsoft Clarity", "Mixpanel", "Meta Developer Platform", "SEO"],
+    title: "Product",
+    items: ["Product development", "Mobile app publishing", "Subscriptions (RevenueCat)", "Analytics & attribution", "SEO"],
   },
 ];
 
-export const skillsIntro =
-  "My work lives at the intersection of interfaces, infrastructure, product decisions, and the operational details that make software survive contact with the real world.";
+export const skillsIntro = "Tools I use in production.";
 
 export const competencies =
   "React.js · Next.js · React Native · TypeScript · JavaScript · Flutter · Three.js (beginner) · React Three Fiber · GSAP (beginner) · Motion graphics (beginner) · Tailwind CSS · HTML5 · CSS3 · Node.js · Fastify · FastAPI · WebSockets · REST APIs · Authentication & Authorization · WhatsApp Cloud API · Google Analytics 4 · Microsoft Clarity · App Attribution Tracking · Deep Linking · SEO Optimization · DynamoDB · Supabase PostgreSQL · PostgreSQL & Prisma · SQL · Redis · Firebase · RevenueCat · Technical Product Development · Mobile App Publishing · Vendor Platform Architecture · Payment Systems · Marketing Technology Integration · Meta Ads Technical Setup · Meta Developer Platform · Razorpay Integration · OAuth (Google & Facebook Login) · AWS Lambda · AWS S3 · AWS CloudFront · AWS Amplify · AWS EC2 · AWS Secrets Manager · Cloudflare · Vercel";
@@ -430,8 +433,7 @@ export const research = [
     venue: "IEEE DELCON 2024 · NEW DELHI",
     resumeVenue: "IEEE Delhi Section Flagship Conference (DELCON 2024) · Co-author · Nov. 2024",
     title: "AES-Driven Image Encryption: Overcoming Security and Transmission Challenges",
-    summary:
-      "Developed an AES-based image encryption technique addressing security and transmission efficiency, enhancing traditional AES for image data.",
+    summary: "AES-based image encryption for secure, efficient image transmission.",
     resumeSummary:
       "Developed an AES-based image encryption technique addressing security and transmission efficiency.",
     doi: "10.1109/DELCON64804.2024.10866928",
@@ -442,8 +444,7 @@ export const research = [
     resumeVenue: "Multimedia Tools and Applications — Springer · Co-author",
     role: "Co-author · Research & Software Development",
     title: "Image Flare: An Interactive and Dynamic Learning Platform for Intuitive Image Processing",
-    summary:
-      "Developed an interactive image-processing learning platform with real-time filtering, restoration, histogram analysis, and comparative visualization.",
+    summary: "Interactive image-processing learning platform with real-time filters, restoration and histograms.",
     resumeSummary:
       "Developed an interactive image-processing learning platform with real-time filtering, restoration, histogram analysis, image enhancement, and comparative visualization, supported by a behavioral study evaluating its educational impact.",
     doi: "10.1007/s11042-026-21469-2",

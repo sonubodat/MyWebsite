@@ -1,4 +1,4 @@
-// Prints public/sonu-bodat-resume-{1..4}.pdf from the BUILT pages in out/ and checks each result.
+// Prints public/sonu-bodat-resume.pdf (general, from /resume) and sonu-bodat-resume-{1..4}.pdf from the BUILT pages in out/ and checks each result.
 // Usage: pnpm build && pnpm resumes && pnpm build   (the second build copies the PDFs into out/)
 // Needs Google Chrome and poppler (pdfinfo, pdftotext). Fails non-zero on any broken check.
 import { createServer } from "node:http";
@@ -30,12 +30,12 @@ await new Promise((ok) => server.listen(0, "127.0.0.1", ok));
 const port = server.address().port;
 
 let failed = false;
-const fail = (n, msg) => ((failed = true), console.error(`resume-${n}: FAIL ${msg}`));
+const fail = (n, msg) => ((failed = true), console.error(`resume${n ? `-${n}` : ""}: FAIL ${msg}`));
 try {
-  for (let n = 1; n <= 4; n++) {
-    const pdf = join(root, "public", `sonu-bodat-resume-${n}.pdf`);
+  for (const n of ["", 1, 2, 3, 4]) {
+    const pdf = join(root, "public", n ? `sonu-bodat-resume-${n}.pdf` : "sonu-bodat-resume.pdf");
     // async on purpose: a sync exec would block this process, and with it the server Chrome is fetching from
-    await run(CHROME, ["--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--virtual-time-budget=8000", `--print-to-pdf=${pdf}`, `http://127.0.0.1:${port}/resume-${n}`], { timeout: 60000 });
+    await run(CHROME, ["--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--virtual-time-budget=8000", `--print-to-pdf=${pdf}`, `http://127.0.0.1:${port}/resume${n ? `-${n}` : ""}`], { timeout: 60000 });
 
     const pages = Number(/^Pages:\s+(\d+)/m.exec(execFileSync("pdfinfo", [pdf], { encoding: "utf8" }))?.[1]);
     const size = /^Page size:.*\(A4\)/m.test(execFileSync("pdfinfo", [pdf], { encoding: "utf8" }));
@@ -48,7 +48,7 @@ try {
     for (const s of MUST) if (!text.includes(s)) fail(n, `text missing "${s}"`);
     if (!links) fail(n, "no clickable links");
     if (!html) fail(n, "no selectable text");
-    console.log(`resume-${n}: ${pages} page, A4=${size}, ${links} links, ${text.length} chars`);
+    console.log(`resume${n ? `-${n}` : ""}: ${pages} page, A4=${size}, ${links} links, ${text.length} chars`);
   }
 } finally {
   server.close();
