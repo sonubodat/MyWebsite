@@ -1,4 +1,4 @@
-// Prints public/sonu-bodat-resume.pdf (general, from /resume) and sonu-bodat-resume-{1..4}.pdf from the BUILT pages in out/ and checks each result.
+// Prints public/sonu-bodat-resume.pdf (general, from /resume) and sonu-bodat-resume-{1..5}.pdf from the BUILT pages in out/ and checks each result.
 // Usage: pnpm build && pnpm resumes && pnpm build   (the second build copies the PDFs into out/)
 // Needs Google Chrome and poppler (pdfinfo, pdftotext). Fails non-zero on any broken check.
 import { createServer } from "node:http";
@@ -14,7 +14,10 @@ const out = join(root, "out");
 const CHROME = process.env.CHROME ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const types = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".woff2": "font/woff2", ".webp": "image/webp", ".svg": "image/svg+xml", ".png": "image/png" };
 // Every string a correct resume must contain, whatever the variant.
-const MUST = ["Sonu Bodat", "Parth Institute", "81.5%", "Alembic School", "78%", "Pandit Deendayal Energy University", "sonubodat77@gmail.com"];
+const MUST = ["Sonu Bodat", "Parth Institute", "Alembic School", "Pandit Deendayal Energy University", "sonubodat77@gmail.com"];
+// /resume-5 is the short resume: no scores. Every other resume must still carry them.
+const SCORES = ["81.5%", "78%", "CGPA"];
+const SHORT_FORBIDDEN = [...SCORES, "Triviq", "Solarium", "Co-Founder", "Flutter"];
 
 if (!existsSync(join(out, "resume-1.html"))) throw new Error("out/ is missing: run pnpm build first");
 if (!existsSync(CHROME)) throw new Error(`Chrome not found at ${CHROME} (set CHROME=...)`);
@@ -32,7 +35,7 @@ const port = server.address().port;
 let failed = false;
 const fail = (n, msg) => ((failed = true), console.error(`resume${n ? `-${n}` : ""}: FAIL ${msg}`));
 try {
-  for (const n of ["", 1, 2, 3, 4]) {
+  for (const n of ["", 1, 2, 3, 4, 5]) {
     const pdf = join(root, "public", n ? `sonu-bodat-resume-${n}.pdf` : "sonu-bodat-resume.pdf");
     // async on purpose: a sync exec would block this process, and with it the server Chrome is fetching from
     await run(CHROME, ["--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--virtual-time-budget=8000", `--print-to-pdf=${pdf}`, `http://127.0.0.1:${port}/resume${n ? `-${n}` : ""}`], { timeout: 60000 });
@@ -45,6 +48,8 @@ try {
 
     if (pages !== 1) fail(n, `${pages} pages, expected 1`);
     if (!size) fail(n, "page size is not A4");
+    for (const s of n === 5 ? [] : SCORES) if (!text.includes(s)) fail(n, `text missing "${s}"`);
+    for (const s of n === 5 ? SHORT_FORBIDDEN : []) if (text.includes(s)) fail(n, `text must not contain "${s}"`);
     for (const s of MUST) if (!text.includes(s)) fail(n, `text missing "${s}"`);
     if (!links) fail(n, "no clickable links");
     if (!html) fail(n, "no selectable text");

@@ -428,6 +428,47 @@ export const resumeVariants: { summary: string; skills: { label: string; items: 
   },
 ];
 
+// /resume-5: the short, scan-in-30-seconds resume. Only reorders/trims facts already above; no scores, no founder title.
+export const shortResume = {
+  summary:
+    "Full-Stack & Mobile Software Engineer who ships production React Native and Next.js applications with Node.js backends on AWS. Experienced in payments, authentication and third-party integrations, from first build to production.",
+  roles: [
+    {
+      company: "Streefi Private Limited",
+      role: "Founding Software Engineer",
+      bullets: [
+        "Built and maintain a production food-tech platform: customer and vendor mobile apps, web, admin and backend APIs.",
+        "Implemented authentication, Razorpay payments, QR and deep linking, analytics and third-party integrations across mobile and web.",
+        "Deployed and run the infrastructure on AWS, Supabase and Redis.",
+      ],
+    },
+    {
+      company: "BrainyBeams Technology",
+      role: "Junior Mobile App Developer (Internship)",
+      bullets: ["Built Happy Happenings, a wedding planner mobile app in JavaScript, including API integration and authentication."],
+    },
+    {
+      company: "Freelance",
+      lookup: "Triviq · Independent / Freelance", // only used to find location/dates (none on record)
+      role: "Freelance Software Engineer",
+      bullets: [
+        "Built a QR referral and lead-attribution platform for an energy business (client anonymised): QR inventory, vendor sign-up with sales verification, scan and lead tracking, payout status. React, Node.js, Prisma, PostgreSQL.",
+      ],
+    },
+  ] as { company: string; lookup?: string; role: string; bullets: string[] }[],
+  projects: [
+    { name: "Tap & Tap", line: "Realtime 1v1 game. Node.js (Fastify), WebSocket, Redis, PostgreSQL." },
+    { name: "Untold", line: "Anonymous mental-health mobile app. FastAPI, Supabase, RevenueCat." },
+  ],
+  skills: [
+    { label: "Languages", items: "JavaScript, TypeScript, SQL" },
+    { label: "Frontend & Mobile", items: "React.js, Next.js, React Native, Tailwind CSS" },
+    { label: "Backend", items: "Node.js, REST APIs, Authentication & Authorization" },
+    { label: "Data & Cloud", items: "PostgreSQL, Supabase, DynamoDB, Redis, AWS" },
+    { label: "Integrations", items: "Razorpay, WhatsApp Cloud API, OAuth, QR & Deep Linking" },
+  ],
+};
+
 export const research = [
   {
     venue: "IEEE DELCON 2024 · NEW DELHI",
