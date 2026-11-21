@@ -422,9 +422,22 @@ vec3 grassLayer(vec3 base, vec2 q, float t, float d, float m, vec3 gcol, out flo
   vec2 qs = q - vec2(sw, 0.0);
   vec4 g = texture2D(tGrass, qs);
   vec4 gc = texture2D(tGrassCol, qs);
-  cov = g.a;
   vec3 sil = gcol + vec3(0.95, 0.52, 0.22) * pow(w0, 1.7) * 0.12 * uWarm;     // a faint backlit amber on the blade tips
-  return mix(base, revealColor(sil, vec4(gc.rgb, g.a), d, m), g.a);
+  vec3 col = mix(base, revealColor(sil, vec4(gc.rgb, g.a), d, m), g.a);
+  // Seal the hairline gap between the grass and the ground: a pixel that has grass just above it (or beside it, across a seam in the
+  // grass strip) and ground just below it is part of the grass base, so it gets the ground colour instead of letting the water show through.
+  float up = max(max(texture2D(tGrass, qs + vec2(0.0, 0.012)).a, texture2D(tGrass, qs + vec2(0.0, 0.028)).a),
+                 max(texture2D(tGrass, qs + vec2(0.02, 0.02)).a, texture2D(tGrass, qs + vec2(-0.02, 0.02)).a));
+  float side = max(max(max(texture2D(tGrass, qs + vec2(0.02, 0.0)).a, texture2D(tGrass, qs + vec2(-0.02, 0.0)).a),
+                       max(texture2D(tGrass, qs + vec2(0.045, 0.0)).a, texture2D(tGrass, qs + vec2(-0.045, 0.0)).a)),
+                   max(max(texture2D(tGrass, qs + vec2(0.07, 0.0)).a, texture2D(tGrass, qs + vec2(-0.07, 0.0)).a),
+                       max(texture2D(tGrass, qs + vec2(0.1, 0.0)).a, texture2D(tGrass, qs + vec2(-0.1, 0.0)).a)));
+  side *= 1.0 - smoothstep(0.09, 0.105, q.y);                    // only low down, in the body of the grass mat: never the blade tips
+  float down = max(max(texture2D(tTex, q - vec2(0.0, 0.02)).a, texture2D(tTex, q - vec2(0.0, 0.05)).a), texture2D(tTex, q - vec2(0.0, 0.09)).a);
+  float seal = smoothstep(0.05, 0.35, max(up, side)) * smoothstep(0.1, 0.5, down) * (1.0 - g.a);
+  col = mix(col, gcol, seal);
+  cov = max(g.a, seal);
+  return col;
 }
 `;
 
