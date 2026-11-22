@@ -5,7 +5,7 @@ import { profile } from "@/lib/portfolio";
 import type { SunsetHandle } from "@/lib/sunsetGL";
 import { DEFAULT_PARAMS, SCROLL_T0, type SunsetParams } from "@/lib/sunsetTime";
 
-// Experimental hero (/test): a night-time 2.5D Three.js scene (sunset-to-night is still available via ?t= and lib/sunsetTime.ts). Sky, ocean, ridge+figures and tree are four depth planes.
+// Hero (home + /test): a night-time 2.5D Three.js scene (sunset-to-night is still available via ?t= and lib/sunsetTime.ts). Sky, ocean, ridge+figures, tree and foreground rocks are five depth planes.
 // The page sits at deep night (t = 1; scroll does not move time while SCROLL_T0 = SCROLL_T1). Inspect any moment with ?t=0 (sunset),
 // ?t=0.5 (twilight), ?t=1 (night), and add ?tune=1 for the slider overlay. All the art-direction knobs are in lib/sunsetTime.ts.
 // The static CSS gradient + the two silhouette PNGs are first paint and the fallback when WebGL is unavailable.
@@ -17,7 +17,7 @@ const SLIDERS: { key: keyof SunsetParams; label: string; max: number }[] = [
   { key: "foam", label: "foam", max: 2 },
 ];
 
-export default function SunsetHero() {
+export default function SunsetHero({ linkBase = "/" }: { linkBase?: string }) {
   const wrap = useRef<HTMLDivElement>(null);
   const host = useRef<HTMLElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -43,7 +43,7 @@ export default function SunsetHero() {
       const h = await mountSunset(
         host.current,
         canvas.current,
-        { ridge: "/hero/ridge-subject.png", tree: "/hero/tree-front.png", ridgeColor: "/hero/subject-color.png", treeColor: "/hero/tree-color.png", grassMid: "/hero/grass-mid.png", grassFront: "/hero/grass-front.png", grassMidColor: "/hero/grass-mid-color.png", grassFrontColor: "/hero/grass-front-color.png" },
+        { ridge: "/hero/ridge-subject.png", tree: "/hero/tree-front.png", ridgeColor: "/hero/subject-color.png", treeColor: "/hero/tree-color.png", grassMid: "/hero/grass-mid.png", grassFront: "/hero/grass-front.png", grassMidColor: "/hero/grass-mid-color.png", grassFrontColor: "/hero/grass-front-color.png", rocks: "/hero/rocks.webp", terrain: "/hero/terrain.webp" },
         { onReady: () => setGl(true), onFail: () => setGl(false) },
         { time: t0 },
       );
@@ -105,7 +105,7 @@ export default function SunsetHero() {
         <header className="sh-bar">
           <nav className="sh-nav" aria-label="Sections">
             {profile.heroCorners.map((c) => (
-              <a key={c.n} href={`/${c.href}`}>
+              <a key={c.n} href={`${linkBase}${c.href}`}>
                 <b>{c.n}</b> {c.label}
               </a>
             ))}

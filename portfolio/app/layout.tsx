@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary", images: ["/sonu-512.webp"], title, description: "Full-Stack and Mobile Software Engineer building products from architecture to production." },
 };
 
-export const viewport: Viewport = { themeColor: "#07130f" };
+export const viewport: Viewport = { themeColor: "#070908" };
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -70,9 +70,6 @@ const jsonLd = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${space.variable} ${manrope.variable} ${mono.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('hero-pre')" }} />
-      </head>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {children}

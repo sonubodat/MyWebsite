@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-// Scroll storytelling: hero exit, About, Experience, Projects (+QR flow), Skills, Motion, Lab, Education. One timeline per block (no per-element triggers).
+// Scroll storytelling: About (scrubbed words), Experience, Projects (+QR flow), Skills, Motion (pinned sideways strip on desktop), Lab, Education. One timeline per block (no per-element triggers).
 // GSAP + plugins load after mount (dynamic import) so they stay off the critical path. Reduced motion => nothing runs.
 // Content is visible by default; GSAP only sets hidden states when it runs, so no-JS / failure leaves everything readable.
 export default function ScrollStory() {
@@ -34,7 +34,15 @@ export default function ScrollStory() {
             gsap.from(self.lines, { yPercent: 110, duration: 1.05, ease: "power4.out", stagger: 0.09, scrollTrigger: at(".about .statement", "top 85%") }),
         });
         gsap.from(".domains li", { opacity: 0, y: 14, duration: 0.7, stagger: 0.07, ease: "power3.out", scrollTrigger: at(".domains", "top 88%"), ...clear });
-        gsap.from(".about-body > *", { opacity: 0, y: 32, duration: 0.9, stagger: 0.12, ease: "power3.out", scrollTrigger: at(".about-body", "top 80%"), ...clear });
+        gsap.from(".about-body > .about-lede", { opacity: 0, y: 32, duration: 0.9, ease: "power3.out", scrollTrigger: at(".about-body", "top 80%"), ...clear });
+        // the signature moment: each paragraph's words light up from grey as it crosses the screen
+        all(".about-copy p").forEach((para) =>
+          SplitText.create(para, {
+            type: "words",
+            autoSplit: true,
+            onSplit: (self) => gsap.fromTo(self.words, { opacity: 0.16 }, { opacity: 1, ease: "none", stagger: 0.12, scrollTrigger: { trigger: para, start: "top 82%", end: "bottom 55%", scrub: 0.6 } }),
+          }),
+        );
         gsap.from(".stat", { opacity: 0, y: 26, duration: 0.8, stagger: 0.1, ease: "power3.out", scrollTrigger: at(".stats", "top 85%"), ...clear });
         all<HTMLElement>(".stat-number").forEach((el) => {
           const m = /^(\d+)(.*)$/.exec(el.textContent ?? "");
@@ -71,7 +79,12 @@ export default function ScrollStory() {
           const figs = all("figure", p);
           if (figs.length) {
             const media = p.querySelector(".project-media")!;
-            gsap.fromTo(figs, { clipPath: "inset(100% 0% 0% 0% round 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 28px)", duration: 1.25, ease: "power4.inOut", stagger: 0.14, scrollTrigger: at(media, "top 85%"), ...clear });
+            gsap.fromTo(figs, { clipPath: "inset(100% 0% 0% 0% round 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 28px)", duration: 1.25, ease: "power4.inOut", stagger: 0.14, scrollTrigger: at(media, "top 85%"), clearProps: "clipPath" });
+            // phones drift against the scroll at their own speed (the middle one most)
+            figs.forEach((f, n) => {
+              const d = figs.length === 3 ? [34, 70, 34][n] : 24;
+              gsap.fromTo(f, { yPercent: d / 4 }, { yPercent: -d / 4, ease: "none", scrollTrigger: { trigger: f, start: "top bottom", end: "bottom top", scrub: true } });
+            });
             gsap.from(all("img", media), { scale: 1.14, duration: 1.7, ease: "power3.out", stagger: 0.14, scrollTrigger: at(media, "top 85%"), ...clear });
           }
           gsap.from(p.querySelector(".project-meta"), { opacity: 0, y: 24, duration: 0.8, ease: "power3.out", scrollTrigger: at(p.querySelector(".project-meta")!, "top 92%"), ...clear });
@@ -85,13 +98,6 @@ export default function ScrollStory() {
             .from(all(".cap-items li", cap), { opacity: 0, y: 12, duration: 0.6, stagger: 0.025, ease: "power3.out", ...clear }, 0.15);
           ScrollTrigger.create({ trigger: cap, start: "top 62%", end: "bottom 38%", toggleClass: { targets: cap, className: "is-active" } });
         });
-
-        // HERO EXIT (scrub): name lifts away, portrait lags (parallax) and the copy fades; wrappers only (intro owns the children)
-        gsap
-          .timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.5 } })
-          .to(".hero-name", { yPercent: -16, opacity: 0.25 }, 0)
-          .to(".hero-portrait", { y: 110, scale: 1.04, transformOrigin: "50% 100%" }, 0)
-          .to(".hero-copy", { y: -50, opacity: 0 }, 0);
 
         // SECTION TITLES: one consistent line-mask reveal
         all(".section-title").forEach((t) =>
@@ -125,6 +131,16 @@ export default function ScrollStory() {
         const refresh = () => ScrollTrigger.refresh();
         if (document.readyState === "complete") refresh();
         else window.addEventListener("load", refresh, { once: true });
+      });
+
+      // desktop only: the Motion section pins and its reels scroll sideways (small screens and reduced motion keep the plain grid)
+      mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
+        const sec = document.querySelector<HTMLElement>("#motion");
+        const inner = sec?.querySelector<HTMLElement>(".section-inner");
+        const track = sec?.querySelector<HTMLElement>(".reels");
+        if (!sec || !inner || !track) return;
+        const dist = () => Math.max(0, track.scrollWidth - inner.clientWidth);
+        gsap.to(track, { x: () => -dist(), ease: "none", scrollTrigger: { trigger: sec, start: "top top", end: () => `+=${dist()}`, pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true } });
       });
 
       off = () => mm.revert();

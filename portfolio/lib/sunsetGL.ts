@@ -1,10 +1,11 @@
-// Sunset hero: a 2.5D scene in four depth planes, back to front. A single time of day t (0 sunset .. 1 night, see
+// Sunset hero: a 2.5D scene in five depth planes, back to front. A single time of day t (0 sunset .. 1 night, see
 // lib/sunsetTime.ts) drives the palette, sun, moon, stars, Milky Way and water; scroll moves t, ?t= pins it.
 //   1. sky      procedural dusk-to-night gradient, low sun, clouds, stars, Milky Way, moon, haze, far hills (minimal parallax)
 //   2. ocean    perspective 160x160 mesh: layered directional swells + FBM chop, finite-difference normals, fine ripples
 //               that fade with distance, sun / moon glitter paths, mirrored Milky Way, haze matched to the sky horizon
 //   3. ridge    ridge-subject.png: grassy ridge with the person and cat (mid parallax)
 //   4. tree     tree-front.png: windswept tree + front cliff edge (strongest parallax, leaf sway)
+//   5. rocks    rocks.png: full-width foreground rocks pinned to the bottom, in front of the grass (cut from the supplied photo by scripts/build-rocks.py)
 import {
   AdditiveBlending,
   BufferAttribute,
@@ -35,6 +36,10 @@ const HORIZON = 0.42; // horizon height (y up) on the canvas
 const SUN_UV = new Vector2(0.62, 0.455); // low sun, clear of the tree
 const SUBJECT_X = 0.28;
 const TREE_X = 0.855;
+const ROCKS_ASPECT = 2172 / 724; // rocks.png
+const ROCKS_MIN_H = 0.26; // on tall phone screens the strip would shrink to a sliver: keep it at least this tall (fraction of viewport height) and crop the sides
+const ROCKS_ZOOM = 1.02; // width-fit with a hair of overscan, so the parallax shift never shows an edge
+const ROCKS_SINK = 0.08; // strip pushed this far (fraction of its own height) below the bottom edge: a slightly smaller crest
 const FOV = 38;
 const CAM_Y = 3.5;
 const DAMP = 0.04; // heavily damped pointer lerp
@@ -494,6 +499,36 @@ void main(){
   gl_FragColor = vec4(rgb * uFade, gcov + c.a * (1.0 - gcov));
 }`;
 
+// Foreground rocks (public/hero/rocks.png, 3:1, transparent sky): a full-width strip pinned to the bottom edge, in front of the grass.
+// Width-fit to the viewport, so it never leaves a gap at the sides; the nearest plane, so it takes the strongest pointer parallax.
+const ROCKS_FRAG = /* glsl */ `
+precision highp float;
+varying vec2 vUv;
+uniform sampler2D tTex;
+uniform vec2 uPtr;
+uniform float uFade, uNight, uScroll, uTerrain;   // uTerrain = 1: the plain ground ridge behind the rocks (no hover reveal, no tint)
+${APERTURE}
+void main(){
+  // One placement for rocks.png and terrain.png (same 2172x724 coordinate system), so they always line up. Width-fit to the viewport,
+  // pinned to the bottom edge; on tall screens it is kept ${f(ROCKS_MIN_H)} of the height tall and cropped at the sides, biased toward the left (the figure's side).
+  float hgt = max(${f(ROCKS_ZOOM)} * uScrAspect / ${f(ROCKS_ASPECT)}, ${f(ROCKS_MIN_H)});
+  float wid = hgt * ${f(ROCKS_ASPECT)} / uScrAspect;                       // strip width in screen-width units (>= zoom)
+  vec2 q = vec2(0.5 + (vUv.x - 0.5) / wid - 0.6 * (0.5 - 0.5 / wid), vUv.y / hgt + ${f(ROCKS_SINK)});
+  q.x -= uPtr.x * 0.012;
+  q.y += uPtr.y * 0.004 - uScroll * 0.03;
+  if (q.y < 0.0 || q.y > 1.0 || q.x < 0.0 || q.x > 1.0) discard;
+  vec4 c = texture2D(tTex, q);
+  float l = dot(c.rgb, vec3(0.299, 0.587, 0.114));
+  // resting state: dark moonlit stone; the hover aperture opens it to the true golden-rim colours (same reveal as the figure and tree)
+  vec3 night = vec3(0.50, 0.60, 0.95) * l * 0.28 + c.rgb * 0.04;
+  vec3 base = mix(c.rgb * 0.35, night, uNight * 0.95);
+  base *= mix(0.62, 1.0, smoothstep(0.0, 0.30, q.y));                      // depth: the near, low stones sit in deeper shadow than the crest
+  float d = apertureD(vUv);
+  float m = apertureM(d);
+  vec3 rgb = mix(revealColor(base, c, d, m), c.rgb, uTerrain);
+  gl_FragColor = vec4(rgb * uFade, c.a);
+}`;
+
 // ---------------------------------------------------------------- ambient life: falling leaves + jugnu (fireflies)
 // Both are single THREE.Points draws with the motion computed in the vertex shader: no per-frame CPU work.
 const FX_COMMON = /* glsl */ `
@@ -624,7 +659,7 @@ function oceanGeometry(): BufferGeometry {
 export async function mountSunset(
   host: HTMLElement,
   canvas: HTMLCanvasElement,
-  src: { ridge: string; tree: string; ridgeColor: string; treeColor: string; grassMid: string; grassFront: string; grassMidColor: string; grassFrontColor: string },
+  src: { ridge: string; tree: string; ridgeColor: string; treeColor: string; grassMid: string; grassFront: string; grassMidColor: string; grassFrontColor: string; rocks?: string; terrain?: string },
   cb: { onReady: () => void; onFail: () => void },
   opts: { time?: number | null; params?: Partial<SunsetParams> } = {},
 ): Promise<SunsetHandle> {
@@ -648,6 +683,14 @@ export async function mountSunset(
     renderer.dispose();
     cb.onFail();
     return noop;
+  }
+  const rocksTex = src.rocks ? await loader.loadAsync(src.rocks).catch(() => null) : null; // optional: the scene still works without it
+  const terrainTex = src.terrain ? await loader.loadAsync(src.terrain).catch(() => null) : null;
+  for (const t of [rocksTex, terrainTex]) {
+    if (!t) continue;
+    t.colorSpace = NoColorSpace;
+    t.minFilter = LinearFilter;
+    t.generateMipmaps = false;
   }
   for (const t of [ridgeTex, treeTex, ridgeColTex, treeColTex, grassMidTex, grassFrontTex, grassMidColTex, grassFrontColTex] as Texture[]) {
     t.colorSpace = NoColorSpace; // display values in and out: the shaders do no sRGB conversion
@@ -759,6 +802,23 @@ export async function mountSunset(
   };
   const ridge = layer(RIDGE_FRAG, ridgeTex, ridgeColTex, grassMidTex, grassMidColTex);
   const tree = layer(TREE_FRAG, treeTex, treeColTex, grassFrontTex, grassFrontColTex);
+  // 5a. terrain: one continuous dark ground ridge behind the rocks; 5b. the rocks (+ grass clusters) on top of it
+  const rockLayer = (tex: Texture, terrain: number) => {
+    const scene = new Scene();
+    const mat = new ShaderMaterial({
+      vertexShader: QUAD_VERT,
+      fragmentShader: ROCKS_FRAG,
+      uniforms: { tTex: { value: tex }, uPtr: { value: ptr }, uScroll: { value: 0 }, ...aperture, uTerrain: { value: terrain }, uNight: tod.uNight, uFade: shared.uFade },
+      transparent: true,
+      depthTest: false,
+      depthWrite: false,
+    });
+    const quad = new Mesh(new PlaneGeometry(2, 2), mat);
+    scene.add(quad);
+    return { scene, mat, quad };
+  };
+  const rocks = rocksTex ? rockLayer(rocksTex, 0) : null;
+  const terrain = rocksTex && terrainTex ? rockLayer(terrainTex, 1) : null;
 
 
   // ambient life: leaves shed from the canopy, jugnu over the grass and shoreline (none under reduced motion)
@@ -825,6 +885,7 @@ export async function mountSunset(
   };
   const ridgeAlpha = alphaMap(ridgeColTex);
   const treeAlpha = alphaMap(treeColTex);
+  const rocksAlpha = rocksTex ? alphaMap(rocksTex) : null;
   // thin blades vanish when downsampled, so grow the grass hit maps by 2 texels
   const grow = (map: Uint8ClampedArray) => {
     const out = new Uint8ClampedArray(map.length);
@@ -925,7 +986,16 @@ export async function mountSunset(
     const ry = uv0y * (1 - 0.35 * scroll) - ptr.y * 0.004;
     const tx = TREE_X + (tv0x - TREE_X) * (1 - 0.5 * scroll) - ptr.x * 0.02;
     const ty = tv0y * (1 - 0.5 * scroll) - ptr.y * 0.008;
-    return aAt(ridgeAlpha, rx, ry) > 40 || aAt(treeAlpha, tx, ty) > 40 || aAt(grassMidAlpha, rx, ry) > 12 || aAt(grassFrontAlpha, tx, ty) > 12;
+    // the rocks: same mapping as ROCKS_FRAG (screen uv -> rock image uv)
+    let onRocks = false;
+    if (rocksAlpha) {
+      const sa = aperture.uScrAspect.value;
+      const hgt = Math.max((sa / ROCKS_ASPECT) * ROCKS_ZOOM, ROCKS_MIN_H);
+      const wid = (hgt * ROCKS_ASPECT) / sa;
+      const rqx = 0.5 + (sx - 0.5) / wid - 0.6 * (0.5 - 0.5 / wid) - ptr.x * 0.012;
+      onRocks = aAt(rocksAlpha, rqx, sy / hgt + ROCKS_SINK + ptr.y * 0.004 - scroll * 0.03) > 40;
+    }
+    return onRocks || aAt(ridgeAlpha, rx, ry) > 40 || aAt(treeAlpha, tx, ty) > 40 || aAt(grassMidAlpha, rx, ry) > 12 || aAt(grassFrontAlpha, tx, ty) > 12;
   };
   const onMove = (e: PointerEvent) => {
     const r = host.getBoundingClientRect();
@@ -990,6 +1060,8 @@ export async function mountSunset(
       scroll += (scrollTarget - scroll) * 0.12;
       ridge.mat.uniforms.uScroll.value = scroll;
       tree.mat.uniforms.uScroll.value = scroll;
+      if (rocks) rocks.mat.uniforms.uScroll.value = scroll;
+      if (terrain) terrain.mat.uniforms.uScroll.value = scroll;
       for (const m of fxMats) m.uniforms.uScroll.value = scroll;
       shared.uFade.value = Math.min(1, t / 1.6); // the scene stays on screen for the whole scroll: the night sky is the payoff
     }
@@ -1023,6 +1095,8 @@ export async function mountSunset(
     renderer.clearDepth();
     renderer.render(ridge.scene, ortho); // 3. ridge + person + cat
     renderer.render(tree.scene, ortho); // 4. tree + front cliff
+    if (terrain) renderer.render(terrain.scene, ortho); // 5a. continuous ground ridge behind the rocks
+    if (rocks) renderer.render(rocks.scene, ortho); // 5b. foreground rocks + grass clusters, in front of the grass
     if (fxMats.length) renderer.render(fxScene, ortho); // falling leaves + jugnu
     if (!ready) {
       ready = true;
@@ -1052,7 +1126,7 @@ export async function mountSunset(
       skyMat.dispose();
       ocean.geometry.dispose();
       oceanMat.dispose();
-      for (const l of [ridge, tree]) {
+      for (const l of [ridge, tree, rocks, terrain].filter((x): x is NonNullable<typeof x> => !!x)) {
         l.quad.geometry.dispose();
         l.mat.dispose();
       }
@@ -1068,6 +1142,8 @@ export async function mountSunset(
       grassFrontTex.dispose();
       grassMidColTex.dispose();
       grassFrontColTex.dispose();
+      rocksTex?.dispose();
+      terrainTex?.dispose();
       renderer.dispose();
     },
   };

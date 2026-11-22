@@ -7,6 +7,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [pastHero, setPastHero] = useState(false); // the hero carries its own links, so this pill only appears once the hero has scrolled away
   const [active, setActive] = useState("");
   const [light, setLight] = useState(false); // pill sits over a light section => light glass
   const bar = useRef<HTMLDivElement>(null);
@@ -17,6 +18,7 @@ export default function Nav() {
       const y = scrollY;
       setScrolled(y > 50);
       setHidden(y > last && y > 180);
+      setPastHero(y > innerHeight * 1.15);
       last = y;
       const max = document.documentElement.scrollHeight - innerHeight;
       if (bar.current) bar.current.style.width = `${max > 0 ? (y / max) * 100 : 0}%`;
@@ -43,7 +45,7 @@ export default function Nav() {
   return (
     <>
       <div className="progress-bar" ref={bar} aria-hidden="true" />
-      <header className={`site-nav${scrolled ? " scrolled" : ""}${hidden && !open ? " hidden" : ""}${light && !open ? " on-light" : ""}`} aria-label="Primary navigation">
+      <header className={`site-nav${scrolled ? " scrolled" : ""}${(hidden || !pastHero) && !open ? " hidden" : ""}${light && !open ? " on-light" : ""}`} aria-label="Primary navigation">
         <a className="brand" href="#top">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="brand-mark" src="/sonu-avatar.webp" alt="" width={96} height={96} />

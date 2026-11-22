@@ -2,8 +2,7 @@ import LazyMascot from "@/components/LazyMascot";
 import MotionReel from "@/components/MotionReel";
 import CopyEmail from "@/components/CopyEmail";
 import Image from "next/image";
-import HeroIntro from "@/components/HeroIntro";
-import HeroPortrait from "@/components/HeroPortrait";
+import SunsetHero from "@/components/SunsetHero";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import ScrollStory from "@/components/ScrollStory";
@@ -29,8 +28,6 @@ const Label = ({ n, children }: { n: string; children: React.ReactNode }) => (
   </div>
 );
 
-const [first, ...rest] = profile.name.split(" ");
-
 export default function Home() {
   return (
     <>
@@ -39,45 +36,12 @@ export default function Home() {
       </a>
       <Nav />
       <Reveal />
-      <HeroIntro />
       <ScrollStory />
       <LazyMascot />
 
       <main id="main">
-        <section className="hero" id="top" aria-labelledby="hero-title">
-          <h1 id="hero-title" className="hero-name">
-            <span data-intro>{first}</span>{" "}
-            <span data-intro>{rest.join(" ")}</span>
-          </h1>
-          <HeroPortrait />
-          {profile.heroCorners.map((c, i) => (
-            <a
-              key={c.n}
-              className={`hero-corner c${i + 1}`}
-              data-intro
-              href={c.href}
-            >
-              <b>{c.n}</b>
-              <small>{c.note}</small>
-              <span>{c.label}</span>
-            </a>
-          ))}
-          <div className="hero-copy">
-            <div className="eyebrow" data-intro>{profile.heroTitle}</div>
-            <p className="hero-lede" data-intro>{profile.tagline}</p>
-            <div className="cta-row" data-intro>
-              <a className="button" href="/resume">
-                View resume <span aria-hidden="true">↗</span>
-              </a>
-              <a className="button ghost" href="#contact">
-                Contact me <span aria-hidden="true">↘</span>
-              </a>
-            </div>
-          </div>
-          <div className="hero-strip" data-intro>
-            <span className="hero-tags">{profile.heroStrip.join(" · ")}</span>
-            <span>{profile.heroLocation}</span>
-          </div>
+        <section id="top" aria-label="Introduction">
+          <SunsetHero linkBase="" />
         </section>
 
         <section className="section about" id="about" data-section>
@@ -227,7 +191,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section dark" id="skills" data-section>
+        <section className="section dark forest" id="skills" data-section>
           <div className="section-inner">
             <Label n="04">Skills</Label>
             <h2 className="section-title">What I build with.</h2>
@@ -250,7 +214,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section reveal" id="motion" data-section>
+        <section className="section motion-hs" id="motion" data-section>
           <div className="section-inner">
             <Label n="05">Motion · Beginner</Label>
             <h2 className="section-title">Motion graphics.</h2>
@@ -330,7 +294,7 @@ export default function Home() {
             </ul>
           </div>
         </section>
-        <section className="section dark contact-section reveal" id="contact" data-section>
+        <section className="section dark forest contact-section reveal" id="contact" data-section>
           <div className="section-inner">
             <Label n="08">Contact</Label>
             <p className="contact-status">
