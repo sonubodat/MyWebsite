@@ -1,0 +1,12 @@
+{
+  "name": "developer-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node check.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.4.13"
+  }
+}

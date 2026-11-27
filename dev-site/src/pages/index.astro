@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, apps } from '../site';
+---
+<Base title={`${site.publisher}: independent app developer`}>
+  <h1>Apps and software by {site.publisher}</h1>
+  <p>I am an independent developer in {site.country}. I build mobile and web apps, my own and for others. This site holds the support, privacy and legal pages for my apps.</p>
+
+  <h2>My apps</h2>
+  <ul class="cards">
+    {apps.filter(a => a.legal).map(a => (
+      <li>
+        <h3><a href={`/${a.slug}`}>{a.name}</a></h3>
+        <p>{a.summary}</p>
+        <p class="muted"><a href={`/${a.slug}/privacy-policy`}>Privacy</a> · <a href={`/${a.slug}/terms`}>Terms</a> · <a href={`/${a.slug}/support`}>Support</a></p>
+      </li>
+    ))}
+  </ul>
+
+  <h2>Work for others</h2>
+  <p class="muted">Built and handed over. Their owners run them and are responsible for their data and policies.</p>
+  <ul class="cards">
+    {apps.filter(a => !a.legal).map(a => <li><h3>{a.name}</h3><p>{a.summary}</p></li>)}
+  </ul>
+
+  <p>Contact: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+</Base>

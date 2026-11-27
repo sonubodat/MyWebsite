@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://sonubodat.dpdns.org/sitemap.xml
+Sitemap: https://mywebsite.sonu77bodat.workers.dev/dev/sitemap.xml

@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, apps } from '../site';
+
+export function getStaticPaths() {
+  const files = import.meta.glob<any>('../content/legal/*/*.md', { eager: true });
+  const docs = Object.entries(files)
+    .map(([file, mod]) => {
+      const [folder, name] = file.split('/').slice(-2);
+      return { folder, name: name.replace('.md', ''), mod };
+    })
+    .filter(d => d.folder !== '_template');
+
+  const pages = docs.map(d => ({
+    params: { path: d.folder === 'site' ? d.name : `${d.folder}/${d.name}` },
+    props: { doc: d, app: apps.find(a => a.slug === d.folder), docs },
+  }));
+  const overviews = apps.filter(a => a.legal).map(app => ({
+    params: { path: app.slug },
+    props: { doc: undefined, app, docs },
+  }));
+  return [...pages, ...overviews];
+}
+
+const { doc, app, docs } = Astro.props;
+const own = app ? docs.filter(d => d.folder === app.slug) : [];
+// Site pages such as /privacy-policy or /support also list each app's version.
+const perApp = doc && !app
+  ? apps.filter(a => docs.some(d => d.folder === a.slug && d.name === doc.name))
+  : [];
+const title = !doc ? app!.name : doc.mod.frontmatter.title + (app ? ` — ${app.name}` : '');
+const Content = doc?.mod.Content;
+---
+<Base title={title} description={doc ? undefined : app!.summary}>
+  {app && <p class="muted"><a href={`/${app.slug}`}>{app.name}</a> · {own.map((d, i) => <>{i > 0 && ' · '}<a href={`/${app.slug}/${d.name}`}>{d.mod.frontmatter.title}</a></>)}</p>}
+  <h1>{title}</h1>
+  {doc?.mod.frontmatter.updated && <p class="muted">Last updated: {doc.mod.frontmatter.updated}</p>}
+  {Content ? <Content /> : (
+    <>
+      <p>{app!.summary}</p>
+      <ul class="cards">{own.map(d => <li><a href={`/${app!.slug}/${d.name}`}>{d.mod.frontmatter.title}</a></li>)}</ul>
+    </>
+  )}
+  {perApp.length > 0 && (
+    <>
+      <h2>Choose your app</h2>
+      <ul class="cards">{perApp.map(a => <li><a href={`/${a.slug}/${doc!.name}`}>{a.name}: {doc!.mod.frontmatter.title}</a></li>)}</ul>
+    </>
+  )}
+  <p class="who">{app ? `${app.name} is published by` : 'This site is run by'} {site.publisher}, {site.country}. Contact: <a href={`mailto:${site.email}?subject=${encodeURIComponent(app?.name ?? 'Website')}`}>{site.email}</a></p>
+</Base>
